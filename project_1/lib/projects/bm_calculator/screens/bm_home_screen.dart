@@ -4,8 +4,6 @@ import 'package:project_1/projects/bm_calculator/components/height_selection.dar
 import 'package:project_1/projects/bm_calculator/components/weight_age_selection.dart';
 import 'package:project_1/projects/bm_calculator/styles/colors.dart';
 
-import '../components/gender_selection_component.dart';
-
 class BMScreen extends StatefulWidget {
   const BMScreen({super.key});
 
