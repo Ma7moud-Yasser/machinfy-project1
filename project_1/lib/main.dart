@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_1/screens/counter.dart';
+import 'package:project_1/projects/bm_calculator/screens/bm_home_screen.dart';
+import 'package:project_1/projects/counter/counter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CounterScreen(),
+      home: const BMScreen(),
     );
   }
 }
