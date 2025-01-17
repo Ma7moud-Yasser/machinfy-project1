@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/projects/bm_calculator/components/gender_selectionss.dart';
 import 'package:project_1/projects/bm_calculator/components/height_selection.dart';
+import 'package:project_1/projects/bm_calculator/components/responsive_font.dart';
 import 'package:project_1/projects/bm_calculator/components/weight_age_selection.dart';
 import 'package:project_1/projects/bm_calculator/styles/colors.dart';
 
@@ -24,11 +25,12 @@ class _BMScreenState extends State<BMScreen> {
         backgroundColor: BMIColor.primaryColor,
         elevation: 2,
         shadowColor: const Color.fromARGB(255, 0, 0, 0),
-        title: const Text(
-          'BM Calculator',
+        title:  Text(
+          'BMI Calculator',
           style: TextStyle(
               color: BMIColor.whiteColor,
-              fontSize: 20,
+              fontSize: responsiveFont(context, fontSize: 25),
+              // fontSize:25,
               fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
