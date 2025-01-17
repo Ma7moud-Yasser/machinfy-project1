@@ -6,8 +6,8 @@ double responsiveFont(BuildContext context ,
   double scale = scaleFactorCalc(context);
   double scaledFontSize = fontSize * scale;
 
-  // max 120 % 
-  // min 80% 
+  // max font Size : 120 % 
+  // min font Size : 80% 
   double max = fontSize * 1.2;
   double min = fontSize * 0.8;
 

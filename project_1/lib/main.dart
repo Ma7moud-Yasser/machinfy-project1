@@ -26,11 +26,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BMIScreen(),
+      // home:BMIScreen() ,
       routes: {
-        '/bm_home': (context) => const BMIScreen(),
-        '/home_screen': (context) => const MyHomePage(),
+        BMIScreen.route : (context) =>  BMIScreen(),
+        MyHomePage.route: (context) =>  MyHomePage(),
       },
+      initialRoute: BMIScreen.route,
     );
   }
 }
+

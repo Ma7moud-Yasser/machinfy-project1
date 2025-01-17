@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:project_1/projects/bm_calculator/screens/bm_home_screen.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+   MyHomePage({super.key,
+   });
+  static final route = '/home_screen';
 
   @override
   Widget build(BuildContext context) {
+  User user = ModalRoute.of(context)!.settings.arguments as User;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
+        leading: IconButton(icon:Icon(Icons.arrow_back) ,
+        onPressed: (){
+          Navigator.pop(context);
+        },),
         title: Text(
-          'Home Screen',
+          user.age.toString(),
           style: TextStyle(
             height: 1.5,
             color: Colors.lightGreenAccent,
@@ -33,7 +41,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          
+          // Text(wieght.toString()),
           ElevatedButton(onPressed: (){
             // Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
           }, child: Text(

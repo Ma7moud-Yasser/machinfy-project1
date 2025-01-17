@@ -6,18 +6,17 @@ import 'package:project_1/projects/bm_calculator/components/weight_age_selection
 import 'package:project_1/projects/bm_calculator/styles/colors.dart';
 import 'package:project_1/projects/counter/home.dart';
 
-class BMIScreen extends StatefulWidget {
-  const BMIScreen({super.key});
+class BMIScreen extends StatelessWidget {
+   BMIScreen({super.key});
 
-  @override
-  State<BMIScreen> createState() => _BMIScreenState();
-}
-
-class _BMIScreenState extends State<BMIScreen> {
   String? selectedGender;
+  static final route = '/page_2';
   double currentValue = 160;
+
   int weight = 50;
+
   int age = 20;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,12 +53,16 @@ class _BMIScreenState extends State<BMIScreen> {
                   children: [
                     Expanded(
                       child: WeightAndAgeSelection(
+                         heroTag1: '3',
+                        heroTag2: '4',
                         valueName: "Weight",
                         value: weight,
                       ),
                     ),
                     Expanded(
                       child: WeightAndAgeSelection(
+                        heroTag1: '1',
+                        heroTag2: '2',
                         valueName: "Age",
                         value: age,
                       ),
@@ -76,7 +79,12 @@ class _BMIScreenState extends State<BMIScreen> {
               color: BMIColor.actionsColor,
               height: MediaQuery.sizeOf(context).height * 0.07,
               onPressed: () {
-                Navigator.pushNamed(context, '/bm_home');
+              Navigator.pushNamed(context, MyHomePage.route,
+               arguments: User(20, "Mohamed"),
+               );
+              // LIFO
+              // Last In First Out
+              
               },
               child: Text(
                 "Calculate Your BMI",
@@ -92,4 +100,10 @@ class _BMIScreenState extends State<BMIScreen> {
       ),
     );
   }
+}
+
+class User {
+  String name;
+  int age;
+  User(this.age,this.name);
 }

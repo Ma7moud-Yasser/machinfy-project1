@@ -4,8 +4,10 @@ import 'package:project_1/projects/bm_calculator/styles/colors.dart';
 class WeightAndAgeSelection extends StatefulWidget {
   int value = 50;
   String valueName;
+  Object? heroTag1; 
+  Object? heroTag2 ;
   WeightAndAgeSelection(
-      {super.key, required this.value, required this.valueName});
+      {super.key, required this.value, required this.valueName, required this.heroTag1, required this.heroTag2});
 
   @override
   State<WeightAndAgeSelection> createState() => _WeightAndAgeSelectionState();
@@ -40,32 +42,34 @@ class _WeightAndAgeSelectionState extends State<WeightAndAgeSelection> {
           ),
           Row(
             children: [
-              Expanded(
-                child: FloatingActionButton(
-                  foregroundColor: BMIColor.whiteColor,
-                  backgroundColor: BMIColor.secondaryColor,
-                  shape: CircleBorder(),
-                  onPressed: () {
-                    setState(() {
-                      widget.value++;
-                    });
-                  },
-                  child: Icon(Icons.add),
-                ),
-              ),
-              Expanded(
-                child: FloatingActionButton(
-                  foregroundColor: BMIColor.whiteColor,
-                  backgroundColor: BMIColor.secondaryColor,
-                  shape: CircleBorder(),
-                  onPressed: () {
-                    setState(() {
-                      widget.value--;
-                    });
-                  },
-                  child: Icon(Icons.remove),
-                ),
-              ),
+              // Expanded(
+              //   child: FloatingActionButton(
+              //     heroTag: '1',
+              //     foregroundColor: BMIColor.whiteColor,
+              //     backgroundColor: BMIColor.secondaryColor,
+              //     shape: CircleBorder(),
+              //     onPressed: () {
+              //       setState(() {
+              //         widget.value++;
+              //       });
+              //     },
+              //     child: Icon(Icons.add),
+              //   ),
+              // ),
+              // Expanded(
+              //   child: FloatingActionButton(
+              //     heroTag: '2',
+              //     foregroundColor: BMIColor.whiteColor,
+              //     backgroundColor: BMIColor.secondaryColor,
+              //     shape: CircleBorder(),
+              //     onPressed: () {
+              //       setState(() {
+              //         widget.value--;
+              //       });
+              //     },
+              //     child: Icon(Icons.remove),
+              //   ),
+              // ),
             ],
           )
         ],
