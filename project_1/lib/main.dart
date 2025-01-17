@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/projects/bm_calculator/screens/bm_home_screen.dart';
+import 'package:project_1/projects/counter/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BMScreen(),
+      home: const BMIScreen(),
+      routes: {
+        '/bm_home': (context) => const BMIScreen(),
+        '/home_screen': (context) => const MyHomePage(),
+      },
     );
   }
 }
