@@ -7,6 +7,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
         title: Text(
@@ -32,15 +33,16 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: Text(
-              'Welcome to the Home Screen!',
+          
+          ElevatedButton(onPressed: (){
+            // Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
+          }, child: Text(
+              'Navigate',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-          ),
+            ),)
         ],
       ),
     );

@@ -4,15 +4,16 @@ import 'package:project_1/projects/bm_calculator/components/height_selection.dar
 import 'package:project_1/projects/bm_calculator/components/responsive_font.dart';
 import 'package:project_1/projects/bm_calculator/components/weight_age_selection.dart';
 import 'package:project_1/projects/bm_calculator/styles/colors.dart';
+import 'package:project_1/projects/counter/home.dart';
 
-class BMScreen extends StatefulWidget {
-  const BMScreen({super.key});
+class BMIScreen extends StatefulWidget {
+  const BMIScreen({super.key});
 
   @override
-  State<BMScreen> createState() => _BMScreenState();
+  State<BMIScreen> createState() => _BMIScreenState();
 }
 
-class _BMScreenState extends State<BMScreen> {
+class _BMIScreenState extends State<BMIScreen> {
   String? selectedGender;
   double currentValue = 160;
   int weight = 50;
@@ -74,7 +75,9 @@ class _BMScreenState extends State<BMScreen> {
             child: MaterialButton(
               color: BMIColor.actionsColor,
               height: MediaQuery.sizeOf(context).height * 0.07,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/bm_home');
+              },
               child: Text(
                 "Calculate Your BMI",
                 style: TextStyle(
