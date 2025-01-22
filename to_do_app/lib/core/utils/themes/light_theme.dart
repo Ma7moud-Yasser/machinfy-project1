@@ -9,6 +9,7 @@ ThemeData lightTheme(BuildContext context) {
       colorScheme: ColorScheme.light(
         primary: AppColor.blue,
         secondary: AppColor.white,
+        tertiary: AppColor.blue,
         error: Colors.red,
         onSurface: AppColor.grey,
       ),

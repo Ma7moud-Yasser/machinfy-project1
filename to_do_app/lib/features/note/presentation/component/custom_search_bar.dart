@@ -25,15 +25,15 @@ class CustomSearchBar extends StatelessWidget {
               fillColor: Theme.of(context).colorScheme.secondary,
               enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: 1,
+                    width: 2,
                     color: Theme.of(context).colorScheme.primary,
                   ),
                   borderRadius: BorderRadius.circular(
                       MediaQuery.sizeOf(context).width * 0.04)),
               focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    width: 2,
-                    color: Theme.of(context).colorScheme.primary,
+                    width: 2.7,
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                   borderRadius: BorderRadius.circular(
                       MediaQuery.sizeOf(context).width * 0.04)),
@@ -47,12 +47,13 @@ class CustomSearchBar extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Theme.of(context).colorScheme.primary, // Shadow color
-                  blurRadius: 10, // Blur radius
-                  offset: Offset(0, 0), // Shadow position (x, y)
+                  color: Theme.of(context).colorScheme.primary,
+                  blurRadius: 6,
+                  offset: Offset(0, 0),
                 ),
               ],
-              shape: BoxShape.circle,
+              borderRadius: BorderRadius.circular(
+                  MediaQuery.sizeOf(context).width * 0.04),
               color: Theme.of(context).colorScheme.primary.withOpacity(0.8),
             ),
             child: Icon(
