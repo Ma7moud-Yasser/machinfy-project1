@@ -14,7 +14,7 @@ class NoteScreen extends StatelessWidget {
       child: BlocConsumer<NoteScreenCubit, NoteScreenStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          final cubit = NoteScreenCubit.get(context);
+          // final cubit = NoteScreenCubit.get(context);
           return Scaffold();
         },
       ),
