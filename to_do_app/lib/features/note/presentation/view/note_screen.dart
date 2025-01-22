@@ -15,27 +15,27 @@ class NoteScreen extends StatelessWidget {
     NoteModel(
       title: "First Note",
       description: "their is note their is note their is note",
-      date: "12/12/2021",
+      date: "10/1/2025",
     ),
     NoteModel(
       title: "Second Note",
       description: "their is note their is note their is note",
-      date: "12/12/2021",
+      date: "1/1/2025",
     ),
     NoteModel(
       title: "Third Note",
       description: "their is note their is note their is note",
-      date: "12/12/2021",
+      date: "12/12/2024",
     ),
     NoteModel(
       title: "Fourth Note",
       description: "their is note their is note their is note",
-      date: "12/12/2021",
+      date: "8/12/2024",
     ),
     NoteModel(
       title: "Fifth Note",
       description: "their is note their is note their is note",
-      date: "12/12/2021",
+      date: "1/12/2024",
     ),
   ];
 
@@ -72,16 +72,21 @@ class NoteScreen extends StatelessWidget {
                     ),
                   ),
                   CustomSearchBar(),
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.04,
+                  ),
                   Expanded(
                     child: ListView.separated(
+                      padding: EdgeInsets.zero,
                       separatorBuilder: (context, index) => SizedBox(
-                        height: MediaQuery.sizeOf(context).height * 0.01,
+                        height: MediaQuery.sizeOf(context).height * 0.015,
                       ),
                       itemCount: 5,
                       itemBuilder: (context, index) {
                         return NotesCard(
                           title: notes[index].title,
                           description: notes[index].description,
+                          date: notes[index].date,
                           onTap: () {
                             // cubit.deleteNote();
                           },
@@ -90,6 +95,20 @@ class NoteScreen extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: Theme.of(context).colorScheme.secondary,
+              onPressed: () {
+                // cubit.addNote();
+              },
+              child: Icon(
+                Icons.add,
+                size: responsiveFont(
+                  context,
+                  fontSize: 30,
+                ),
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           );
