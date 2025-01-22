@@ -104,10 +104,7 @@ class NoteScreen extends StatelessWidget {
               },
               child: Icon(
                 Icons.add,
-                size: responsiveFont(
-                  context,
-                  fontSize: 30,
-                ),
+                size: MediaQuery.sizeOf(context).width * 0.08,
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
