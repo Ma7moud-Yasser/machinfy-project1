@@ -82,6 +82,9 @@ class NoteScreen extends StatelessWidget {
                         return NotesCard(
                           title: notes[index].title,
                           description: notes[index].description,
+                          onTap: () {
+                            // cubit.deleteNote();
+                          },
                         );
                       },
                     ),

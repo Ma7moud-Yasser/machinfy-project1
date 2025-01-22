@@ -7,10 +7,12 @@ class NotesCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
+    required this.onTap,
   });
 
   final String title;
   final String description;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +39,13 @@ class NotesCard extends StatelessWidget {
                 color: Theme.of(context).colorScheme.tertiary.withOpacity(0.6),
               ),
         ),
-        trailing: Lottie.asset(
-          IconsAssets.trash,
-          width: MediaQuery.sizeOf(context).width * 0.15,
-          height: MediaQuery.sizeOf(context).height * 0.15,
+        trailing: GestureDetector(
+          onTap: onTap,
+          child: Lottie.asset(
+            IconsAssets.trash,
+            width: MediaQuery.sizeOf(context).width * 0.15,
+            height: MediaQuery.sizeOf(context).height * 0.15,
+          ),
         ),
       ),
     );
