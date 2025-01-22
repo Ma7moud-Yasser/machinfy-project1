@@ -54,7 +54,13 @@ class WelcomeScreen extends StatelessWidget {
                         Text(
                           textAlign: TextAlign.justify,
                           "organized all your tasks in one place Designed to be simple and easy to use",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style:
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary
+                                        .withOpacity(0.6),
+                                  ),
                         ),
                         Spacer(),
                         Row(

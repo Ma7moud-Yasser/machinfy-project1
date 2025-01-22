@@ -7,10 +7,15 @@ import 'package:to_do_app/features/note/presentation/component/note_card.dart';
 import '../controller/note_screen_cubit.dart';
 import '../controller/note_screen_states.dart';
 
-class NoteScreen extends StatelessWidget {
+class NoteScreen extends StatefulWidget {
   NoteScreen({super.key});
   static const route = '/noteScreen';
 
+  @override
+  State<NoteScreen> createState() => _NoteScreenState();
+}
+
+class _NoteScreenState extends State<NoteScreen> {
   final List<NoteModel> notes = [
     NoteModel(
       title: "First Note",
@@ -81,14 +86,16 @@ class NoteScreen extends StatelessWidget {
                       separatorBuilder: (context, index) => SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.015,
                       ),
-                      itemCount: 5,
+                      itemCount: notes.length,
                       itemBuilder: (context, index) {
                         return NotesCard(
                           title: notes[index].title,
                           description: notes[index].description,
                           date: notes[index].date,
                           onTap: () {
-                            // cubit.deleteNote();
+                            setState(() {
+                              notes.removeAt(index);
+                            });
                           },
                         );
                       },
