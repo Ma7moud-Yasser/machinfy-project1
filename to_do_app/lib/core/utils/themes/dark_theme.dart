@@ -8,6 +8,8 @@ ThemeData darkTheme(BuildContext context) {
       colorScheme: ColorScheme.dark(
         primary: AppColor.blue,
         secondary: AppColor.black,
+        tertiary: AppColor.white,
+        onSurface: AppColor.grey,
         error: Colors.red,
       ),
       textTheme: TextTheme(

@@ -20,16 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'To-Do',
-      theme: ThemeData(
-        brightness: Brightness.light,
-        colorScheme: ColorScheme.light(
-          primary: AppColor.blue,
-          secondary: AppColor.white,
-          error: Colors.red,
-        ),
-        textTheme: lightTheme(context),
-        useMaterial3: true,
-      ),
+      theme: lightTheme(context),
       darkTheme: darkTheme(context),
       themeMode: ThemeMode.system,
       initialRoute: WelcomeScreen.route,
