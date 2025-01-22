@@ -3,7 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:to_do_app/core/styles/assets_manager.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
 
-class NotesCard extends StatelessWidget {
+class NotesCard extends StatefulWidget {
   const NotesCard({
     super.key,
     required this.title,
@@ -16,6 +16,32 @@ class NotesCard extends StatelessWidget {
   final String description;
   final String date;
   final void Function()? onTap;
+
+  @override
+  State<NotesCard> createState() => _NotesCardState();
+}
+
+class _NotesCardState extends State<NotesCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void _startAnimation() async {
+    await _animationController.forward();
+    _animationController.reset();
+    if (widget.onTap != null) widget.onTap!();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,24 +60,28 @@ class NotesCard extends StatelessWidget {
         children: [
           ListTile(
             title: Text(
-              title,
+              widget.title,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
             ),
             subtitle: Text(
-              description,
+              widget.description,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color:
                         Theme.of(context).colorScheme.tertiary.withOpacity(0.6),
                   ),
             ),
             trailing: GestureDetector(
-              onTap: onTap,
+              onTap: _startAnimation,
               child: Lottie.asset(
                 IconsAssets.trash,
                 width: MediaQuery.sizeOf(context).width * 0.15,
                 height: MediaQuery.sizeOf(context).height * 0.15,
+                controller: _animationController,
+                onLoaded: (composition) {
+                  _animationController.duration = composition.duration;
+                },
               ),
             ),
           ),
@@ -59,7 +89,7 @@ class NotesCard extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.sizeOf(context).width * 0.035),
             child: Text(
-              date,
+              widget.date,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   color: Theme.of(context).colorScheme.onSurface,
                   fontSize: responsiveFont(
