@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  var featureName = 'WelcomeScreen';
+  var featureName = 'NoteScreen';
 
   fileGenerator(
     fileName: "model",

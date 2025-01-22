@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/core/styles/color_manager.dart';
 import 'package:to_do_app/core/utils/bloc_observer.dart';
+import 'package:to_do_app/core/utils/themes/dark_theme.dart';
+import 'package:to_do_app/core/utils/themes/light_theme.dart';
+import 'package:to_do_app/core/utils/responsive_font.dart';
+import 'package:to_do_app/features/note/presentation/view/note_screen.dart';
 import 'package:to_do_app/features/welcome/presentation/view/welcome_screen.dart';
 
 void main() {
@@ -11,17 +16,27 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'To-Do',
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.light(
+          primary: AppColor.blue,
+          secondary: AppColor.white,
+          error: Colors.red,
+        ),
+        textTheme: lightTheme(context),
         useMaterial3: true,
       ),
-      home: WelcomeScreen(),
+      darkTheme: darkTheme(context),
+      themeMode: ThemeMode.system,
+      initialRoute: WelcomeScreen.route,
+      routes: {
+        WelcomeScreen.route: (context) => WelcomeScreen(),
+        NoteScreen.route: (context) => NoteScreen(),
+      },
     );
   }
 }
