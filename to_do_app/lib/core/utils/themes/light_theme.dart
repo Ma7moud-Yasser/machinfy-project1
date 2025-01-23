@@ -12,6 +12,7 @@ ThemeData lightTheme(BuildContext context) {
         tertiary: AppColor.blue,
         error: Colors.red,
         onSurface: AppColor.grey,
+        onPrimary: AppColor.white,
       ),
       textTheme: TextTheme(
         bodyLarge: TextStyle(

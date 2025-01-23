@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/features/note/presentation/component/custom_text_form_field.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
@@ -11,33 +12,9 @@ class CustomSearchBar extends StatelessWidget {
       spacing: 20,
       children: [
         Expanded(
-          child: TextField(
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontWeight: FontWeight.w500,
-                ),
-            decoration: InputDecoration(
-              hintText: 'Search',
-              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-              filled: true,
-              fillColor: Theme.of(context).colorScheme.secondary,
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 2,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                      MediaQuery.sizeOf(context).width * 0.04)),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 2.7,
-                    color: Theme.of(context).colorScheme.tertiary,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                      MediaQuery.sizeOf(context).width * 0.04)),
-            ),
+          child: CustomTextFormField(
+            hintText: 'Search',
+            maxLines: 1,
           ),
         ),
         GestureDetector(
