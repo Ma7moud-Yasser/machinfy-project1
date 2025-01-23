@@ -50,7 +50,17 @@ class _NoteScreenState extends State<NoteScreen> {
     return BlocProvider(
       create: (context) => NoteScreenCubit(),
       child: BlocConsumer<NoteScreenCubit, NoteScreenStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is NoteScreenSuccessState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Note added successfully!')),
+            );
+          } else if (state is NoteScreenErrorState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.message)),
+            );
+          }
+        },
         builder: (context, state) {
           final cubit = NoteScreenCubit.get(context);
           return Scaffold(
@@ -97,6 +107,9 @@ class _NoteScreenState extends State<NoteScreen> {
                           onTap: () {
                             setState(() {
                               notes.removeAt(index);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Note deleted!")),
+                              );
                             });
                           },
                         );
@@ -151,9 +164,10 @@ class _NoteScreenState extends State<NoteScreen> {
                                 controller: cubit.noteTitleController,
                                 maxLines: 1,
                                 validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Please enter a title";
+                                  if (value == null || value.isEmpty) {
+                                    return "Please fill in the title";
                                   }
+                                  return null;
                                 },
                               ),
                               CustomTextFormField(
@@ -161,9 +175,10 @@ class _NoteScreenState extends State<NoteScreen> {
                                 controller: cubit.noteDescription,
                                 maxLines: 5,
                                 validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Please enter a description";
+                                  if (value == null || value.isEmpty) {
+                                    return "Please fill in the description";
                                   }
+                                  return null;
                                 },
                               ),
                               SizedBox(
@@ -187,9 +202,7 @@ class _NoteScreenState extends State<NoteScreen> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    setState(() {
-                                      cubit.addNote(notes, context);
-                                    });
+                                    cubit.addNote(notes, context);
                                   },
                                   child: Text(
                                     "Add Note",

@@ -14,24 +14,26 @@ class NoteScreenCubit extends Cubit<NoteScreenStates> {
   static NoteScreenCubit get(context) => BlocProvider.of(context);
 
   void addNote(List<NoteModel> notes, BuildContext context) {
-    clearControllers();
-    emit(NoteScreenLoadingState());
-
     try {
+      emit(NoteScreenLoadingState()); // Start loading state
+
       if (formKey.currentState!.validate()) {
-        notes.add(
+        notes.insert(
+          0,
           NoteModel(
             title: noteTitleController.text,
             description: noteDescription.text,
             date: "12/12/2024",
           ),
         );
-        emit(NoteScreenSuccessState());
+        emit(NoteScreenSuccessState()); // Transition to success
         Navigator.pop(context);
+        clearControllers();
+      } else {
+        emit(NoteScreenErrorState("Please fill in all fields"));
       }
-      clearControllers();
-    } on Exception catch (e) {
-      NoteScreenErrorState(e.toString());
+    } catch (e) {
+      emit(NoteScreenErrorState(e.toString())); // Transition to error
     }
   }
 
