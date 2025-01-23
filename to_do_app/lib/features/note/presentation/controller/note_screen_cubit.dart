@@ -36,7 +36,7 @@ class NoteScreenCubit extends Cubit<NoteScreenStates> {
         emit(NoteScreenErrorState("Please fill in all fields"));
       }
     } catch (e) {
-      emit(NoteScreenErrorState(e.toString())); // Transition to error
+      emit(NoteScreenErrorState(e.toString()));
     }
   }
 
