@@ -51,11 +51,7 @@ class _NoteScreenState extends State<NoteScreen> {
       create: (context) => NoteScreenCubit(),
       child: BlocConsumer<NoteScreenCubit, NoteScreenStates>(
         listener: (context, state) {
-          if (state is NoteScreenSuccessState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Note added successfully!')),
-            );
-          } else if (state is NoteScreenErrorState) {
+          if (state is NoteScreenErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),
             );
@@ -105,12 +101,7 @@ class _NoteScreenState extends State<NoteScreen> {
                           description: notes[index].description,
                           date: notes[index].date,
                           onTap: () {
-                            setState(() {
-                              notes.removeAt(index);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Note deleted!")),
-                              );
-                            });
+                            cubit.removeNote(notes, index, context);
                           },
                         );
                       },

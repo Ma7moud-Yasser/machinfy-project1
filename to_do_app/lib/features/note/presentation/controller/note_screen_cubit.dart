@@ -26,7 +26,10 @@ class NoteScreenCubit extends Cubit<NoteScreenStates> {
             date: "12/12/2024",
           ),
         );
-        emit(NoteScreenSuccessState()); // Transition to success
+        emit(NoteScreenSuccessState());
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Note added successfully!')),
+        );
         Navigator.pop(context);
         clearControllers();
       } else {
@@ -34,6 +37,19 @@ class NoteScreenCubit extends Cubit<NoteScreenStates> {
       }
     } catch (e) {
       emit(NoteScreenErrorState(e.toString())); // Transition to error
+    }
+  }
+
+  void removeNote(List<NoteModel> notes, int index, BuildContext context) {
+    try {
+      emit(NoteScreenSuccessState());
+      notes.removeAt(index);
+      emit(NoteScreenSuccessState());
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Note deleted!")),
+      );
+    } on Exception catch (e) {
+      emit(NoteScreenErrorState(e.toString()));
     }
   }
 
