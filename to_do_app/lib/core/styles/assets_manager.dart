@@ -6,5 +6,7 @@ class ImagesAssets {
 }
 
 class IconsAssets {
+  //    assets\icons\trash.json
   static const String trash = "$iconPath/trash.json";
+  static const String loading = "$iconPath/loading.json";
 }
