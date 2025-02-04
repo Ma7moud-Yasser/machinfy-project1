@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/models/note_model.dart';
-import 'note_screen_states.dart';
+import 'add_note_states.dart';
 
 class AddNoteCubit extends Cubit<AddNoteStates> {
   bool _isActive = true;

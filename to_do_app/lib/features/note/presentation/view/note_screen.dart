@@ -5,8 +5,8 @@ import 'package:to_do_app/core/utils/responsive_font.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_search_bar.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_text_form_field.dart';
 import 'package:to_do_app/features/note/presentation/component/note_card.dart';
-import '../controller/add_note_cubit/note_screen_cubit.dart';
-import '../controller/add_note_cubit/note_screen_states.dart';
+import '../controller/add_note_cubit/add_note_cubit.dart';
+import '../controller/add_note_cubit/add_note_states.dart';
 
 class NoteScreen extends StatefulWidget {
   NoteScreen({super.key});
