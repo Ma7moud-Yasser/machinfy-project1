@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
 import 'package:to_do_app/features/note/presentation/component/add_note_bottom.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_search_bar.dart';
 import 'package:to_do_app/features/note/presentation/component/note_card.dart';
-import '../controller/add_note_cubit/add_note_cubit.dart';
 
 class NoteScreen extends StatefulWidget {
   NoteScreen({super.key});
@@ -96,7 +94,7 @@ class _NoteScreenState extends State<NoteScreen> {
           ],
         ),
       ),
-      floatingActionButton: AddNoteBottom(
+      floatingActionButton: AddNoteBottomSheet(
         notes: notes,
       ),
     );

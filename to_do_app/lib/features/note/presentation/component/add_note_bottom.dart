@@ -6,8 +6,8 @@ import 'package:to_do_app/features/note/presentation/component/custom_text_form_
 import 'package:to_do_app/features/note/presentation/controller/add_note_cubit/add_note_cubit.dart';
 import 'package:to_do_app/features/note/presentation/controller/add_note_cubit/add_note_states.dart';
 
-class AddNoteBottom extends StatelessWidget {
-  const AddNoteBottom({
+class AddNoteBottomSheet extends StatelessWidget {
+  const AddNoteBottomSheet({
     super.key,
     required this.notes,
   });
