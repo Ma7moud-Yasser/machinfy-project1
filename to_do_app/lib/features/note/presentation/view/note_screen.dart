@@ -6,7 +6,7 @@ import 'package:to_do_app/features/note/presentation/component/custom_search_bar
 import 'package:to_do_app/features/note/presentation/component/note_card.dart';
 
 class NoteScreen extends StatefulWidget {
-  NoteScreen({super.key});
+  const NoteScreen({super.key});
   static const route = '/noteScreen';
 
   @override
