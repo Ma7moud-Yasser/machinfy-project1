@@ -47,8 +47,12 @@ class _NoteScreenState extends State<NoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AddNoteCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddNoteCubit(),
+        )
+      ],
       child: BlocConsumer<AddNoteCubit, AddNoteStates>(
         listener: (context, state) {
           if (state is AddNoteErrorState) {
