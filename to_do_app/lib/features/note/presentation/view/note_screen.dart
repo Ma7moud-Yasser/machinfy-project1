@@ -57,7 +57,7 @@ class _NoteScreenState extends State<NoteScreen> {
             Padding(
               padding: EdgeInsets.only(
                 top: MediaQuery.sizeOf(context).height * 0.08,
-                bottom: MediaQuery.sizeOf(context).height * 0.05,
+                bottom: MediaQuery.sizeOf(context).height * 0.03,
               ),
               child: Text(
                 "Notes",
