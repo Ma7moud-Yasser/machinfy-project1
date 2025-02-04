@@ -11,7 +11,7 @@ import 'package:to_do_app/features/welcome/presentation/view/welcome_screen.dart
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox(AppString.noteBox);
+  await Hive.openBox(AppString.notesBox);
   Hive.registerAdapter(NoteModelAdapter());
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
