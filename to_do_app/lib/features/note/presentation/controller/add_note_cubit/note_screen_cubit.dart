@@ -3,19 +3,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'note_screen_states.dart';
 
-class NoteScreenCubit extends Cubit<NoteScreenStates> {
+class AddNoteCubit extends Cubit<AddNoteStates> {
   bool _isActive = true;
   TextEditingController noteTitleController = TextEditingController();
   TextEditingController noteDescription = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  NoteScreenCubit() : super(NoteScreenInitState());
+  AddNoteCubit() : super(AddNoteInitState());
 
-  static NoteScreenCubit get(context) => BlocProvider.of(context);
+  static AddNoteCubit get(context) => BlocProvider.of(context);
 
   void addNote(List<NoteModel> notes, BuildContext context) {
     try {
-      emit(NoteScreenLoadingState()); // Start loading state
+      emit(AddNoteLoadingState()); // Start loading state
 
       if (formKey.currentState!.validate()) {
         notes.insert(
@@ -26,30 +26,30 @@ class NoteScreenCubit extends Cubit<NoteScreenStates> {
             date: "12/12/2024",
           ),
         );
-        emit(NoteScreenSuccessState());
+        emit(AddNoteSuccessState());
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Note added successfully!')),
         );
         Navigator.pop(context);
         clearControllers();
       } else {
-        emit(NoteScreenErrorState("Please fill in all fields"));
+        emit(AddNoteErrorState("Please fill in all fields"));
       }
     } catch (e) {
-      emit(NoteScreenErrorState(e.toString()));
+      emit(AddNoteErrorState(e.toString()));
     }
   }
 
   void removeNote(List<NoteModel> notes, int index, BuildContext context) {
     try {
-      emit(NoteScreenSuccessState());
+      emit(AddNoteSuccessState());
       notes.removeAt(index);
-      emit(NoteScreenSuccessState());
+      emit(AddNoteSuccessState());
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Note deleted!")),
       );
     } on Exception catch (e) {
-      emit(NoteScreenErrorState(e.toString()));
+      emit(AddNoteErrorState(e.toString()));
     }
   }
 

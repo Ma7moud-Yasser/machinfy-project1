@@ -5,8 +5,8 @@ import 'package:to_do_app/core/utils/responsive_font.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_search_bar.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_text_form_field.dart';
 import 'package:to_do_app/features/note/presentation/component/note_card.dart';
-import '../controller/note_screen_cubit.dart';
-import '../controller/note_screen_states.dart';
+import '../controller/add_note_cubit/note_screen_cubit.dart';
+import '../controller/add_note_cubit/note_screen_states.dart';
 
 class NoteScreen extends StatefulWidget {
   NoteScreen({super.key});
@@ -48,17 +48,17 @@ class _NoteScreenState extends State<NoteScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NoteScreenCubit(),
-      child: BlocConsumer<NoteScreenCubit, NoteScreenStates>(
+      create: (context) => AddNoteCubit(),
+      child: BlocConsumer<AddNoteCubit, AddNoteStates>(
         listener: (context, state) {
-          if (state is NoteScreenErrorState) {
+          if (state is AddNoteErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),
             );
           }
         },
         builder: (context, state) {
-          final cubit = NoteScreenCubit.get(context);
+          final cubit = AddNoteCubit.get(context);
           return Scaffold(
             resizeToAvoidBottomInset: true,
             body: Padding(
