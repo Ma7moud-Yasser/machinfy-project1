@@ -34,109 +34,115 @@ class AddNoteBottomSheet extends StatelessWidget {
                 context: context,
                 isScrollControlled: true,
                 builder: (BuildContext context) {
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      left: MediaQuery.sizeOf(context).width * 0.1,
-                      right: MediaQuery.sizeOf(context).width * 0.1,
-                      top: MediaQuery.sizeOf(context).height * 0.03,
-                      bottom: MediaQuery.of(context).viewInsets.bottom,
-                    ),
-                    child: SizedBox(
-                      width: MediaQuery.sizeOf(context).width,
-                      child: Form(
-                        key: addNoteCubit.formKey,
-                        child: Column(
-                          spacing: 15,
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical:
-                                    MediaQuery.sizeOf(context).width * 0.02,
-                              ),
-                              child: Text(
-                                "Add New Task",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineLarge!
-                                    .copyWith(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
-                              ),
-                            ),
-                            CustomTextFormField(
-                              hintText: "Note Title",
-                              controller: addNoteCubit.noteTitleController,
-                              maxLines: 1,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please fill in the title";
-                                }
-                                return null;
-                              },
-                            ),
-                            CustomTextFormField(
-                              hintText: "Description",
-                              controller: addNoteCubit.noteDescription,
-                              maxLines: 5,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please fill in the description";
-                                }
-                                return null;
-                              },
-                            ),
-                            SizedBox(
-                              width: MediaQuery.sizeOf(context).width,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      MediaQuery.sizeOf(context).width * 0.04,
-                                    ),
-                                  ),
-                                  backgroundColor:
-                                      Theme.of(context).colorScheme.primary,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.sizeOf(context).width * 0.1,
-                                    vertical:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.02,
-                                  ),
+                  return AbsorbPointer(
+                    absorbing: state is AddNoteLoadingState,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.sizeOf(context).width * 0.051,
+                        right: MediaQuery.sizeOf(context).width * 0.051,
+                        top: MediaQuery.sizeOf(context).height * 0.02,
+                        bottom: MediaQuery.of(context).viewInsets.bottom,
+                      ),
+                      child: SizedBox(
+                        width: MediaQuery.sizeOf(context).width,
+                        child: Form(
+                          key: addNoteCubit.formKey,
+                          child: Column(
+                            spacing: 15,
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical:
+                                      MediaQuery.sizeOf(context).width * 0.01,
                                 ),
-                                onPressed: () {
-                                  addNoteCubit.addNote(notes, context);
-                                },
-                                child: state is AddNoteLoadingState
-                                    ? CircularProgressIndicator.adaptive(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          Theme.of(context)
-                                              .colorScheme
-                                              .onPrimary,
-                                        ),
-                                      )
-                                    : Text(
-                                        "Add Note",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium!
-                                            .copyWith(
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimary,
-                                              fontWeight: FontWeight.w500,
-                                            ),
+                                child: Text(
+                                  "Add New Task",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineLarge!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
                                       ),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.sizeOf(context).height * 0.01,
-                            ),
-                          ],
+                              CustomTextFormField(
+                                hintText: "Note Title",
+                                controller: addNoteCubit.noteTitleController,
+                                maxLines: 1,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please fill in the title";
+                                  }
+                                  return null;
+                                },
+                              ),
+                              CustomTextFormField(
+                                hintText: "Description",
+                                controller: addNoteCubit.noteDescription,
+                                maxLines: 5,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please fill in the description";
+                                  }
+                                  return null;
+                                },
+                              ),
+                              SizedBox(
+                                width: MediaQuery.sizeOf(context).width,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                        MediaQuery.sizeOf(context).width * 0.04,
+                                      ),
+                                    ),
+                                    backgroundColor:
+                                        Theme.of(context).colorScheme.primary,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal:
+                                          MediaQuery.sizeOf(context).width *
+                                              0.1,
+                                      vertical:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.02,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    addNoteCubit.addNote(notes, context);
+                                  },
+                                  child: state is AddNoteLoadingState
+                                      ? CircularProgressIndicator.adaptive(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            Theme.of(context)
+                                                .colorScheme
+                                                .onPrimary,
+                                          ),
+                                        )
+                                      : Text(
+                                          "Add Note",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium!
+                                              .copyWith(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onPrimary,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                ),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.01,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
