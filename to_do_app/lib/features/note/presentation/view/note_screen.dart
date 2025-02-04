@@ -48,7 +48,7 @@ class _NoteScreenState extends State<NoteScreen> {
       resizeToAvoidBottomInset: true,
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.sizeOf(context).width * 0.06,
+          horizontal: MediaQuery.sizeOf(context).width * 0.03,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
