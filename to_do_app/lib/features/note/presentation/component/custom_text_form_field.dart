@@ -22,6 +22,7 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLines,
       maxLength: maxLength,
       controller: controller,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: validator,
       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
             color: Theme.of(context).colorScheme.primary,
@@ -34,6 +35,20 @@ class CustomTextFormField extends StatelessWidget {
             ),
         filled: true,
         fillColor: Theme.of(context).colorScheme.secondary,
+        errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+              color: Theme.of(context).colorScheme.error,
+            ),
+            borderRadius:
+                BorderRadius.circular(MediaQuery.sizeOf(context).width * 0.04)),
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+              color: Theme.of(context).colorScheme.error,
+            ),
+            borderRadius:
+                BorderRadius.circular(MediaQuery.sizeOf(context).width * 0.04)),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 2,
