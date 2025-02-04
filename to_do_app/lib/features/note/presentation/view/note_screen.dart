@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/components/custom_snackBar.dart';
-import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
 import 'package:to_do_app/features/note/presentation/component/add_note_bottom.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_search_bar.dart';
-import 'package:to_do_app/features/note/presentation/component/note_card.dart';
+import 'package:to_do_app/features/note/presentation/component/notes_list_view.dart';
 import 'package:to_do_app/features/note/presentation/controller/notes_cubit/notes_cubit.dart';
 
 class NoteScreen extends StatefulWidget {
@@ -17,34 +16,6 @@ class NoteScreen extends StatefulWidget {
 }
 
 class _NoteScreenState extends State<NoteScreen> {
-  final List<NoteModel> notes = [
-    NoteModel(
-      title: "First Note",
-      description: "their is note their is note their is note",
-      date: "10/1/2025",
-    ),
-    NoteModel(
-      title: "Second Note",
-      description: "their is note their is note their is note",
-      date: "1/1/2025",
-    ),
-    NoteModel(
-      title: "Third Note",
-      description: "their is note their is note their is note",
-      date: "12/12/2024",
-    ),
-    NoteModel(
-      title: "Fourth Note",
-      description: "their is note their is note their is note",
-      date: "8/12/2024",
-    ),
-    NoteModel(
-      title: "Fifth Note",
-      description: "their is note their is note their is note",
-      date: "1/12/2024",
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -87,30 +58,12 @@ class _NoteScreenState extends State<NoteScreen> {
                     height: MediaQuery.sizeOf(context).height * 0.04,
                   ),
                   Expanded(
-                    child: ListView.separated(
-                      padding: EdgeInsets.zero,
-                      separatorBuilder: (context, index) => SizedBox(
-                        height: MediaQuery.sizeOf(context).height * 0.015,
-                      ),
-                      itemCount: notes.length,
-                      itemBuilder: (context, index) {
-                        return NotesCard(
-                          title: notes[index].title,
-                          description: notes[index].description,
-                          date: notes[index].date,
-                          onTap: () {
-                            // cubit.removeNote(notes, index, context);
-                          },
-                        );
-                      },
-                    ),
+                    child: NotesListView(),
                   ),
                 ],
               ),
             ),
-            floatingActionButton: AddNoteBottomSheet(
-              notes: notes,
-            ),
+            floatingActionButton: AddNoteBottomSheet(),
           );
         },
       ),

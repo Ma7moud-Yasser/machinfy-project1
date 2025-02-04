@@ -9,9 +9,9 @@ import 'package:to_do_app/features/note/presentation/controller/add_note_cubit/a
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({
     super.key,
-    required this.notes,
+    // required this.notes,
   });
-  final List<NoteModel> notes;
+  // final List<NoteModel> notes;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

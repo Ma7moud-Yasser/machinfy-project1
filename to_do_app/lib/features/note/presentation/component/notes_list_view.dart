@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/features/note/presentation/component/note_card.dart';
+import 'package:to_do_app/features/note/presentation/controller/notes_cubit/notes_cubit.dart';
+
+class NotesListView extends StatelessWidget {
+  const NotesListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<NotesCubit, NotesState>(
+      builder: (context, state) {
+        var notes =
+            context.watch<NotesCubit>().notes; // استدعاء الملاحظات من الكيوبت
+        return ListView.separated(
+          padding: EdgeInsets.zero,
+          separatorBuilder: (context, index) => SizedBox(
+            height: MediaQuery.sizeOf(context).height * 0.015,
+          ),
+          itemCount: notes.length,
+          itemBuilder: (context, index) {
+            return NotesCard(
+              title: notes[index].title,
+              description: notes[index].description,
+              date: notes[index].date,
+              onTap: () {
+                // context.read<NotesCubit>().removeNote(index);
+              },
+            );
+          },
+        );
+      },
+    );
+  }
+}
