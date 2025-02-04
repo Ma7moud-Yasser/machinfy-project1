@@ -46,65 +46,58 @@ class _NoteScreenState extends State<NoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AddNoteCubit(),
-        )
-      ],
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.sizeOf(context).width * 0.06,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.sizeOf(context).height * 0.1,
-                  bottom: MediaQuery.sizeOf(context).height * 0.05,
-                ),
-                child: Text(
-                  "Notes",
-                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: responsiveFont(
-                        context,
-                        fontSize: 40,
-                      )),
-                ),
-              ),
-              CustomSearchBar(),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.04,
-              ),
-              Expanded(
-                child: ListView.separated(
-                  padding: EdgeInsets.zero,
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: MediaQuery.sizeOf(context).height * 0.015,
-                  ),
-                  itemCount: notes.length,
-                  itemBuilder: (context, index) {
-                    return NotesCard(
-                      title: notes[index].title,
-                      description: notes[index].description,
-                      date: notes[index].date,
-                      onTap: () {
-                        // cubit.removeNote(notes, index, context);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.sizeOf(context).width * 0.06,
         ),
-        floatingActionButton: AddNoteBottom(
-          notes: notes,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.sizeOf(context).height * 0.1,
+                bottom: MediaQuery.sizeOf(context).height * 0.05,
+              ),
+              child: Text(
+                "Notes",
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: responsiveFont(
+                      context,
+                      fontSize: 40,
+                    )),
+              ),
+            ),
+            CustomSearchBar(),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height * 0.04,
+            ),
+            Expanded(
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                separatorBuilder: (context, index) => SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.015,
+                ),
+                itemCount: notes.length,
+                itemBuilder: (context, index) {
+                  return NotesCard(
+                    title: notes[index].title,
+                    description: notes[index].description,
+                    date: notes[index].date,
+                    onTap: () {
+                      // cubit.removeNote(notes, index, context);
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: AddNoteBottom(
+        notes: notes,
       ),
     );
   }
