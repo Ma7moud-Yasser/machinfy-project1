@@ -1,3 +1,3 @@
 class AppString {
-  static String noteBpx = 'NoteBox';
+  static String noteBox = 'NoteBox';
 }
