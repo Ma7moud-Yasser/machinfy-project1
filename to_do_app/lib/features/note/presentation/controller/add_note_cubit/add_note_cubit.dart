@@ -39,10 +39,7 @@ class AddNoteCubit extends Cubit<AddNoteStates> {
           ),
         );
         emit(AddNoteSuccessState());
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Note added successfully!')),
-        );
-        Navigator.pop(context);
+
         clearControllers();
       } else {
         emit(AddNoteErrorState("Please fill in all fields"));
