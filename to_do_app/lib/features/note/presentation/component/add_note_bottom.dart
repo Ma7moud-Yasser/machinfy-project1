@@ -74,7 +74,7 @@ class AddNoteBottomSheet extends StatelessWidget {
                                 controller: addNoteCubit.noteTitleController,
                                 maxLines: 1,
                                 validator: (value) {
-                                  if (value == null || value.isEmpty) {
+                                  if (value == null || value.trim().isEmpty) {
                                     return "Please fill in the title";
                                   }
                                   return null;
@@ -85,7 +85,7 @@ class AddNoteBottomSheet extends StatelessWidget {
                                 controller: addNoteCubit.noteDescription,
                                 maxLines: 5,
                                 validator: (value) {
-                                  if (value == null || value.isEmpty) {
+                                  if (value == null || value.trim().isEmpty) {
                                     return "Please fill in the description";
                                   }
                                   return null;
