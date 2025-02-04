@@ -1,5 +1,3 @@
-enum UserRoles {
-  student,
-  parent,
-  admin,
+class AppString {
+  static String noteBpx = 'NoteBox';
 }
