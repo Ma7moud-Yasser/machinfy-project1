@@ -49,13 +49,14 @@ class _NoteScreenState extends State<NoteScreen> {
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.sizeOf(context).width * 0.03,
+          vertical: MediaQuery.sizeOf(context).height * 0.01,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.only(
-                top: MediaQuery.sizeOf(context).height * 0.1,
+                top: MediaQuery.sizeOf(context).height * 0.08,
                 bottom: MediaQuery.sizeOf(context).height * 0.05,
               ),
               child: Text(
