@@ -112,7 +112,15 @@ class AddNoteBottomSheet extends StatelessWidget {
                                     ),
                                   ),
                                   onPressed: () {
-                                    addNoteCubit.addNote(notes, context);
+                                    addNoteCubit.addNotes(
+                                      NoteModel(
+                                        title: addNoteCubit
+                                            .noteTitleController.text,
+                                        description:
+                                            addNoteCubit.noteDescription.text,
+                                        date: DateTime.now().toString(),
+                                      ),
+                                    );
                                   },
                                   child: state is AddNoteLoadingState
                                       ? CircularProgressIndicator.adaptive(

@@ -25,30 +25,6 @@ class AddNoteCubit extends Cubit<AddNoteStates> {
     }
   }
 
-  void addNote(List<NoteModel> notes, BuildContext context) {
-    try {
-      emit(AddNoteLoadingState()); // Start loading state
-
-      if (formKey.currentState!.validate()) {
-        notes.insert(
-          0,
-          NoteModel(
-            title: noteTitleController.text,
-            description: noteDescription.text,
-            date: "12/12/2024",
-          ),
-        );
-        emit(AddNoteSuccessState());
-
-        clearControllers();
-      } else {
-        emit(AddNoteErrorState("Please fill in all fields"));
-      }
-    } catch (e) {
-      emit(AddNoteErrorState(e.toString()));
-    }
-  }
-
   void removeNote(List<NoteModel> notes, int index, BuildContext context) {
     try {
       emit(AddNoteSuccessState());

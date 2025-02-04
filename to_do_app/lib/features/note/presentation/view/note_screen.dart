@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/core/components/custom_snackBar.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
 import 'package:to_do_app/features/note/presentation/component/add_note_bottom.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_search_bar.dart';
 import 'package:to_do_app/features/note/presentation/component/note_card.dart';
+import 'package:to_do_app/features/note/presentation/controller/notes_cubit/notes_cubit.dart';
 
 class NoteScreen extends StatefulWidget {
   const NoteScreen({super.key});
@@ -44,59 +47,72 @@ class _NoteScreenState extends State<NoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.sizeOf(context).width * 0.03,
-          vertical: MediaQuery.sizeOf(context).height * 0.01,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.sizeOf(context).height * 0.08,
-                bottom: MediaQuery.sizeOf(context).height * 0.03,
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: BlocConsumer<NotesCubit, NotesState>(
+        listener: (context, state) {
+          if (state is NotesError) {
+            customSnackBar(context, message: state.message);
+          }
+        },
+        builder: (context, state) {
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).width * 0.03,
+                vertical: MediaQuery.sizeOf(context).height * 0.01,
               ),
-              child: Text(
-                "Notes",
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: responsiveFont(
-                      context,
-                      fontSize: 40,
-                    )),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.sizeOf(context).height * 0.08,
+                      bottom: MediaQuery.sizeOf(context).height * 0.03,
+                    ),
+                    child: Text(
+                      "Notes",
+                      style:
+                          Theme.of(context).textTheme.headlineLarge!.copyWith(
+                              color: Theme.of(context).colorScheme.primary,
+                              fontSize: responsiveFont(
+                                context,
+                                fontSize: 40,
+                              )),
+                    ),
+                  ),
+                  CustomSearchBar(),
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.04,
+                  ),
+                  Expanded(
+                    child: ListView.separated(
+                      padding: EdgeInsets.zero,
+                      separatorBuilder: (context, index) => SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.015,
+                      ),
+                      itemCount: notes.length,
+                      itemBuilder: (context, index) {
+                        return NotesCard(
+                          title: notes[index].title,
+                          description: notes[index].description,
+                          date: notes[index].date,
+                          onTap: () {
+                            // cubit.removeNote(notes, index, context);
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
-            CustomSearchBar(),
-            SizedBox(
-              height: MediaQuery.sizeOf(context).height * 0.04,
+            floatingActionButton: AddNoteBottomSheet(
+              notes: notes,
             ),
-            Expanded(
-              child: ListView.separated(
-                padding: EdgeInsets.zero,
-                separatorBuilder: (context, index) => SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.015,
-                ),
-                itemCount: notes.length,
-                itemBuilder: (context, index) {
-                  return NotesCard(
-                    title: notes[index].title,
-                    description: notes[index].description,
-                    date: notes[index].date,
-                    onTap: () {
-                      // cubit.removeNote(notes, index, context);
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: AddNoteBottomSheet(
-        notes: notes,
+          );
+        },
       ),
     );
   }
