@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/core/styles/color_manager.dart';
 
 ScaffoldFeatureController<SnackBar, SnackBarClosedReason> customSnackBar(
     BuildContext context,
