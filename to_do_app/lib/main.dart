@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/resources/app_stings.dart';
 import 'package:to_do_app/core/utils/bloc_observer.dart';
 import 'package:to_do_app/core/utils/themes/dark_theme.dart';
@@ -11,6 +12,7 @@ import 'package:to_do_app/features/welcome/presentation/view/welcome_screen.dart
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox(AppString.noteBox);
+  Hive.registerAdapter(NoteModelAdapter());
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
