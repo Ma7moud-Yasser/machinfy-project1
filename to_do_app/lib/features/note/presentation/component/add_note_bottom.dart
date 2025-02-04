@@ -19,6 +19,8 @@ class AddNoteBottom extends StatelessWidget {
         if (state is AddNoteSuccessState) {
           customSnackBar(context, message: 'Note added successfully!');
           Navigator.pop(context);
+        } else if (state is AddNoteErrorState) {
+          customSnackBar(context, message: state.message);
         }
       },
       builder: (context, state) {
