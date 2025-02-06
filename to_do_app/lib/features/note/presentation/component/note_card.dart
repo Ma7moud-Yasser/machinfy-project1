@@ -71,7 +71,7 @@ class _NotesCardState extends State<NotesCard>
                   ),
             ),
             trailing: GestureDetector(
-              onTap: _startAnimation,
+              onTap: widget.note.delete,
               child: Lottie.asset(
                 IconsAssets.trash,
                 width: MediaQuery.sizeOf(context).width * 0.15,

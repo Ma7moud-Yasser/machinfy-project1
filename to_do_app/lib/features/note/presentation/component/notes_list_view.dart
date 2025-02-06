@@ -24,7 +24,7 @@ class NotesListView extends StatelessWidget {
             return NotesCard(
               note: notes[index],
               onTap: () {
-                // BlocProvider.of<NotesCubit>(context).deleteNote(index);
+                notes.removeAt(index);
               },
             );
           },
