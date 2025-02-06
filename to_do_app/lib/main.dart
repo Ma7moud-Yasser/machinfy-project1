@@ -6,6 +6,7 @@ import 'package:to_do_app/core/resources/app_stings.dart';
 import 'package:to_do_app/core/utils/bloc_observer.dart';
 import 'package:to_do_app/core/utils/themes/dark_theme.dart';
 import 'package:to_do_app/core/utils/themes/light_theme.dart';
+import 'package:to_do_app/features/edit_note/presentation/view/edit_note_screen.dart';
 import 'package:to_do_app/features/note/presentation/view/note_screen.dart';
 import 'package:to_do_app/features/welcome/presentation/view/welcome_screen.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       routes: {
         WelcomeScreen.route: (context) => WelcomeScreen(),
         NoteScreen.route: (context) => NoteScreen(),
+        EditNoteScreen.route: (context) => EditNoteScreen(),
       },
     );
   }
