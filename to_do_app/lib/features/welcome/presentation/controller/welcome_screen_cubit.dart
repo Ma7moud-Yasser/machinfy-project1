@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'welcome_screen_states.dart';
 
 class WelcomeScreenCubit extends Cubit<WelcomeScreenStates> {
-  bool _isActive = true;
+  bool isActive = true;
 
   WelcomeScreenCubit() : super(WelcomeScreenInitState());
 
@@ -10,7 +10,7 @@ class WelcomeScreenCubit extends Cubit<WelcomeScreenStates> {
 
   @override
   Future<void> close() {
-    _isActive = false;
+    isActive = false;
     return super.close();
   }
 }
