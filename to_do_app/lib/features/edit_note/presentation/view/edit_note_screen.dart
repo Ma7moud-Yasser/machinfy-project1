@@ -74,6 +74,7 @@ class EditNoteScreen extends StatelessWidget {
                         onChanged: (title) {
                           cubit.title = title;
                         },
+                        isEditing: cubit.isEditing,
                       ),
                       SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.04,
@@ -85,6 +86,7 @@ class EditNoteScreen extends StatelessWidget {
                           },
                           hintText: note.description,
                           maxLines: 10,
+                          isEditing: cubit.isEditing,
                         ),
                       ),
                     ],
