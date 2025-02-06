@@ -27,7 +27,9 @@ class CustomIcon extends StatelessWidget {
         child: Icon(
           icon,
           color: Theme.of(context).colorScheme.secondary,
-          size: MediaQuery.sizeOf(context).width * 0.09,
+          size: icon == Icons.content_paste_search_outlined
+              ? MediaQuery.sizeOf(context).width * 0.09
+              : MediaQuery.sizeOf(context).width * 0.07,
         ),
       ),
     );
