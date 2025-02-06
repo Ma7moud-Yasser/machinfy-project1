@@ -6,7 +6,7 @@ import 'package:to_do_app/core/resources/app_stings.dart';
 import 'add_note_states.dart';
 
 class AddNoteCubit extends Cubit<AddNoteStates> {
-  bool _isActive = true;
+  bool isActive = true;
   TextEditingController noteTitleController = TextEditingController();
   TextEditingController noteDescription = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -48,7 +48,7 @@ class AddNoteCubit extends Cubit<AddNoteStates> {
 
   @override
   Future<void> close() {
-    _isActive = false;
+    isActive = false;
     return super.close();
   }
 }
