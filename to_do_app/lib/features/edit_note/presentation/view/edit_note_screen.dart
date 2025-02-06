@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/components/custom_icon.dart';
+import 'package:to_do_app/core/components/custom_snackBar.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_text_form_field.dart';
@@ -16,9 +17,17 @@ class EditNoteScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => EditNoteScreenCubit(),
       child: BlocConsumer<EditNoteScreenCubit, EditNoteScreenStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is EditNoteScreenErrorState) {
+            customSnackBar(context, message: state.message);
+          }
+          if (state is EditNoteScreenSuccessState) {
+            customSnackBar(context, message: "Note edited successfully");
+            Navigator.pop(context);
+          }
+        },
         builder: (context, state) {
-          // final cubit = EditNoteScreenCubit.get(context);
+          final cubit = EditNoteScreenCubit.get(context);
           return Scaffold(
               body: Padding(
             padding: EdgeInsets.symmetric(
@@ -47,6 +56,10 @@ class EditNoteScreen extends StatelessWidget {
                                 )),
                       ),
                       CustomIcon(
+                        onTap: () {
+                          cubit.editNote(note);
+                          note.save();
+                        },
                         icon: Icons.edit_calendar_rounded,
                       )
                     ],
@@ -55,13 +68,23 @@ class EditNoteScreen extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      CustomTextFormField(hintText: note.title),
+                      CustomTextFormField(
+                        hintText: note.title,
+                        onChanged: (title) {
+                          cubit.title = title;
+                        },
+                      ),
                       SizedBox(
                         height: MediaQuery.sizeOf(context).height * 0.04,
                       ),
                       Expanded(
                         child: CustomTextFormField(
-                            hintText: note.description, maxLines: 10),
+                          onChanged: (description) {
+                            cubit.description = description;
+                          },
+                          hintText: note.description,
+                          maxLines: 10,
+                        ),
                       ),
                     ],
                   ),

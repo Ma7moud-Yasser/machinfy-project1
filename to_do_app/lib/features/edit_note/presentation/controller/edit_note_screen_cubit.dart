@@ -1,16 +1,30 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/core/models/note_model.dart';
 import 'edit_note_screen_states.dart';
 
 class EditNoteScreenCubit extends Cubit<EditNoteScreenStates> {
-  bool _isActive = true;
-
+  bool isActive = true;
+  bool isEditing = false;
+  String title = '';
+  String description = '';
   EditNoteScreenCubit() : super(EditNoteScreenInitState());
 
   static EditNoteScreenCubit get(context) => BlocProvider.of(context);
 
+  editNote(NoteModel note) {
+    emit(EditNoteScreenLoadingState());
+    try {
+      note.title = title;
+      note.description = description;
+      emit(EditNoteScreenSuccessState());
+    } on Exception catch (e) {
+      emit(EditNoteScreenErrorState(e.toString()));
+    }
+  }
+
   @override
   Future<void> close() {
-    _isActive = false;
+    isActive = false;
     return super.close();
   }
 }
