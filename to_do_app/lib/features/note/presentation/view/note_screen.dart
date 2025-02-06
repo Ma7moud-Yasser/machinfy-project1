@@ -27,6 +27,7 @@ class _NoteScreenState extends State<NoteScreen> {
           }
         },
         builder: (context, state) {
+          final notesCubit = BlocProvider.of<NotesCubit>(context);
           return Scaffold(
             resizeToAvoidBottomInset: false,
             body: Padding(
@@ -53,7 +54,11 @@ class _NoteScreenState extends State<NoteScreen> {
                               )),
                     ),
                   ),
-                  CustomSearchBar(),
+                  CustomSearchBar(
+                    onChanged: (query) {
+                      notesCubit.searchNotes(query);
+                    },
+                  ),
                   SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.04,
                   ),

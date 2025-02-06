@@ -5,7 +5,9 @@ import 'package:to_do_app/features/note/presentation/component/custom_text_form_
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
     super.key,
+    required this.onChanged,
   });
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +16,7 @@ class CustomSearchBar extends StatelessWidget {
       children: [
         Expanded(
           child: CustomTextFormField(
+            onChanged: onChanged,
             hintText: 'Search',
             maxLines: 1,
           ),

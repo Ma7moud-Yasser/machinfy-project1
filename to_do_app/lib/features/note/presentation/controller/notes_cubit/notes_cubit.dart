@@ -7,12 +7,31 @@ part 'notes_state.dart';
 
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
-  List<NoteModel>? notes;
 
-  fetchAllNotes() {
-    // emit(NotesLoading());
+  List<NoteModel>? notes; // قائمة تحتوي على كل الملاحظات.
+  List<NoteModel>? searchResults; // قائمة لنتائج البحث.
+
+  // جلب جميع الملاحظات من Hive.
+  void fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(AppString.notesBox);
     notes = notesBox.values.toList();
     emit(NotesSuccess());
+  }
+
+  void searchNotes(String query) {
+    emit(SearchLoading());
+    try {
+      if (query.trim().isEmpty) {
+        searchResults = notes;
+      } else {
+        searchResults = notes
+            ?.where((note) =>
+                note.title.toLowerCase().contains(query.trim().toLowerCase()))
+            .toList();
+      }
+      emit(SearchSuccess(searchResults));
+    } catch (e) {
+      emit(NotesError(e.toString()));
+    }
   }
 }
