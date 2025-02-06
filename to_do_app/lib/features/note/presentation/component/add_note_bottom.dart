@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:to_do_app/core/components/custom_snackBar.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_text_form_field.dart';
@@ -112,13 +113,17 @@ class AddNoteBottomSheet extends StatelessWidget {
                                     ),
                                   ),
                                   onPressed: () {
+                                    var currentDate = DateTime.now();
+                                    var formattedCurrentDate =
+                                        DateFormat('dd-MM-yyyy')
+                                            .format(currentDate);
                                     addNoteCubit.addNotes(
                                       NoteModel(
                                         title: addNoteCubit
                                             .noteTitleController.text,
                                         description:
                                             addNoteCubit.noteDescription.text,
-                                        date: DateTime.now().toString(),
+                                        date: formattedCurrentDate,
                                       ),
                                     );
                                   },
