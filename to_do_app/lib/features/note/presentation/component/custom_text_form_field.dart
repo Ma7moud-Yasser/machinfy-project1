@@ -6,6 +6,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final int? maxLines;
   final int? maxLength;
+  final void Function(String)? onChanged;
 
   const CustomTextFormField({
     this.validator,
@@ -13,12 +14,14 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.maxLines = 1,
     this.maxLength,
+    this.onChanged,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       maxLines: maxLines,
       maxLength: maxLength,
       controller: controller,
