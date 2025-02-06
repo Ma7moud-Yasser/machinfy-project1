@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  String? Function(String?)? validator;
-  String hintText;
-  TextEditingController? controller;
-  int? maxLines = 1;
-  int? maxLength;
+  final String? Function(String?)? validator;
+  final String hintText;
+  final TextEditingController? controller;
+  final int? maxLines;
+  final int? maxLength;
 
-  CustomTextFormField({
+  const CustomTextFormField({
     this.validator,
     required this.hintText,
     this.controller,
-    this.maxLines,
+    this.maxLines = 1,
     this.maxLength,
     super.key,
   });
