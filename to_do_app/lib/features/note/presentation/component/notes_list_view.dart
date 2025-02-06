@@ -14,6 +14,7 @@ class NotesListView extends StatelessWidget {
         List<NoteModel> notes =
             BlocProvider.of<NotesCubit>(context).notes ?? [];
         return ListView.separated(
+          reverse: true,
           padding: EdgeInsets.zero,
           separatorBuilder: (context, index) => SizedBox(
             height: MediaQuery.sizeOf(context).height * 0.015,
