@@ -4,12 +4,14 @@ class CustomIcon extends StatelessWidget {
   const CustomIcon({
     super.key,
     required this.icon,
+    required this.onTap,
   });
   final IconData? icon;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.03),
         decoration: BoxDecoration(
