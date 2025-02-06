@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
   final int? maxLines;
   final int? maxLength;
   final void Function(String)? onChanged;
+  final bool isEditing;
 
   const CustomTextFormField({
     this.validator,
@@ -15,12 +16,14 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLines = 1,
     this.maxLength,
     this.onChanged,
+    this.isEditing = false,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: isEditing,
       onChanged: onChanged,
       maxLines: maxLines,
       maxLength: maxLength,
@@ -38,6 +41,13 @@ class CustomTextFormField extends StatelessWidget {
             ),
         filled: true,
         fillColor: Theme.of(context).colorScheme.secondary,
+        disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            borderRadius:
+                BorderRadius.circular(MediaQuery.sizeOf(context).width * 0.03)),
         errorBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 2,
