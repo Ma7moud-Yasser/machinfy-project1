@@ -115,7 +115,7 @@ class AddNoteBottomSheet extends StatelessWidget {
                                   onPressed: () {
                                     var currentDate = DateTime.now();
                                     var formattedCurrentDate =
-                                        DateFormat('dd-MM-yyyy')
+                                        DateFormat('dd/MM/yyyy')
                                             .format(currentDate);
                                     addNoteCubit.addNotes(
                                       NoteModel(
