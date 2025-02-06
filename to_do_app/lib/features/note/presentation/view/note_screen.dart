@@ -17,6 +17,12 @@ class NoteScreen extends StatefulWidget {
 
 class _NoteScreenState extends State<NoteScreen> {
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => NotesCubit(),
