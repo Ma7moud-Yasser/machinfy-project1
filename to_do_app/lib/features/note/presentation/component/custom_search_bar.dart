@@ -19,6 +19,7 @@ class CustomSearchBar extends StatelessWidget {
           ),
         ),
         CustomIcon(
+          onTap: () {},
           icon: Icons.content_paste_search_outlined,
         )
       ],
