@@ -1,23 +1,41 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'edit_note_screen_states.dart';
 
 class EditNoteScreenCubit extends Cubit<EditNoteScreenStates> {
-  bool isActive = true;
   bool isEditing = false;
-  String title = '';
-  String description = '';
-  EditNoteScreenCubit() : super(EditNoteScreenInitState());
+  TextEditingController title = TextEditingController();
+  TextEditingController description = TextEditingController();
+
+  EditNoteScreenCubit(NoteModel note) : super(EditNoteScreenInitState()) {
+    title.text = note.title;
+    description.text = note.description;
+  }
 
   static EditNoteScreenCubit get(context) => BlocProvider.of(context);
 
-  editNote(NoteModel note) {
+  void editNote(NoteModel note) {
     emit(EditNoteScreenLoadingState());
+
     try {
-      note.title = title.trim() == '' ? note.title : title;
-      note.description =
-          description.trim() == '' ? note.description : description;
-      emit(EditNoteScreenSuccessState());
+      bool hasChanges = false;
+
+      if (title.text.trim().isNotEmpty && title.text.trim() != note.title) {
+        note.title = title.text.trim();
+        hasChanges = true;
+      }
+      if (description.text.trim().isNotEmpty &&
+          description.text.trim() != note.description) {
+        note.description = description.text.trim();
+        hasChanges = true;
+      }
+
+      if (hasChanges) {
+        emit(EditNoteScreenSuccessState());
+      } else {
+        emit(EditNoteScreenInitState());
+      }
     } on Exception catch (e) {
       emit(EditNoteScreenErrorState(e.toString()));
     }
@@ -34,7 +52,8 @@ class EditNoteScreenCubit extends Cubit<EditNoteScreenStates> {
 
   @override
   Future<void> close() {
-    isActive = false;
+    title.dispose();
+    description.dispose();
     return super.close();
   }
 }

@@ -15,7 +15,7 @@ class EditNoteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     NoteModel note = ModalRoute.of(context)!.settings.arguments as NoteModel;
     return BlocProvider(
-      create: (context) => EditNoteScreenCubit(),
+      create: (context) => EditNoteScreenCubit(note),
       child: BlocConsumer<EditNoteScreenCubit, EditNoteScreenStates>(
         listener: (context, state) {
           if (state is EditNoteScreenErrorState) {
@@ -70,9 +70,10 @@ class EditNoteScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomTextFormField(
+                        controller: cubit.title,
                         hintText: note.title,
                         onChanged: (title) {
-                          cubit.title = title;
+                          cubit.title.text = title;
                         },
                         isEditing: cubit.isEditing,
                       ),
@@ -82,8 +83,9 @@ class EditNoteScreen extends StatelessWidget {
                       Expanded(
                         child: CustomTextFormField(
                           onChanged: (description) {
-                            cubit.description = description;
+                            cubit.description.text = description;
                           },
+                          controller: cubit.description,
                           hintText: note.description,
                           maxLines: 10,
                           isEditing: cubit.isEditing,
