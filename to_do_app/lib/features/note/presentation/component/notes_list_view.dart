@@ -21,11 +21,9 @@ class NotesListView extends StatelessWidget {
           itemCount: notes.length,
           itemBuilder: (context, index) {
             return NotesCard(
-              title: notes[index].title,
-              description: notes[index].description,
-              date: notes[index].date,
+              note: notes[index],
               onTap: () {
-                // context.read<NotesCubit>().removeNote(index);
+                // BlocProvider.of<NotesCubit>(context).deleteNote(index);
               },
             );
           },

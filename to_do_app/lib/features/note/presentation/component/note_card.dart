@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/styles/assets_manager.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
 
 class NotesCard extends StatefulWidget {
   const NotesCard({
     super.key,
-    required this.title,
-    required this.description,
-    required this.date,
+    required this.note,
     required this.onTap,
   });
 
-  final String title;
-  final String description;
-  final String date;
+  final NoteModel note;
   final void Function()? onTap;
 
   @override
@@ -60,13 +57,13 @@ class _NotesCardState extends State<NotesCard>
         children: [
           ListTile(
             title: Text(
-              widget.title,
+              widget.note.title,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
             ),
             subtitle: Text(
-              widget.description,
+              widget.note.description,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color:
                         Theme.of(context).colorScheme.tertiary.withOpacity(0.6),
@@ -89,7 +86,7 @@ class _NotesCardState extends State<NotesCard>
             padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.sizeOf(context).width * 0.035),
             child: Text(
-              widget.date,
+              widget.note.date,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   color: Theme.of(context).colorScheme.onSurface,
                   fontSize: responsiveFont(
