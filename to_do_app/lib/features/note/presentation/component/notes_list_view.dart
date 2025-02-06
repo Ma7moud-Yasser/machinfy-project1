@@ -14,7 +14,6 @@ class NotesListView extends StatelessWidget {
         List<NoteModel> notes =
             BlocProvider.of<NotesCubit>(context).notes ?? [];
         return ListView.separated(
-          reverse: true,
           padding: EdgeInsets.zero,
           separatorBuilder: (context, index) => SizedBox(
             height: MediaQuery.sizeOf(context).height * 0.015,
@@ -23,9 +22,6 @@ class NotesListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return NotesCard(
               note: notes[index],
-              onTap: () {
-                notes.removeAt(index);
-              },
             );
           },
         );

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/core/styles/assets_manager.dart';
 import 'package:to_do_app/core/utils/responsive_font.dart';
+import 'package:to_do_app/features/note/presentation/controller/notes_cubit/notes_cubit.dart';
 
 class NotesCard extends StatefulWidget {
   const NotesCard({
     super.key,
     required this.note,
-    required this.onTap,
   });
 
   final NoteModel note;
-  final void Function()? onTap;
 
   @override
   State<NotesCard> createState() => _NotesCardState();
@@ -35,10 +34,11 @@ class _NotesCardState extends State<NotesCard>
     super.dispose();
   }
 
-  void _startAnimation() async {
+  void _startAnimationAndDeleteNote() async {
     await _animationController.forward();
     _animationController.reset();
-    if (widget.onTap != null) widget.onTap!();
+    widget.note.delete();
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
   }
 
   @override
@@ -71,7 +71,9 @@ class _NotesCardState extends State<NotesCard>
                   ),
             ),
             trailing: GestureDetector(
-              onTap: widget.note.delete,
+              onTap: () {
+                _startAnimationAndDeleteNote();
+              },
               child: Lottie.asset(
                 IconsAssets.trash,
                 width: MediaQuery.sizeOf(context).width * 0.15,

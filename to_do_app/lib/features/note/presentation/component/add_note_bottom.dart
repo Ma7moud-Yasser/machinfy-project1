@@ -6,6 +6,7 @@ import 'package:to_do_app/core/models/note_model.dart';
 import 'package:to_do_app/features/note/presentation/component/custom_text_form_field.dart';
 import 'package:to_do_app/features/note/presentation/controller/add_note_cubit/add_note_cubit.dart';
 import 'package:to_do_app/features/note/presentation/controller/add_note_cubit/add_note_states.dart';
+import 'package:to_do_app/features/note/presentation/controller/notes_cubit/notes_cubit.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({
@@ -21,6 +22,7 @@ class AddNoteBottomSheet extends StatelessWidget {
         listener: (context, state) {
           if (state is AddNoteSuccessState) {
             customSnackBar(context, message: 'Note added successfully!');
+            BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             Navigator.pop(context);
           } else if (state is AddNoteErrorState) {
             customSnackBar(context, message: state.message);
