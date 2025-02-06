@@ -14,12 +14,21 @@ class EditNoteScreenCubit extends Cubit<EditNoteScreenStates> {
   editNote(NoteModel note) {
     emit(EditNoteScreenLoadingState());
     try {
-      note.title = title;
-      note.description = description;
+      note.title = title == '' ? note.title : title;
+      note.description = description == '' ? note.description : description;
       emit(EditNoteScreenSuccessState());
     } on Exception catch (e) {
       emit(EditNoteScreenErrorState(e.toString()));
     }
+  }
+
+  void toggleEditing(NoteModel note) {
+    if (isEditing) {
+      editNote(note);
+      note.save();
+    }
+    isEditing = !isEditing;
+    emit(ToggleEditingState());
   }
 
   @override

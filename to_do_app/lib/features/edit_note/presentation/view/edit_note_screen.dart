@@ -57,10 +57,11 @@ class EditNoteScreen extends StatelessWidget {
                       ),
                       CustomIcon(
                         onTap: () {
-                          cubit.editNote(note);
-                          note.save();
+                          cubit.toggleEditing(note);
                         },
-                        icon: Icons.edit_calendar_rounded,
+                        icon: cubit.isEditing
+                            ? Icons.save_as_rounded
+                            : Icons.edit_calendar_rounded,
                       )
                     ],
                   ),
