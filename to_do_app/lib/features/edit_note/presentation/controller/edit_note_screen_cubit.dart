@@ -14,8 +14,9 @@ class EditNoteScreenCubit extends Cubit<EditNoteScreenStates> {
   editNote(NoteModel note) {
     emit(EditNoteScreenLoadingState());
     try {
-      note.title = title == '' ? note.title : title;
-      note.description = description == '' ? note.description : description;
+      note.title = title.trim() == '' ? note.title : title;
+      note.description =
+          description.trim() == '' ? note.description : description;
       emit(EditNoteScreenSuccessState());
     } on Exception catch (e) {
       emit(EditNoteScreenErrorState(e.toString()));
