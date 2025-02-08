@@ -8,10 +8,9 @@ part 'notes_state.dart';
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
 
-  List<NoteModel>? notes; // قائمة تحتوي على كل الملاحظات.
-  List<NoteModel>? searchResults; // قائمة لنتائج البحث.
+  List<NoteModel>? notes;
+  List<NoteModel>? searchResults;
 
-  // جلب جميع الملاحظات من Hive.
   void fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(AppString.notesBox);
     notes = notesBox.values.toList();
