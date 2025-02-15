@@ -1,11 +1,13 @@
 import 'package:ecommerce_app/core/styles/theme_manager.dart';
+import 'package:ecommerce_app/core/utils/bloc_observer.dart';
 import 'package:ecommerce_app/core/utils/cache_manager.dart';
 import 'package:ecommerce_app/ex_useCach.dart';
-import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   await CacheManager.init();
 
   // Load saved theme mode from cache

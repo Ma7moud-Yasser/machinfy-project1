@@ -2,19 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/core/styles/fonts_manager.dart';
 
 abstract class StyleManager {
-  // دالة لحساب حجم الخط المتجاوب
   static double responsiveFont(BuildContext context, double fontSize) {
     double scale = scaleFactorCalc(context);
     double scaledFontSize = fontSize * scale;
 
-    // الحد الأقصى 120% والحد الأدنى 80%
     double max = fontSize * 1.2;
     double min = fontSize * 0.8;
 
     return scaledFontSize.clamp(min, max);
   }
 
-  // دالة لحساب عامل التحجيم بناءً على عرض الشاشة
   static double scaleFactorCalc(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 

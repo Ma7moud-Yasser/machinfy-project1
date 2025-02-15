@@ -35,8 +35,13 @@ class ThemeManager {
 
   // Light Theme
   static ThemeData get lightMode => ThemeData(
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+        TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+      },
+    ),
     colorScheme: const ColorScheme.light(
-      background: SecondaryColor.secondary200,
       primary: NeutralColor.neutral200,
       secondary: Colors.white54,
       surface: Colors.white,
@@ -55,8 +60,13 @@ class ThemeManager {
 
   // Dark Theme
   static ThemeData get darkMode => ThemeData(
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+        TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+      },
+    ),
     colorScheme: ColorScheme.dark(
-      background: Colors.grey.shade900,
       primary: Colors.grey.shade800,
       secondary: Colors.grey.shade600,
       surface: Colors.black,
