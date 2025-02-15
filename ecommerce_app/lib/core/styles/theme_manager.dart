@@ -33,6 +33,12 @@ class ThemeManager {
     await CacheManager.saveThemeMode(mode.toString().split('.').last);
   }
 
+  static Future<void> toggleTheme() async {
+    themeNotifier.value == ThemeMode.light
+        ? await setThemeMode(ThemeMode.dark)
+        : await setThemeMode(ThemeMode.light);
+  }
+
   // Light Theme
   static ThemeData get lightMode => ThemeData(
     pageTransitionsTheme: const PageTransitionsTheme(
@@ -67,9 +73,9 @@ class ThemeManager {
       },
     ),
     colorScheme: ColorScheme.dark(
-      primary: Colors.grey.shade800,
-      secondary: Colors.grey.shade600,
-      surface: Colors.black,
+      primary: Colors.white,
+      secondary: Colors.orange,
+      surface: Colors.green,
     ),
     scaffoldBackgroundColor: Colors.grey.shade900,
     cardColor: Colors.grey.shade800,
@@ -80,6 +86,17 @@ class ThemeManager {
       centerTitle: true,
       elevation: 0,
     ),
+    // elevatedButtonTheme: ElevatedButtonThemeData(
+    //   style: ElevatedButton.styleFrom(
+    //     backgroundColor: Colors.blueGrey,
+    //     foregroundColor: Colors.white,
+    //     shape: RoundedRectangleBorder(
+    //       borderRadius: BorderRadius.circular(ResponsivePadding.borderRadius),
+    //     ),
+
+    //     textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    //   ),
+    // ),
     useMaterial3: true,
   );
 }

@@ -1,56 +1,49 @@
 import 'package:flutter/material.dart';
 
-class ResponsivePadding {
-  static double horizontalPadding(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    if (width < 360) {
-      return 8.0;
-    } else if (width < 600) {
-      return 16.0;
-    } else if (width < 900) {
-      return 24.0;
+abstract class PaddingCalculator {
+  static const double small = 16.0;
+  static const double medium = 20.0;
+  static const double large = 24.0;
+  static const double extraLarge = 32.0;
+
+  static double getPadding(double value) {
+    if (value < 600) {
+      return small;
+    } else if (value < 800) {
+      return medium;
+    } else if (value < 1000) {
+      return large;
     } else {
-      return 32.0;
+      return extraLarge;
     }
   }
+}
 
-  static double verticalPadding(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    if (height < 600) {
-      return 8.0;
-    } else if (height < 800) {
-      return 16.0;
-    } else if (height < 1000) {
-      return 24.0;
-    } else {
-      return 32.0;
-    }
+abstract class PaddingBase {
+  EdgeInsets getPadding(BuildContext context);
+}
+
+class MainPadding implements PaddingBase {
+  @override
+  EdgeInsets getPadding(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final horizontal = PaddingCalculator.getPadding(size.width);
+    final vertical = PaddingCalculator.getPadding(size.height);
+
+    return EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
   }
+}
 
-  static EdgeInsets all(BuildContext context) {
-    final value = horizontalPadding(context);
-    return EdgeInsets.all(value);
-  }
+class CustomPadding implements PaddingBase {
+  final double left;
+  final double top;
+  final double right;
+  final double bottom;
 
-  static EdgeInsets symmetric(
-    BuildContext context, {
-    bool horizontal = true,
-    bool vertical = true,
-  }) {
-    final horizontalValue = horizontal ? horizontalPadding(context) : 0.0;
-    final verticalValue = vertical ? verticalPadding(context) : 0.0;
-    return EdgeInsets.symmetric(
-      horizontal: horizontalValue,
-      vertical: verticalValue,
-    );
-  }
+  CustomPadding({this.left = 0, this.top = 0, this.right = 0, this.bottom = 0});
 
-  static EdgeInsets only({
-    double left = 0,
-    double top = 0,
-    double right = 0,
-    double bottom = 0,
-  }) {
+  @override
+  EdgeInsets getPadding(BuildContext context) {
     return EdgeInsets.only(left: left, top: top, right: right, bottom: bottom);
   }
 }
