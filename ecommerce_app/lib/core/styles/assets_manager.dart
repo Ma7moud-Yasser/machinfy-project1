@@ -3,7 +3,7 @@ const String gameImagePath = "assets/games/images";
 const String iconPath = "assets/icons";
 
 class ImagesAssets {
-  //// Authentication
+  // Authentication
 
   // static const String login = "$imagePath/login.png";
   static const String logo = "$imagePath/logo.png";
