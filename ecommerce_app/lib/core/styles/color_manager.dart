@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-class XoGameColors {
-  static Color primaryColor = Color(0xFF00061a);
-  static Color secondaryColor = Color(0xFF001456);
-  static Color accentColor = Color(0xFF4169e8);
-}
-
 class PrimaryColor {
   static const primary100 = Color(0xffCCF5AC);
   static const primary200 = Color(0xffF7EDE2);

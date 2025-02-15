@@ -16,7 +16,7 @@ class ThemeManager {
       primary: Colors.grey.shade800,
       secondary: Colors.grey.shade600,
       surface: Colors.black,
-      onPrimary: Colors.white, // لون النصوص فوق الألوان الأساسية
+      onPrimary: Colors.white,
       onBackground: Colors.white70,
       onSurface: Colors.white60,
       onSecondary: Colors.white,
