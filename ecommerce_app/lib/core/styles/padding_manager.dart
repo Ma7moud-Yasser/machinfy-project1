@@ -14,6 +14,10 @@ class MainPadding extends PaddingBase {
   }
 }
 
+class IconPadding extends PaddingBase {
+  // code
+}
+
 class CustomPadding extends PaddingBase {
   final double left;
   final double top;
