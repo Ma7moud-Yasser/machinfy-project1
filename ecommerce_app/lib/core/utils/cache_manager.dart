@@ -54,8 +54,6 @@ class CacheManager {
 }
 
 class CacheKeys {
-  static const String studentModel = "studentModel";
-  static const String adminModel = "adminModel";
-  static const String parentModel = "parentModel";
+  static const String userModel = "userModel";
   static const String themeMode = "themeMode";
 }

@@ -11,7 +11,7 @@ void main() async {
   await CacheManager.init();
 
   // Load saved theme mode from cache
-  final savedTheme = CacheManager.getValueFromCache('themeMode');
+  final savedTheme = CacheManager.getValueFromCache(CacheKeys.themeMode);
   if (savedTheme != '_') {
     ThemeManager.setThemeMode(
       ThemeMode.values.firstWhere(
