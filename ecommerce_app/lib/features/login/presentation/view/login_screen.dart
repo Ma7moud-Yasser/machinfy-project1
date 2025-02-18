@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/components/custom_elevated_button.dart';
 import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
@@ -53,24 +54,9 @@ class LoginScreen extends StatelessWidget {
                   ),
                   RememberAndForgetPassword(),
 
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(
-                        SizeManager.getSize(context).width,
-                        SizeManager.getSize(context).height * 0.06,
-                      ),
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor: Theme.of(context).colorScheme.background,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusManager.small(context),
-                      ),
-                      textStyle: StyleManager.textStyle22(context).copyWith(
-                        color: Theme.of(context).colorScheme.background,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  CustomElevatedButton(
+                    textButton: AppString.login,
                     onPressed: () {},
-                    child: Text(AppString.login),
                   ),
                 ],
               ),
