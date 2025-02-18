@@ -42,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: StyleManager.textStyle18(
+          style: StyleManager.textStyle16(
             context,
           ).copyWith(fontWeight: FontWeight.w800),
         ),
@@ -56,12 +56,13 @@ class CustomTextFormField extends StatelessWidget {
           controller: controller,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: validator,
-          style: StyleManager.textStyle16(
-            context,
-          ).copyWith(fontWeight: FontWeight.bold),
+          style: StyleManager.textStyle14(context).copyWith(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.primary,
+          ),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: StyleManager.textStyle14(context),
+            hintStyle: StyleManager.textStyle12(context),
             disabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 width: 1,
