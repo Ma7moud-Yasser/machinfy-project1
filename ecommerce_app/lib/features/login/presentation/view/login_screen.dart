@@ -1,7 +1,9 @@
+import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
+import 'package:ecommerce_app/features/login/presentation/component/remember_forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,9 +31,25 @@ class LoginScreen extends StatelessWidget {
                     AppString.loginTitle,
                     style: StyleManager.textStyle22(
                       context,
-                    ).copyWith(fontWeight: FontWeight.w700),
+                    ).copyWith(fontWeight: FontWeight.w900),
                   ),
-                  // Text(?)
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
+                  CustomTextFormField(
+                    label: AppString.email,
+                    hintText: AppString.exEmail,
+                    prefixIconPath: IconsAssets.email,
+                    suffixIconWidget: SizedBox(),
+                  ),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+                  CustomTextFormField(
+                    label: AppString.password,
+                    hintText: AppString.exPassword,
+                    prefixIconPath: IconsAssets.password,
+                    suffixIconWidget: SvgPicture.asset(
+                      IconsAssets.passInVisible,
+                    ),
+                  ),
+                  RememberAndForgetPassword(),
                 ],
               ),
             ),
