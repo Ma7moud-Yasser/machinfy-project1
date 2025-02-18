@@ -18,10 +18,11 @@ class ImagesAssets {
 class IconsAssets {
   static const String logo = "$iconPath/logo.svg";
   static const String auth = "$iconPath/auth_icon.svg";
+  static const String email = "$iconPath/e-mail.svg";
+  static const String password = "$iconPath/password_lock.svg";
   static const String roll = "$iconPath/roll.svg";
   // static const String search = "$iconPath/search.svg";
   // static const String user = "$iconPath/user.svg";
   static const String home = "$iconPath/home.svg";
   static const String logout = "$iconPath/logout.svg";
-  static const String password = "$iconPath/password.svg";
 }
