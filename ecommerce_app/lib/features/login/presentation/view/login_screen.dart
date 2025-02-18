@@ -27,71 +27,103 @@ class LoginScreen extends StatelessWidget {
             body: Padding(
               padding: PaddingManager.main(context),
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SvgPicture.asset(IconsAssets.auth),
-                    Text(
-                      AppString.loginTitle,
-                      style: StyleManager.textStyle22(
-                        context,
-                      ).copyWith(fontWeight: FontWeight.w900),
-                    ),
-                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
-                    CustomTextFormField(
-                      controller: cubit.emailController,
-                      validator: (email) {
-                        ValidationManager.isValidEmailString(email.toString());
-                      },
-                      keyboardType: TextInputType.emailAddress,
-                      label: AppString.email,
-                      hintText: AppString.exEmail,
-                      prefixIconPath: IconsAssets.email,
-                      suffixIconWidget: SizedBox(),
-                    ),
-                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
-                    CustomTextFormField(
-                      controller: cubit.passwordController,
-                      label: AppString.password,
-                      hintText: AppString.exPassword,
-                      obscureText: true,
-                      keyboardType: TextInputType.visiblePassword,
-                      prefixIconPath: IconsAssets.password,
-                      suffixIconWidget: SvgPicture.asset(
-                        IconsAssets.passInVisible,
-                      ),
-                    ),
-                    RememberAndForgetPassword(),
+                child: Form(
+                  key: cubit.formKey,
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(IconsAssets.auth),
 
-                    CustomElevatedButton(
-                      textButton: AppString.login,
-                      onPressed: () {
-                        cubit.login();
-                      },
-                    ),
-                    Padding(
-                      padding: PaddingManager.dontHaveAnAccount(context),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 8,
-                        children: [
-                          Text(
-                            AppString.dontHaveAcc,
-                            style: StyleManager.textStyle14(context).copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          Text(
-                            AppString.signUp,
-                            style: StyleManager.textStyle16(context).copyWith(
-                              fontWeight: FontWeight.w800,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        AppString.loginTitle,
+                        style: StyleManager.textStyle22(
+                          context,
+                        ).copyWith(fontWeight: FontWeight.w900),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.03,
+                      ),
+                      CustomTextFormField(
+                        controller: cubit.emailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return AppString.emptyEmail;
+                          } else if (!ValidationManager.isValidEmail(value)) {
+                            return AppString.correctEmail;
+                          }
+                          return null;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        label: AppString.email,
+                        hintText: AppString.exEmail,
+                        prefixIconPath: IconsAssets.email,
+                        suffixIconWidget: SizedBox(),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.sizeOf(context).height * 0.02,
+                      ),
+                      CustomTextFormField(
+                        controller: cubit.passwordController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return AppString.emptyPassword;
+                          } else if (!ValidationManager.isValidPassword(
+                            value,
+                          )) {
+                            return AppString.correctPassword;
+                          }
+                          return null;
+                        },
+                        label: AppString.password,
+                        hintText: AppString.exPassword,
+                        obscureText: cubit.isVisible,
+                        keyboardType: TextInputType.visiblePassword,
+                        prefixIconPath: IconsAssets.password,
+                        suffixIconWidget: IconButton(
+                          onPressed: () {
+                            cubit.toggleVisiblePassword();
+                          },
+                          icon: SvgPicture.asset(
+                            !cubit.isVisible
+                                ? IconsAssets.passVisible
+                                : IconsAssets.passInVisible,
+                          ),
+                        ),
+                      ),
+                      RememberAndForgetPassword(),
+
+                      CustomElevatedButton(
+                        textButton: AppString.login,
+                        onPressed: () {
+                          if (cubit.formKey.currentState!.validate()) {
+                            cubit.login();
+                          }
+                        },
+                      ),
+                      Padding(
+                        padding: PaddingManager.dontHaveAnAccount(context),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          spacing: 8,
+                          children: [
+                            Text(
+                              AppString.dontHaveAcc,
+                              style: StyleManager.textStyle14(context).copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                            Text(
+                              AppString.signUp,
+                              style: StyleManager.textStyle16(context).copyWith(
+                                fontWeight: FontWeight.w800,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
