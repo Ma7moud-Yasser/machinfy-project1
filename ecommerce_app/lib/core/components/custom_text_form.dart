@@ -98,11 +98,11 @@ class CustomTextFormField extends StatelessWidget {
               borderRadius: BorderRadiusManager.small(context),
             ),
             suffixIcon: Padding(
-              padding: IconTextFormPadding.getPadding(context),
+              padding: PaddingManager.iconTextForm(context),
               child: suffixIconWidget,
             ),
             prefixIcon: Padding(
-              padding: IconTextFormPadding.getPadding(context),
+              padding: PaddingManager.iconTextForm(context),
               child: SvgPicture.asset(prefixIconPath),
             ),
           ),
