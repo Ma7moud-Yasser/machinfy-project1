@@ -21,6 +21,14 @@ class IconTextFormPadding extends PaddingBase {
   }
 }
 
+class RememberAndForgetPasswordPadding extends PaddingBase {
+  static EdgeInsets getPadding(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final vertical = size.height * 0.009;
+    return EdgeInsets.symmetric(vertical: vertical);
+  }
+}
+
 class CustomPadding extends PaddingBase {
   final double left;
   final double top;
