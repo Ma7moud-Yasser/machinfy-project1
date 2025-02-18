@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
+import 'package:ecommerce_app/core/utils/validation_manager.dart';
 import 'package:ecommerce_app/features/login/presentation/component/remember_forget_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +22,7 @@ class LoginScreen extends StatelessWidget {
       child: BlocConsumer<LoginScreenCubit, LoginScreenStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          // final cubit = LoginScreenCubit.get(context);
+          final cubit = LoginScreenCubit.get(context);
           return Scaffold(
             body: Padding(
               padding: PaddingManager.main(context),
@@ -37,6 +38,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
                     CustomTextFormField(
+                      controller: cubit.emailController,
+                      validator: (email) {
+                        ValidationManager.isValidEmailString(email.toString());
+                      },
+                      keyboardType: TextInputType.emailAddress,
                       label: AppString.email,
                       hintText: AppString.exEmail,
                       prefixIconPath: IconsAssets.email,
@@ -44,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
                     CustomTextFormField(
+                      controller: cubit.passwordController,
                       label: AppString.password,
                       hintText: AppString.exPassword,
                       obscureText: true,
@@ -57,7 +64,9 @@ class LoginScreen extends StatelessWidget {
 
                     CustomElevatedButton(
                       textButton: AppString.login,
-                      onPressed: () {},
+                      onPressed: () {
+                        cubit.login();
+                      },
                     ),
                     Padding(
                       padding: PaddingManager.dontHaveAnAccount(context),
