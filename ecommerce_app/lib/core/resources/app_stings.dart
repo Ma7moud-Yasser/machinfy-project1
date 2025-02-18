@@ -1,6 +1,16 @@
 class AppString {
   static String appName = 'Jawda';
   static String appSubName = 'Find. Click. Smile';
+  static String onBoardingTitle1 =
+      'Step into a world of limitless style and seamless shopping 🛍️';
+  static String onBoardingSubTitle1 =
+      'We bring you the best offers for all products in one place at your fingertips at all times.';
+  static String onBoardingTitle2 = '“Your perfect find is just a tap away”';
+  static String onBoardingSubTitle2 =
+      'You\'ll find discounts that suit your aspirations and needs with ease, with a wide range of options.';
+  static String onBoardingTitle3 = '“Discover the art of shopping"';
+  static String onBoardingSubTitle3 =
+      'Let\'s start your search right away, we\'re waiting for you to make the best offers all the time.';
   static String loginTitle = 'You\'re one step closer to start';
   static String login = 'Log in';
   static String signUpTitle = 'You\'re one step closer to start';
@@ -17,4 +27,5 @@ class AppString {
   static String correctEmail = 'Invalid email';
   static String correctPassword =
       'Password must be at least 8 characters, with uppercase, lowercase, number, and special character';
+  static String skip = 'Skip';
 }
