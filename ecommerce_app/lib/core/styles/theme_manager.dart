@@ -92,17 +92,7 @@ class ThemeManager {
       centerTitle: true,
       elevation: 0,
     ),
-    // elevatedButtonTheme: ElevatedButtonThemeData(
-    //   style: ElevatedButton.styleFrom(
-    //     backgroundColor: Colors.blueGrey,
-    //     foregroundColor: Colors.white,
-    //     shape: RoundedRectangleBorder(
-    //       borderRadius: BorderRadius.circular(ResponsivePadding.borderRadius),
-    //     ),
 
-    //     textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-    //   ),
-    // ),
     useMaterial3: true,
   );
 }
