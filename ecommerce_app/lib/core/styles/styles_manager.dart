@@ -34,7 +34,7 @@ abstract class StyleManager {
 
     Color color;
     if (fontSize < 16) {
-      color = colorScheme.tertiary;
+      color = colorScheme.outline;
     } else if (fontSize <= 24) {
       color = colorScheme.primary;
     } else {
