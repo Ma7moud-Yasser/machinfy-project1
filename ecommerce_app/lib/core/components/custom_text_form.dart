@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
