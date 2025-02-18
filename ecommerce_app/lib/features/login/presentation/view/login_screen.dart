@@ -90,7 +90,6 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       RememberAndForgetPassword(),
-
                       CustomElevatedButton(
                         textButton: AppString.login,
                         onPressed: () {
