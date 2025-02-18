@@ -14,8 +14,11 @@ class MainPadding extends PaddingBase {
   }
 }
 
-class IconPadding extends PaddingBase {
-  // code
+class IconTextFormPadding extends PaddingBase {
+  static EdgeInsets getPadding(BuildContext context) {
+    final size = MediaQuery.of(context).size.width * .03;
+    return EdgeInsets.all(size);
+  }
 }
 
 class CustomPadding extends PaddingBase {
