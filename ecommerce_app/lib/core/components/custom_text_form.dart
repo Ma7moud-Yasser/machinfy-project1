@@ -4,7 +4,7 @@ import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final String hintText;
   final TextEditingController? controller;
@@ -35,33 +35,38 @@ class CustomTextFormField extends StatelessWidget {
   });
 
   @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 8,
       children: [
         Text(
-          label,
+          widget.label,
           style: StyleManager.textStyle16(
             context,
           ).copyWith(fontWeight: FontWeight.w800),
         ),
         TextFormField(
-          obscureText: obscureText,
-          keyboardType: keyboardType,
-          enabled: isEditing,
-          onChanged: onChanged,
-          maxLines: maxLines,
-          maxLength: maxLength,
-          controller: controller,
+          obscureText: widget.obscureText,
+          keyboardType: widget.keyboardType,
+          enabled: widget.isEditing,
+          onChanged: widget.onChanged,
+          maxLines: widget.maxLines,
+          maxLength: widget.maxLength,
+          controller: widget.controller,
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: validator,
+          validator: widget.validator,
           style: StyleManager.textStyle14(context).copyWith(
             fontWeight: FontWeight.bold,
             color: Theme.of(context).colorScheme.primary,
           ),
           decoration: InputDecoration(
-            hintText: hintText,
+            hintText: widget.hintText,
             hintStyle: StyleManager.textStyle12(context),
             disabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
@@ -98,13 +103,10 @@ class CustomTextFormField extends StatelessWidget {
               ),
               borderRadius: BorderRadiusManager.small(context),
             ),
-            suffixIcon: Padding(
-              padding: PaddingManager.iconTextForm(context),
-              child: suffixIconWidget,
-            ),
+            suffixIcon: widget.suffixIconWidget,
             prefixIcon: Padding(
               padding: PaddingManager.iconTextForm(context),
-              child: SvgPicture.asset(prefixIconPath),
+              child: SvgPicture.asset(widget.prefixIconPath),
             ),
           ),
 
