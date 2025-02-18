@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/core/styles/fonts_manager.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class StyleManager {
   static double responsiveFont(BuildContext context, double fontSize) {
@@ -34,16 +35,16 @@ abstract class StyleManager {
 
     Color color;
     if (fontSize <= 16) {
-      color = colorScheme.onBackground;
+      color = colorScheme.tertiary;
     } else if (fontSize <= 24) {
-      color = colorScheme.primary;
+      color = colorScheme.surface;
     } else {
-      color = colorScheme.secondary;
+      color = colorScheme.primary;
     }
 
     return TextStyle(
       fontSize: adjustedFontSize,
-      fontFamily: FontFamily.poppins,
+      fontFamily: GoogleFonts.montserrat().fontFamily,
       fontWeight: fontWeight,
       color: color,
     );
@@ -71,4 +72,6 @@ abstract class StyleManager {
       getTextStyle(fontSize: 30, context: context);
   static TextStyle textStyle32(BuildContext context) =>
       getTextStyle(fontSize: 32, context: context);
+  static TextStyle textStyle50(BuildContext context) =>
+      getTextStyle(fontSize: 50, context: context, fontWeight: FontWeight.bold);
 }
