@@ -10,7 +10,7 @@ class RememberAndForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: RememberAndForgetPasswordPadding.getPadding(context),
+      padding: PaddingManager.rememberForgetPassword(context),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
