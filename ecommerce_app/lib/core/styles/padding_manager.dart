@@ -1,50 +1,43 @@
 import 'package:flutter/material.dart';
 
-abstract class PaddingBase {
-  static EdgeInsets getPadding(BuildContext context) => EdgeInsets.zero;
-}
-
-class MainPadding extends PaddingBase {
-  static EdgeInsets getPadding(BuildContext context) {
+class PaddingManager {
+  static EdgeInsets main(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final horizontal = size.width * 0.05;
-    final vertical = size.height * 0.03;
-
-    return EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
+    return EdgeInsets.symmetric(
+      horizontal: size.width * 0.05,
+      vertical: size.height * 0.03,
+    );
   }
-}
 
-class IconTextFormPadding extends PaddingBase {
-  static EdgeInsets getPadding(BuildContext context) {
-    final size = MediaQuery.of(context).size.width * .03;
-    return EdgeInsets.all(size);
+  static EdgeInsets iconTextForm(BuildContext context) {
+    return EdgeInsets.all(MediaQuery.of(context).size.width * 0.03);
   }
-}
 
-class RememberAndForgetPasswordPadding extends PaddingBase {
-  static EdgeInsets getPadding(BuildContext context) {
+  static EdgeInsets rememberForgetPassword(BuildContext context) {
+    return EdgeInsets.symmetric(
+      vertical: MediaQuery.of(context).size.height * 0.009,
+    );
+  }
+
+  static EdgeInsets dontHaveAnAccount(BuildContext context) {
+    return EdgeInsets.symmetric(
+      vertical: MediaQuery.of(context).size.height * 0.03,
+    );
+  }
+
+  static EdgeInsets custom({
+    required BuildContext context,
+    double left = 0,
+    double top = 0,
+    double right = 0,
+    double bottom = 0,
+  }) {
     final size = MediaQuery.of(context).size;
-    final vertical = size.height * 0.009;
-    return EdgeInsets.symmetric(vertical: vertical);
-  }
-}
-
-class CustomPadding extends PaddingBase {
-  final double left;
-  final double top;
-  final double right;
-  final double bottom;
-
-  CustomPadding({this.left = 0, this.top = 0, this.right = 0, this.bottom = 0});
-
-  EdgeInsets getPadding(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return EdgeInsets.only(
-      left: left == 0 ? size.width * 0.04 : left,
-      top: top == 0 ? size.height * 0.02 : top,
-      right: right == 0 ? size.width * 0.04 : right,
-      bottom: bottom == 0 ? size.height * 0.02 : bottom,
+      left: left > 0 ? left : size.width * 0.04,
+      top: top > 0 ? top : size.height * 0.02,
+      right: right > 0 ? right : size.width * 0.04,
+      bottom: bottom > 0 ? bottom : size.height * 0.02,
     );
   }
 }
