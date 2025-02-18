@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
+import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
+import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/features/login/presentation/component/remember_forget_password.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +52,26 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   RememberAndForgetPassword(),
+
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(
+                        SizeManager.getSize(context).width,
+                        SizeManager.getSize(context).height * 0.06,
+                      ),
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      foregroundColor: Theme.of(context).colorScheme.background,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusManager.small(context),
+                      ),
+                      textStyle: StyleManager.textStyle22(context).copyWith(
+                        color: Theme.of(context).colorScheme.background,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(AppString.login),
+                  ),
                 ],
               ),
             ),
