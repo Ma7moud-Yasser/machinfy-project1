@@ -15,6 +15,8 @@ class CustomTextFormField extends StatelessWidget {
   final String label;
   final String prefixIconPath;
   final Widget suffixIconWidget;
+  final bool obscureText;
+  final TextInputType? keyboardType;
 
   const CustomTextFormField({
     this.validator,
@@ -24,6 +26,8 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLength,
     this.onChanged,
     this.isEditing = true,
+    this.obscureText = false,
+    this.keyboardType,
     required this.label,
     required this.prefixIconPath,
     required this.suffixIconWidget,
@@ -43,6 +47,8 @@ class CustomTextFormField extends StatelessWidget {
           ).copyWith(fontWeight: FontWeight.w800),
         ),
         TextFormField(
+          obscureText: obscureText,
+          keyboardType: keyboardType,
           enabled: isEditing,
           onChanged: onChanged,
           maxLines: maxLines,
