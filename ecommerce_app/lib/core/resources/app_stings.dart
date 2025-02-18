@@ -4,10 +4,12 @@ class AppString {
   static String loginTitle = 'You\'re one step closer to start';
   static String login = 'Log in';
   static String signUpTitle = 'You\'re one step closer to start';
+  static String signUp = 'Sign Up';
   static String email = 'E-mail';
   static String exEmail = 'ex: example@example.com';
   static String password = 'Password';
   static String exPassword = 'ex: ***************************';
   static String rememberMe = 'Remember me';
   static String forgetPassword = 'Forget password?';
+  static String dontHaveAcc = 'Don\'t have an account?';
 }
