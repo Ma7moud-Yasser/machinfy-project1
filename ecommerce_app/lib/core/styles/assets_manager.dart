@@ -23,6 +23,9 @@ class IconsAssets {
   static const String passVisible = "$iconPath/pass_visible.svg";
   static const String passInVisible = "$iconPath/pass_InVisible.svg";
   static const String roll = "$iconPath/roll.svg";
+  static const String onboarding1 = "$iconPath/onboarding1.svg";
+  static const String onboarding2 = "$iconPath/onboarding2.svg";
+  static const String onboarding3 = "$iconPath/onboarding3.svg";
   // static const String search = "$iconPath/search.svg";
   // static const String user = "$iconPath/user.svg";
   static const String home = "$iconPath/home.svg";
