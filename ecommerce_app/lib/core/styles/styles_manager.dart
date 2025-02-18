@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/core/styles/fonts_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class StyleManager {
@@ -34,10 +33,10 @@ abstract class StyleManager {
     final double adjustedFontSize = responsiveFont(context, fontSize);
 
     Color color;
-    if (fontSize <= 16) {
+    if (fontSize < 16) {
       color = colorScheme.tertiary;
     } else if (fontSize <= 24) {
-      color = colorScheme.surface;
+      color = colorScheme.primary;
     } else {
       color = colorScheme.primary;
     }
