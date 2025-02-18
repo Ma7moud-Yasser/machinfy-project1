@@ -20,7 +20,7 @@ class IconsAssets {
   static const String auth = "$iconPath/auth_icon.svg";
   static const String email = "$iconPath/e-mail.svg";
   static const String password = "$iconPath/password_lock.svg";
-  static const String passVisible = "$iconPath/pass_visible.svg.svg";
+  static const String passVisible = "$iconPath/pass_visible.svg";
   static const String passInVisible = "$iconPath/pass_InVisible.svg";
   static const String roll = "$iconPath/roll.svg";
   // static const String search = "$iconPath/search.svg";
