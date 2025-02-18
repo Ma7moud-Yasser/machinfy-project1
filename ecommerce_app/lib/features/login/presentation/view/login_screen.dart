@@ -1,0 +1,43 @@
+import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/styles/assets_manager.dart';
+import 'package:ecommerce_app/core/styles/padding_manager.dart';
+import 'package:ecommerce_app/core/styles/styles_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import '../controller/login_screen_cubit.dart';
+import '../controller/login_screen_states.dart';
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => LoginScreenCubit(),
+      child: BlocConsumer<LoginScreenCubit, LoginScreenStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          // final cubit = LoginScreenCubit.get(context);
+          return Scaffold(
+            body: Padding(
+              padding: MainPadding.getPadding(context),
+              child: Column(
+                children: [
+                  SvgPicture.asset(IconsAssets.auth),
+                  Text(
+                    AppString.loginTitle,
+                    style: StyleManager.textStyle22(
+                      context,
+                    ).copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  // Text(?)
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
