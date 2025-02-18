@@ -43,7 +43,7 @@ abstract class StyleManager {
 
     return TextStyle(
       fontSize: adjustedFontSize,
-      fontFamily: GoogleFonts.montserrat().fontFamily,
+      fontFamily: GoogleFonts.poppins().fontFamily,
       fontWeight: fontWeight,
       color: color,
     );
