@@ -12,4 +12,9 @@ class AppString {
   static String rememberMe = 'Remember me';
   static String forgetPassword = 'Forget password?';
   static String dontHaveAcc = 'Don\'t have an account?';
+  static String emptyEmail = 'E-mail is empty';
+  static String emptyPassword = 'Password is empty';
+  static String correctEmail = 'Invalid email';
+  static String correctPassword =
+      'Password must be at least 8 characters, with uppercase, lowercase, number, and special character';
 }
