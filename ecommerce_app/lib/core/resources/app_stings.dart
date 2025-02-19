@@ -13,7 +13,7 @@ class AppString {
       'Let\'s start your search right away, we\'re waiting for you to make the best offers all the time.';
   static String loginTitle = 'You\'re one step closer to start';
   static String login = 'Log in';
-  static String signUpTitle = 'You\'re one step closer to start';
+  static String signUpTitle = 'Let\'s start building your profile';
   static String signUp = 'Sign Up';
   static String email = 'E-mail';
   static String exEmail = 'ex: example@example.com';
@@ -25,8 +25,17 @@ class AppString {
   static String emptyEmail = 'E-mail is empty';
   static String emptyPassword = 'Password is empty';
   static String correctEmail = 'Invalid email';
+  static String passwordDoesNotMatch = 'Password does not match';
   static String correctPassword =
       'Password must be at least 8 characters, with uppercase, lowercase, number, and special character';
   static String skip = 'Skip';
   static String getStarted = 'Get Started';
+  static String alreadyHaveAcc = 'Already have an account?';
+  static String phone = 'Phone';
+  static String city = 'City';
+  static String exCity = 'ex: Cairo';
+  static String emptyCity = 'City is empty';
+  static String emptyPhone = 'Phone is empty';
+  static String exPhone = 'ex: 01*******';
+  static String confirmPassword = 'Confirm Password';
 }
