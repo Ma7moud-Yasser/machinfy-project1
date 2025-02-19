@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'sign_in_screen_states.dart';
+import 'sign_up_screen_states.dart';
 
 class SignUpScreenCubit extends Cubit<SignUpScreenStates> {
   bool _isActive = true;
