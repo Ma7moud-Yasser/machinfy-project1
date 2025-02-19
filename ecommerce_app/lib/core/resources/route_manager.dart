@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/features/login/presentation/view/login_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
+import 'package:ecommerce_app/features/sign_in/presentation/view/sign_in_screen.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ class Routes {
   static const String splashScreen = "/splashScreen";
   static const String onBoardingScreen = "/onBoardingScreen";
   static const String loginScreen = "/loginScreen";
-  static const String registerScreen = "/registerScreen";
+  static const String signUpScreen = "/signUpScreen";
 }
 
 class RouteGenerator {
@@ -16,6 +17,8 @@ class RouteGenerator {
     switch (routeSettings.name) {
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case Routes.signUpScreen:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.loginScreen:
