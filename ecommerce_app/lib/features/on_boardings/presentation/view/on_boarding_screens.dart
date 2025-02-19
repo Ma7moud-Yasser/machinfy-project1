@@ -68,7 +68,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               onPressed: () {
                                 Navigator.pushReplacementNamed(
                                   context,
-                                  Routes.loginScreen,
+                                  Routes.authScreens,
                                 );
                               },
                               textButton: AppString.getStarted,
