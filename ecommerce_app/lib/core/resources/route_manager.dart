@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/features/login/presentation/view/login_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
-import 'package:ecommerce_app/features/sign_in/presentation/view/sign_in_screen.dart';
+import 'package:ecommerce_app/features/sign_up/presentation/view/sign_up_screen.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 
