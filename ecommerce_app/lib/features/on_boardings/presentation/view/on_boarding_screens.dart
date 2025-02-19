@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/components/custom_elevated_button.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/component/onBoarding_widget.dart';
@@ -64,7 +65,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: Column(
                           children: [
                             CustomElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  Routes.loginScreen,
+                                );
+                              },
                               textButton: AppString.getStarted,
                             ),
                           ],
