@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'auth_screens_states.dart';
 
 class AuthScreensCubit extends Cubit<AuthScreensStates> {
-  bool isVisible = false;
+  bool isNotVisible = true;
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -13,7 +13,7 @@ class AuthScreensCubit extends Cubit<AuthScreensStates> {
   static AuthScreensCubit get(context) => BlocProvider.of(context);
 
   void toggleVisiblePassword() {
-    isVisible = !isVisible;
+    isNotVisible = !isNotVisible;
     emit(ToggleVisiblePasswordState());
   }
 }

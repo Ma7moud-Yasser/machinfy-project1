@@ -13,12 +13,12 @@ class SignUpCubit extends Cubit<SignUpState> {
   TextEditingController cityController = TextEditingController();
   TextEditingController regionController = TextEditingController();
 
-  bool isVisible = false;
+  bool isNotVisible = true;
 
   void signUp() {}
 
   void toggleVisibleConfirmPassword() {
-    isVisible = !isVisible;
+    isNotVisible = !isNotVisible;
     emit(ToggleVisibleConfirmPasswordState());
   }
 }
