@@ -28,4 +28,5 @@ class AppString {
   static String correctPassword =
       'Password must be at least 8 characters, with uppercase, lowercase, number, and special character';
   static String skip = 'Skip';
+  static String getStarted = 'Get Started';
 }
