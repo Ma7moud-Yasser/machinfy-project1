@@ -17,7 +17,7 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   void signUp() {}
 
-  void toggleVisiblePassword() {
+  void toggleVisibleConfirmPassword() {
     isVisible = !isVisible;
     emit(ToggleVisibleConfirmPasswordState());
   }
