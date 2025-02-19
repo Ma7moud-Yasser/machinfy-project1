@@ -4,7 +4,6 @@ import 'auth_screens_states.dart';
 
 class AuthScreensCubit extends Cubit<AuthScreensStates> {
   bool isVisible = false;
-  bool rememberMe = false;
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();

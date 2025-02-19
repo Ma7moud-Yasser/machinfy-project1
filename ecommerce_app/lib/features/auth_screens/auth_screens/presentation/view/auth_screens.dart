@@ -118,61 +118,80 @@ class _AuthScreensState extends State<AuthScreens> {
                       if (!isSignUp) RememberAndForgetPassword(),
 
                       if (isSignUp)
-                        Column(
-                          spacing: MediaQuery.of(context).size.height * 0.02,
-                          children: [
-                            /// 📌 **تأكيد كلمة المرور**
-                            CustomTextFormField(
-                              controller: signUpCubit.confirmPasswordController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return AppString.emptyPassword;
-                                } else if (value !=
-                                    authScreensCubit.passwordController.text) {
-                                  return AppString.passwordDoesNotMatch;
-                                }
-                                return null;
-                              },
-                              obscureText: authScreensCubit.isVisible,
-                              keyboardType: TextInputType.visiblePassword,
-                              label: AppString.confirmPassword,
-                              hintText: AppString.exPassword,
-                              prefixIconPath: IconsAssets.password,
-                              suffixIconWidget: SizedBox(),
-                            ),
+                        BlocConsumer<SignUpCubit, SignUpState>(
+                          listener: (context, state) {},
+                          builder: (context, state) {
+                            return Column(
+                              spacing:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              children: [
+                                /// 📌 **تأكيد كلمة المرور**
+                                CustomTextFormField(
+                                  controller:
+                                      signUpCubit.confirmPasswordController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return AppString.emptyPassword;
+                                    } else if (value !=
+                                        authScreensCubit
+                                            .passwordController
+                                            .text) {
+                                      return AppString.passwordDoesNotMatch;
+                                    }
+                                    return null;
+                                  },
+                                  obscureText: signUpCubit.isVisible,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  label: AppString.confirmPassword,
+                                  hintText: AppString.exPassword,
+                                  prefixIconPath: IconsAssets.password,
+                                  suffixIconWidget: IconButton(
+                                    onPressed: () {
+                                      signUpCubit
+                                          .toggleVisibleConfirmPassword();
+                                    },
+                                    icon: SvgPicture.asset(
+                                      signUpCubit.isVisible
+                                          ? IconsAssets.passVisible
+                                          : IconsAssets.passInVisible,
+                                    ),
+                                  ),
+                                ),
 
-                            /// 📌 **حقل رقم الهاتف**
-                            CustomTextFormField(
-                              controller: signUpCubit.phoneController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return AppString.emptyPhone;
-                                }
-                                return null;
-                              },
-                              keyboardType: TextInputType.phone,
-                              label: AppString.phone,
-                              hintText: AppString.exPhone,
-                              prefixIconPath: IconsAssets.email,
-                              suffixIconWidget: SizedBox(),
-                            ),
+                                /// 📌 **حقل رقم الهاتف**
+                                CustomTextFormField(
+                                  controller: signUpCubit.phoneController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return AppString.emptyPhone;
+                                    }
+                                    return null;
+                                  },
+                                  keyboardType: TextInputType.phone,
+                                  label: AppString.phone,
+                                  hintText: AppString.exPhone,
+                                  prefixIconPath: IconsAssets.email,
+                                  suffixIconWidget: SizedBox(),
+                                ),
 
-                            /// 📌 **حقل المدينة**
-                            CustomTextFormField(
-                              controller: signUpCubit.cityController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return AppString.emptyCity;
-                                }
-                                return null;
-                              },
-                              keyboardType: TextInputType.text,
-                              label: AppString.city,
-                              hintText: AppString.exCity,
-                              prefixIconPath: IconsAssets.email,
-                              suffixIconWidget: SizedBox(),
-                            ),
-                          ],
+                                /// 📌 **حقل المدينة**
+                                CustomTextFormField(
+                                  controller: signUpCubit.cityController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return AppString.emptyCity;
+                                    }
+                                    return null;
+                                  },
+                                  keyboardType: TextInputType.text,
+                                  label: AppString.city,
+                                  hintText: AppString.exCity,
+                                  prefixIconPath: IconsAssets.email,
+                                  suffixIconWidget: SizedBox(),
+                                ),
+                              ],
+                            );
+                          },
                         ),
 
                       SizedBox(
