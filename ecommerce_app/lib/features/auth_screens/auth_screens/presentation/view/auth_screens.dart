@@ -119,6 +119,7 @@ class _AuthScreensState extends State<AuthScreens> {
 
                       if (isSignUp)
                         Column(
+                          spacing: MediaQuery.of(context).size.height * 0.02,
                           children: [
                             /// 📌 **تأكيد كلمة المرور**
                             CustomTextFormField(
