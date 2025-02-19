@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/components/custom_elevated_button.dart';
 import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
@@ -111,11 +112,21 @@ class LoginScreen extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
-                            Text(
-                              AppString.signUp,
-                              style: StyleManager.textStyle16(context).copyWith(
-                                fontWeight: FontWeight.w800,
-                                color: Theme.of(context).colorScheme.primary,
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  Routes.signUpScreen,
+                                );
+                              },
+                              child: Text(
+                                AppString.signUp,
+                                style: StyleManager.textStyle16(
+                                  context,
+                                ).copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
                               ),
                             ),
                           ],
