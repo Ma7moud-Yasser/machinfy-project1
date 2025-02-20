@@ -5,7 +5,6 @@ import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/core/utils/validation_manager.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/components/button_sheet.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/components/remember_forget_password.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/sin_up_cubit/sign_up_cubit.dart';
@@ -175,20 +174,7 @@ class _AuthScreensState extends State<AuthScreens> {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () async {
-                                      String? selectedCountry =
-                                          await showButtonSheet(
-                                            context,
-                                            AppString.country,
-                                            countries:
-                                                signUpCubit.getCountriesList(),
-                                          );
-
-                                      if (selectedCountry != null) {
-                                        signUpCubit.countryController.text =
-                                            selectedCountry;
-                                      }
-                                    },
+                                    onTap: () {},
                                     child: CustomTextFormField(
                                       controller: signUpCubit.countryController,
                                       validator: (value) {
