@@ -6,3 +6,5 @@ sealed class SignUpState {}
 final class SignUpInitial extends SignUpState {}
 
 final class ToggleVisibleConfirmPasswordState extends SignUpState {}
+
+final class SignUpUpdatedState extends SignUpState {}
