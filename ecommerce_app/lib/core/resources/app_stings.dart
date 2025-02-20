@@ -33,9 +33,12 @@ class AppString {
   static String alreadyHaveAcc = 'Already have an account?';
   static String phone = 'Phone';
   static String city = 'City';
+  static String country = 'Country';
+  static String region = 'Region';
   static String exCity = 'ex: Cairo';
   static String emptyCity = 'City is empty';
   static String emptyPhone = 'Phone is empty';
   static String exPhone = 'ex: 01*******';
   static String confirmPassword = 'Confirm Password';
+  static String search = 'Search';
 }
