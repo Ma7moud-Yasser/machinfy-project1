@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
+import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/core/utils/validation_manager.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/components/remember_forget_password.dart';
@@ -94,7 +95,7 @@ class _AuthScreensState extends State<AuthScreens> {
                           suffixIconWidget: SizedBox(),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
+                          height: SizeManager.getSize(context).height * 0.02,
                         ),
                         // Password Field
                         CustomTextFormField(
@@ -132,7 +133,10 @@ class _AuthScreensState extends State<AuthScreens> {
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         // remember Me Field
-                        if (!isSignUp) RememberAndForgetPassword(),
+                        if (!isSignUp)
+                          RememberAndForgetPassword(
+                            emailController: authScreensCubit.emailController,
+                          ),
                         // Sign Up UI
                         if (isSignUp)
                           BlocConsumer<SignUpCubit, SignUpState>(
