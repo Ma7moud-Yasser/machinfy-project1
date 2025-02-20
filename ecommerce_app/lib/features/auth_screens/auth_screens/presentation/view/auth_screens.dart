@@ -5,6 +5,7 @@ import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/core/utils/validation_manager.dart';
+import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/components/button_sheet.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/components/remember_forget_password.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/sin_up_cubit/sign_up_cubit.dart';
@@ -12,7 +13,6 @@ import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/co
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../controller/auth_cubit/auth_screens_cubit.dart';
 import '../controller/auth_cubit/auth_screens_states.dart';
 
@@ -156,37 +156,80 @@ class _AuthScreensState extends State<AuthScreens> {
                                       ),
                                     ),
                                   ),
-
-                                  /// 📌 **حقل رقم الهاتف**
-                                  CustomTextFormField(
-                                    controller: signUpCubit.phoneController,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return AppString.emptyPhone;
-                                      }
-                                      return null;
+                                  GestureDetector(
+                                    onTap: () {
+                                      showButtonSheet(
+                                        context,
+                                        AppString.country,
+                                      );
                                     },
-                                    keyboardType: TextInputType.phone,
-                                    label: AppString.phone,
-                                    hintText: AppString.exPhone,
-                                    prefixIconPath: IconsAssets.email,
-                                    suffixIconWidget: SizedBox(),
+                                    child: CustomTextFormField(
+                                      controller: signUpCubit.cityController,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return AppString.emptyCity;
+                                        }
+                                        return null;
+                                      },
+                                      keyboardType: TextInputType.text,
+                                      isEditing: false,
+                                      label: AppString.country,
+                                      hintText: AppString.exCity,
+                                      prefixIconPath: IconsAssets.egyptFlag,
+                                      suffixIconWidget: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(Icons.arrow_drop_down),
+                                      ),
+                                    ),
                                   ),
-
-                                  /// 📌 **حقل المدينة**
-                                  CustomTextFormField(
-                                    controller: signUpCubit.cityController,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return AppString.emptyCity;
-                                      }
-                                      return null;
-                                    },
-                                    keyboardType: TextInputType.text,
-                                    label: AppString.city,
-                                    hintText: AppString.exCity,
-                                    prefixIconPath: IconsAssets.email,
-                                    suffixIconWidget: SizedBox(),
+                                  Row(
+                                    spacing: 15,
+                                    children: [
+                                      Expanded(
+                                        child: CustomTextFormField(
+                                          controller:
+                                              signUpCubit.cityController,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return AppString.emptyCity;
+                                            }
+                                            return null;
+                                          },
+                                          keyboardType: TextInputType.text,
+                                          isEditing: false,
+                                          label: AppString.city,
+                                          hintText: AppString.exCity,
+                                          prefixIconPath: IconsAssets.email,
+                                          suffixIconWidget: IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.arrow_drop_down),
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: CustomTextFormField(
+                                          controller:
+                                              signUpCubit.cityController,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return AppString.emptyCity;
+                                            }
+                                            return null;
+                                          },
+                                          keyboardType: TextInputType.text,
+                                          isEditing: false,
+                                          label: AppString.region,
+                                          hintText: AppString.exCity,
+                                          prefixIconPath: IconsAssets.email,
+                                          suffixIconWidget: IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.arrow_drop_down),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               );
