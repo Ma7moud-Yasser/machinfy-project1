@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RememberAndForgetPassword extends StatefulWidget {
-  const RememberAndForgetPassword({super.key});
-
+  const RememberAndForgetPassword({super.key, required this.emailController});
+  final TextEditingController emailController;
   @override
   State<RememberAndForgetPassword> createState() =>
       _RememberAndForgetPasswordState();
@@ -57,7 +57,11 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.forgetPasswordScreens);
+                  Navigator.pushNamed(
+                    context,
+                    Routes.forgetPasswordScreens,
+                    arguments: widget.emailController.text,
+                  );
                 },
                 child: Text(
                   AppString.forgetPassword,
