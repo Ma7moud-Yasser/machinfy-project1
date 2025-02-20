@@ -41,4 +41,7 @@ class AppString {
   static String exPhone = 'ex: 01*******';
   static String confirmPassword = 'Confirm Password';
   static String search = 'Search';
+  static String userName = 'User Name';
+  static String exUserName = 'ex: Ali';
+  static String userNameEmpty = 'Enter Your Name';
 }
