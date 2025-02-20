@@ -45,4 +45,7 @@ class AppString {
   static String exUserName = 'ex: Ali';
   static String userNameEmpty = 'Enter Your Name';
   static String oops = 'Oops!';
+  static String submit = 'Submit';
+  static String forgetPasswordTitle =
+      'You forgot your password, no problem, just leave us your email address and we will resolve the issue.';
 }

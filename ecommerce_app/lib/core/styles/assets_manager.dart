@@ -30,6 +30,7 @@ class IconsAssets {
   static const String search = "$iconPath/search.svg";
   static const String userName = "$iconPath/user_name.svg";
   static const String oops = "$iconPath/oops!!!.svg";
+  static const String arrowBack = "$iconPath/arrow_back.svg";
   // static const String search = "$iconPath/search.svg";
   // static const String user = "$iconPath/user.svg";
   static const String home = "$iconPath/home.svg";
