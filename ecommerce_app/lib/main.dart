@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
           themeMode: mode,
           initialRoute: Routes.splashScreen,
           onGenerateRoute: RouteGenerator.getRoute,
+          // home: MyHomePage(),
         );
       },
     );
