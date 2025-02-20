@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
@@ -54,11 +55,16 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
                   ),
                 ],
               ),
-              Text(
-                AppString.forgetPassword,
-                style: StyleManager.textStyle14(context).copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.primary,
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.forgetPasswordScreens);
+                },
+                child: Text(
+                  AppString.forgetPassword,
+                  style: StyleManager.textStyle14(context).copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                 ),
               ),
             ],
