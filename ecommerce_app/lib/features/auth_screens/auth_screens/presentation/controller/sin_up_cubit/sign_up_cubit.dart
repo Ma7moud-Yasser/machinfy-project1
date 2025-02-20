@@ -56,7 +56,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   void updateSelectedCountry(String country, String flag) {
-    cityController.text = country;
+    countryController.text = country;
     selectedFlag = flag;
     emit(SignUpUpdatedState());
   }
