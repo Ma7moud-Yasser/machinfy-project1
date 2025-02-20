@@ -56,6 +56,24 @@ class _AuthScreensState extends State<AuthScreens> {
                                   : AppString.loginTitle,
                         ),
                         // Email Field
+                        if (isSignUp)
+                          CustomTextFormField(
+                            controller: signUpCubit.userNameController,
+                            validator: (value) {
+                              if (value == null ||
+                                  value.isEmpty ||
+                                  value.trim().isEmpty) {
+                                return AppString.userNameEmpty;
+                              } else {
+                                return null;
+                              }
+                            },
+                            keyboardType: TextInputType.name,
+                            label: AppString.userName,
+                            hintText: AppString.exUserName,
+                            prefixIconPath: IconsAssets.userName,
+                            suffixIconWidget: SizedBox(),
+                          ),
                         CustomTextFormField(
                           controller:
                               isSignUp
@@ -157,14 +175,22 @@ class _AuthScreensState extends State<AuthScreens> {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {
-                                      showButtonSheet(
-                                        context,
-                                        AppString.country,
-                                      );
+                                    onTap: () async {
+                                      String? selectedCountry =
+                                          await showButtonSheet(
+                                            context,
+                                            AppString.country,
+                                            countries:
+                                                signUpCubit.getCountriesList(),
+                                          );
+
+                                      if (selectedCountry != null) {
+                                        signUpCubit.countryController.text =
+                                            selectedCountry;
+                                      }
                                     },
                                     child: CustomTextFormField(
-                                      controller: signUpCubit.cityController,
+                                      controller: signUpCubit.countryController,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return AppString.emptyCity;
@@ -210,7 +236,7 @@ class _AuthScreensState extends State<AuthScreens> {
                                       Expanded(
                                         child: CustomTextFormField(
                                           controller:
-                                              signUpCubit.cityController,
+                                              signUpCubit.regionController,
                                           validator: (value) {
                                             if (value == null ||
                                                 value.isEmpty) {
