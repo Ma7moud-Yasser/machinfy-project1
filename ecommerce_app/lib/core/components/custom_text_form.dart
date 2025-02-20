@@ -71,7 +71,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             disabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 width: 1,
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.background,
               ),
               borderRadius: BorderRadiusManager.small(context),
             ),
