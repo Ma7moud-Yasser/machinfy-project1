@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

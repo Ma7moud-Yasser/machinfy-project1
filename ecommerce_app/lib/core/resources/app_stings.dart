@@ -44,4 +44,5 @@ class AppString {
   static String userName = 'User Name';
   static String exUserName = 'ex: Ali';
   static String userNameEmpty = 'Enter Your Name';
+  static String oops = 'Oops!';
 }

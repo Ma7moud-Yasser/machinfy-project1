@@ -5,10 +5,10 @@ import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/core/utils/validation_manager.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/components/remember_forget_password.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/controller/sin_up_cubit/sign_up_cubit.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/components/auth_title.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/components/remember_forget_password.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/sin_up_cubit/sign_up_cubit.dart';
+import 'package:ecommerce_app/features/auth_screens/components/auth_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -49,6 +49,7 @@ class _AuthScreensState extends State<AuthScreens> {
                     child: Column(
                       children: [
                         AuthTitleHeader(
+                          imagePath: IconsAssets.auth,
                           title:
                               isSignUp
                                   ? AppString.signUpTitle

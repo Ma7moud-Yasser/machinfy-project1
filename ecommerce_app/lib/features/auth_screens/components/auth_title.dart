@@ -1,16 +1,20 @@
-import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AuthTitleHeader extends StatelessWidget {
-  const AuthTitleHeader({super.key, required this.title});
+  const AuthTitleHeader({
+    super.key,
+    required this.title,
+    required this.imagePath,
+  });
   final String title;
+  final String imagePath;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(IconsAssets.auth),
+        SvgPicture.asset(imagePath),
 
         Text(
           title,

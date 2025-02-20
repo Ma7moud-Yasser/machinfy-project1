@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/features/auth_screens/forget_password/presentation/view/forget_password_screen.dart';
+import 'package:ecommerce_app/features/auth_screens/view/forget_password/presentation/view/forget_password_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
-import 'package:ecommerce_app/features/auth_screens/auth_screens/presentation/view/auth_screens.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/view/auth_screens.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 
