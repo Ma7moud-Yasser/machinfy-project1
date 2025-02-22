@@ -24,8 +24,6 @@ class AuthScreens extends StatefulWidget {
 }
 
 class _AuthScreensState extends State<AuthScreens> {
-  bool isSignUp = false;
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -52,12 +50,12 @@ class _AuthScreensState extends State<AuthScreens> {
                         AuthTitleHeader(
                           imagePath: IconsAssets.auth,
                           title:
-                              isSignUp
+                              authScreensCubit.isSignUp
                                   ? AppString.signUpTitle
                                   : AppString.loginTitle,
                         ),
                         // Email Field
-                        if (isSignUp)
+                        if (authScreensCubit.isSignUp)
                           CustomTextFormField(
                             controller: signUpCubit.userNameController,
                             validator: (value) {
@@ -75,9 +73,12 @@ class _AuthScreensState extends State<AuthScreens> {
                             prefixIconPath: IconsAssets.userName,
                             suffixIconWidget: SizedBox(),
                           ),
+                        SizedBox(
+                          height: SizeManager.getSize(context).height * 0.02,
+                        ),
                         CustomTextFormField(
                           controller:
-                              isSignUp
+                              authScreensCubit.isSignUp
                                   ? authScreensCubit.emailController
                                   : authScreensCubit.emailController,
                           validator: (value) {
@@ -100,7 +101,7 @@ class _AuthScreensState extends State<AuthScreens> {
                         // Password Field
                         CustomTextFormField(
                           controller:
-                              isSignUp
+                              authScreensCubit.isSignUp
                                   ? authScreensCubit.passwordController
                                   : authScreensCubit.passwordController,
                           validator: (value) {
@@ -133,12 +134,12 @@ class _AuthScreensState extends State<AuthScreens> {
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         // remember Me Field
-                        if (!isSignUp)
+                        if (!authScreensCubit.isSignUp)
                           RememberAndForgetPassword(
                             emailController: authScreensCubit.emailController,
                           ),
                         // Sign Up UI
-                        if (isSignUp)
+                        if (authScreensCubit.isSignUp)
                           BlocConsumer<SignUpCubit, SignUpState>(
                             listener: (context, state) {},
                             builder: (context, state) {
@@ -259,11 +260,13 @@ class _AuthScreensState extends State<AuthScreens> {
 
                         CustomElevatedButton(
                           textButton:
-                              isSignUp ? AppString.signUp : AppString.login,
+                              authScreensCubit.isSignUp
+                                  ? AppString.signUp
+                                  : AppString.login,
                           onPressed: () {
                             if (authScreensCubit.formKey.currentState!
                                 .validate()) {
-                              if (isSignUp) {
+                              if (authScreensCubit.isSignUp) {
                                 signUpCubit.signUp();
                               } else {
                                 loginCubit.login();
@@ -276,7 +279,7 @@ class _AuthScreensState extends State<AuthScreens> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              isSignUp
+                              authScreensCubit.isSignUp
                                   ? AppString.alreadyHaveAcc
                                   : AppString.dontHaveAcc,
                               style: StyleManager.textStyle14(context).copyWith(
@@ -286,12 +289,12 @@ class _AuthScreensState extends State<AuthScreens> {
                             ),
                             TextButton(
                               onPressed: () {
-                                setState(() {
-                                  isSignUp = !isSignUp;
-                                });
+                                authScreensCubit.toggleLoginAndSignUp();
                               },
                               child: Text(
-                                isSignUp ? AppString.login : AppString.signUp,
+                                authScreensCubit.isSignUp
+                                    ? AppString.login
+                                    : AppString.signUp,
                                 style: StyleManager.textStyle16(
                                   context,
                                 ).copyWith(

@@ -4,6 +4,7 @@ import 'auth_screens_states.dart';
 
 class AuthScreensCubit extends Cubit<AuthScreensStates> {
   bool isNotVisible = true;
+  bool isSignUp = false;
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -15,5 +16,11 @@ class AuthScreensCubit extends Cubit<AuthScreensStates> {
   void toggleVisiblePassword() {
     isNotVisible = !isNotVisible;
     emit(ToggleVisiblePasswordState());
+  }
+
+  void toggleLoginAndSignUp() {
+    passwordController.clear();
+    isSignUp = !isSignUp;
+    emit(ToggleLoginAndSignUpState());
   }
 }
