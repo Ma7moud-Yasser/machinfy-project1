@@ -13,10 +13,11 @@ class CustomTextFormField extends StatefulWidget {
   final void Function(String)? onChanged;
   final bool isEditing;
   final String label;
-  final String prefixIconPath;
+  final String? prefixIconPath;
   final Widget suffixIconWidget;
   final bool obscureText;
   final TextInputType? keyboardType;
+  final void Function()? onTap;
 
   const CustomTextFormField({
     this.validator,
@@ -26,10 +27,11 @@ class CustomTextFormField extends StatefulWidget {
     this.maxLength,
     this.onChanged,
     this.isEditing = true,
+    this.onTap,
     this.obscureText = false,
     this.keyboardType,
     required this.label,
-    required this.prefixIconPath,
+    this.prefixIconPath,
     required this.suffixIconWidget,
     super.key,
   });
@@ -56,6 +58,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           keyboardType: widget.keyboardType,
           enabled: widget.isEditing,
           onChanged: widget.onChanged,
+          onTap: widget.onTap,
           maxLines: widget.maxLines,
           maxLength: widget.maxLength,
           controller: widget.controller,
@@ -104,10 +107,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               borderRadius: BorderRadiusManager.small(context),
             ),
             suffixIcon: widget.suffixIconWidget,
-            prefixIcon: Padding(
-              padding: PaddingManager.iconTextForm(context),
-              child: SvgPicture.asset(widget.prefixIconPath),
-            ),
+            prefixIcon:
+                widget.prefixIconPath == null || widget.prefixIconPath == ''
+                    ? null
+                    : Padding(
+                      padding: PaddingManager.iconTextForm(context),
+                      child: SvgPicture.asset(widget.prefixIconPath!),
+                    ),
           ),
           onTapOutside: (event) {
             FocusScope.of(context).unfocus();
