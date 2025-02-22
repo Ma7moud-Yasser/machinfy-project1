@@ -137,6 +137,7 @@ class _AuthScreensState extends State<AuthScreens> {
                         if (!authScreensCubit.isSignUp)
                           RememberAndForgetPassword(
                             emailController: authScreensCubit.emailController,
+                            rememberMe: loginCubit.rememberMe,
                           ),
                         // Sign Up UI
                         if (authScreensCubit.isSignUp)
