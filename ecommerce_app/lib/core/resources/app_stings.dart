@@ -46,6 +46,15 @@ class AppString {
   static String userNameEmpty = 'Enter Your Name';
   static String oops = 'Oops!';
   static String submit = 'Submit';
+  static String name = 'Name';
+  static String agreeToTermsAndConditions = 'Agree to Terms & Conditions';
+
   static String forgetPasswordTitle =
       'You forgot your password, no problem, just leave us your email address and we will resolve the issue.';
+  static String verificationCodeTitle =
+      "Verification code has been sent to E-mail";
+  static String enterVerificationCode = "Enter the verification code";
+  static String dontReceiveCode = "Don\'t receive a Code?";
+  static String resendCode = "Resend Code...";
+  static String confirm = "Confirm";
 }
