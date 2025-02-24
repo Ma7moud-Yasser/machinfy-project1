@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'forget_password_screen_states.dart';
 
 class ForgetPasswordScreenCubit extends Cubit<ForgetPasswordScreenStates> {
-  bool _isActive = true;
+  bool isActive = true;
   GlobalKey<FormState> formKey = GlobalKey();
   ForgetPasswordScreenCubit() : super(ForgetPasswordScreenInitState());
 
@@ -13,7 +13,7 @@ class ForgetPasswordScreenCubit extends Cubit<ForgetPasswordScreenStates> {
 
   @override
   Future<void> close() {
-    _isActive = false;
+    isActive = false;
     return super.close();
   }
 }

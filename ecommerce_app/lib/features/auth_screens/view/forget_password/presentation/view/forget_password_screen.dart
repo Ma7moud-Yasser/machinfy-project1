@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/components/custom_elevated_button.dart';
 import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
@@ -20,74 +21,76 @@ class ForgetPasswordScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => ForgetPasswordScreenCubit(),
 
-      child:
-          BlocConsumer<ForgetPasswordScreenCubit, ForgetPasswordScreenStates>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              final cubit = ForgetPasswordScreenCubit.get(context);
+      child: BlocConsumer<
+        ForgetPasswordScreenCubit,
+        ForgetPasswordScreenStates
+      >(
+        listener: (context, state) {},
+        builder: (context, state) {
+          final cubit = ForgetPasswordScreenCubit.get(context);
 
-              return Scaffold(
-                body: SafeArea(
-                  child: Padding(
-                    padding: PaddingManager.main(context),
-                    child: SingleChildScrollView(
-                      child: Form(
-                        key: cubit.formKey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          spacing: SizeManager.getSize(context).height * 0.02,
+          return Scaffold(
+            body: SafeArea(
+              child: Padding(
+                padding: PaddingManager.main(context),
+                child: SingleChildScrollView(
+                  child: Form(
+                    key: cubit.formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: SizeManager.getSize(context).height * 0.02,
+                      children: [
+                        Stack(
                           children: [
-                            Stack(
-                              children: [
-                                AuthTitleHeader(
-                                  imagePath: IconsAssets.oops,
-                                  title: AppString.oops,
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  icon: SvgPicture.asset(IconsAssets.arrowBack),
-                                ),
-                              ],
+                            AuthTitleHeader(
+                              imagePath: IconsAssets.oops,
+                              title: AppString.oops,
                             ),
-                            Text(
-                              textAlign: TextAlign.justify,
-                              AppString.forgetPasswordTitle,
-                              style: StyleManager.textStyle16(context),
-                            ),
-                            CustomTextFormField(
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return AppString.emptyEmail;
-                                } else if (!ValidationManager.isValidEmail(
-                                  value,
-                                )) {
-                                  return AppString.correctEmail;
-                                }
-                                return null;
-                              },
-                              controller: cubit.emailController,
-                              hintText: AppString.email,
-                              label: AppString.email,
-                              prefixIconPath: IconsAssets.email,
-                              suffixIconWidget: SizedBox(),
-                            ),
-                            CustomElevatedButton(
+                            IconButton(
                               onPressed: () {
-                                if (cubit.formKey.currentState!.validate()) {}
+                                Navigator.pop(context);
                               },
-                              textButton: AppString.submit,
+                              icon: SvgPicture.asset(IconsAssets.arrowBack),
                             ),
                           ],
                         ),
-                      ),
+                        Text(
+                          textAlign: TextAlign.justify,
+                          AppString.forgetPasswordTitle,
+                          style: StyleManager.textStyle16(context),
+                        ),
+                        CustomTextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return AppString.emptyEmail;
+                            } else if (!ValidationManager.isValidEmail(value)) {
+                              return AppString.correctEmail;
+                            }
+                            return null;
+                          },
+                          controller: cubit.emailController,
+                          hintText: AppString.email,
+                          label: AppString.email,
+                          prefixIconPath: IconsAssets.email,
+                          suffixIconWidget: SizedBox(),
+                        ),
+                        CustomElevatedButton(
+                          onPressed: () {
+                            if (cubit.formKey.currentState!.validate()) {
+                              Navigator.pushNamed(context, Routes.otpScreen);
+                            }
+                          },
+                          textButton: AppString.submit,
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              );
-            },
-          ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
