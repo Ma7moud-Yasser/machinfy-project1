@@ -14,7 +14,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool isEditing;
   final String label;
   final String? prefixIconPath;
-  final Widget suffixIconWidget;
+  final Widget? suffixIconWidget;
   final bool obscureText;
   final TextInputType? keyboardType;
   final void Function()? onTap;
@@ -32,7 +32,7 @@ class CustomTextFormField extends StatefulWidget {
     this.keyboardType,
     required this.label,
     this.prefixIconPath,
-    required this.suffixIconWidget,
+    this.suffixIconWidget,
     super.key,
   });
 
@@ -106,7 +106,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               ),
               borderRadius: BorderRadiusManager.small(context),
             ),
-            suffixIcon: widget.suffixIconWidget,
+            suffixIcon: widget.suffixIconWidget ?? widget.suffixIconWidget,
             prefixIcon:
                 widget.prefixIconPath == null || widget.prefixIconPath == ''
                     ? null
