@@ -3,12 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AuthTitleHeader extends StatelessWidget {
-  const AuthTitleHeader({
-    super.key,
-    required this.title,
-    required this.imagePath,
-  });
-  final String title;
+  const AuthTitleHeader({super.key, this.title, required this.imagePath});
+  final String? title;
   final String imagePath;
   @override
   Widget build(BuildContext context) {
@@ -17,7 +13,7 @@ class AuthTitleHeader extends StatelessWidget {
         SvgPicture.asset(imagePath),
 
         Text(
-          title,
+          title ?? '',
           style: StyleManager.textStyle22(
             context,
           ).copyWith(fontWeight: FontWeight.w900),
