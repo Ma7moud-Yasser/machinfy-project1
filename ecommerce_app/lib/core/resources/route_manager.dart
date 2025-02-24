@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/features/auth_screens/view/forget_password/presentation/view/forget_password_screen.dart';
+import 'package:ecommerce_app/features/auth_screens/view/o_t_p/presentation/view/o_t_p_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/view/auth_screens.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
@@ -11,6 +12,7 @@ class Routes {
   // static const String loginScreen = "/loginScreen";
   static const String authScreens = "/authScreens";
   static const String forgetPasswordScreens = "/forgetPasswordScreens";
+  static const String otpScreen = "/otpScreen";
 }
 
 class RouteGenerator {
@@ -24,6 +26,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.forgetPasswordScreens:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routes.otpScreen:
+        return MaterialPageRoute(builder: (_) => const OTPScreen());
       // case Routes.loginScreen:
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
       default:
