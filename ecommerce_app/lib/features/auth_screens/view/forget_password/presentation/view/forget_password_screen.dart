@@ -46,11 +46,16 @@ class ForgetPasswordScreen extends StatelessWidget {
                               imagePath: IconsAssets.oops,
                               title: AppString.oops,
                             ),
-                            IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: SvgPicture.asset(IconsAssets.arrowBack),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: SizeManager.getSize(context).height * 0.02,
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: SvgPicture.asset(IconsAssets.arrowBack),
+                              ),
                             ),
                           ],
                         ),
