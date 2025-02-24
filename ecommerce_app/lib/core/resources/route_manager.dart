@@ -13,6 +13,7 @@ class Routes {
   static const String authScreens = "/authScreens";
   static const String forgetPasswordScreens = "/forgetPasswordScreens";
   static const String otpScreen = "/otpScreen";
+  static const String resetPasswordScreen = "/resetPasswordScreen";
 }
 
 class RouteGenerator {
@@ -27,6 +28,8 @@ class RouteGenerator {
       case Routes.forgetPasswordScreens:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       case Routes.otpScreen:
+        return MaterialPageRoute(builder: (_) => const OTPScreen());
+      case Routes.resetPasswordScreen:
         return MaterialPageRoute(builder: (_) => const OTPScreen());
       // case Routes.loginScreen:
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
