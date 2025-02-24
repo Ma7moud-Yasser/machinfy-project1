@@ -23,4 +23,11 @@ class AuthScreensCubit extends Cubit<AuthScreensStates> {
     isSignUp = !isSignUp;
     emit(ToggleLoginAndSignUpState());
   }
+
+  @override
+  Future<void> close() {
+    passwordController.dispose();
+    emailController.dispose();
+    return super.close();
+  }
 }

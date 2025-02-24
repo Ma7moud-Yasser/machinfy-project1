@@ -75,4 +75,15 @@ class SignUpCubit extends Cubit<SignUpState> {
     isNotVisible = !isNotVisible;
     emit(ToggleVisibleConfirmPasswordState());
   }
+
+  @override
+  Future<void> close() {
+    userNameController.dispose();
+    confirmPasswordController.dispose();
+    phoneController.dispose();
+    countryController.dispose();
+    cityController.dispose();
+    regionController.dispose();
+    return super.close();
+  }
 }
