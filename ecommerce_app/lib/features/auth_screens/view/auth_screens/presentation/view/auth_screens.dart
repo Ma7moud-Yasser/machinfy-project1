@@ -208,43 +208,53 @@ class _AuthScreensState extends State<AuthScreens> {
                                     spacing: 15,
                                     children: [
                                       Expanded(
-                                        child: CustomTextFormField(
-                                          controller:
-                                              signUpCubit.cityController,
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return AppString.emptyCity;
-                                            }
-                                            return null;
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            countriesAlertDialog(context);
                                           },
-                                          keyboardType: TextInputType.text,
-                                          isEditing: false,
-                                          label: AppString.city,
-                                          hintText: AppString.exCity,
+                                          child: CustomTextFormField(
+                                            controller:
+                                                signUpCubit.cityController,
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return AppString.emptyCity;
+                                              }
+                                              return null;
+                                            },
+                                            keyboardType: TextInputType.text,
+                                            isEditing: false,
+                                            label: AppString.city,
+                                            hintText: AppString.exCity,
 
-                                          suffixIconWidget: Icon(
-                                            Icons.arrow_drop_down,
+                                            suffixIconWidget: Icon(
+                                              Icons.arrow_drop_down,
+                                            ),
                                           ),
                                         ),
                                       ),
                                       Expanded(
-                                        child: CustomTextFormField(
-                                          controller:
-                                              signUpCubit.regionController,
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return AppString.emptyCity;
-                                            }
-                                            return null;
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            countriesAlertDialog(context);
                                           },
-                                          keyboardType: TextInputType.text,
-                                          isEditing: false,
-                                          label: AppString.region,
-                                          hintText: AppString.exCity,
-                                          suffixIconWidget: Icon(
-                                            Icons.arrow_drop_down,
+                                          child: CustomTextFormField(
+                                            controller:
+                                                signUpCubit.regionController,
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return AppString.emptyCity;
+                                              }
+                                              return null;
+                                            },
+                                            keyboardType: TextInputType.text,
+                                            isEditing: false,
+                                            label: AppString.region,
+                                            hintText: AppString.exCity,
+                                            suffixIconWidget: Icon(
+                                              Icons.arrow_drop_down,
+                                            ),
                                           ),
                                         ),
                                       ),
