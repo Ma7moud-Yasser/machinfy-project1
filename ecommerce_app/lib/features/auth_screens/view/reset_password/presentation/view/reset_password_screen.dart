@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/components/custom_elevated_button.dart';
 import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
@@ -129,7 +130,13 @@ class ResetPasswordScreen extends StatelessWidget {
 
                         CustomElevatedButton(
                           onPressed: () {
-                            if (cubit.formKey.currentState!.validate()) {}
+                            if (cubit.formKey.currentState!.validate()) {
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                Routes.authScreens,
+                                (route) => false,
+                              );
+                            }
                           },
                           textButton: AppString.confirm,
                         ),
