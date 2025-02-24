@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/features/auth_screens/view/forget_password/presentation/view/forget_password_screen.dart';
 import 'package:ecommerce_app/features/auth_screens/view/o_t_p/presentation/view/o_t_p_screen.dart';
+import 'package:ecommerce_app/features/auth_screens/view/reset_password/presentation/view/reset_password_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/view/auth_screens.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
@@ -30,7 +31,7 @@ class RouteGenerator {
       case Routes.otpScreen:
         return MaterialPageRoute(builder: (_) => const OTPScreen());
       case Routes.resetPasswordScreen:
-        return MaterialPageRoute(builder: (_) => const OTPScreen());
+        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
       // case Routes.loginScreen:
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
       default:
