@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/components/countries_alert_dialog.dart';
 import 'package:ecommerce_app/core/components/custom_elevated_button.dart';
 import 'package:ecommerce_app/core/components/custom_text_form.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
@@ -181,7 +182,9 @@ class _AuthScreensState extends State<AuthScreens> {
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      countriesAlertDialog(context);
+                                    },
                                     child: CustomTextFormField(
                                       controller: signUpCubit.countryController,
                                       validator: (value) {
@@ -219,10 +222,9 @@ class _AuthScreensState extends State<AuthScreens> {
                                           isEditing: false,
                                           label: AppString.city,
                                           hintText: AppString.exCity,
-                                          prefixIconPath: IconsAssets.email,
-                                          suffixIconWidget: IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(Icons.arrow_drop_down),
+
+                                          suffixIconWidget: Icon(
+                                            Icons.arrow_drop_down,
                                           ),
                                         ),
                                       ),
@@ -241,10 +243,8 @@ class _AuthScreensState extends State<AuthScreens> {
                                           isEditing: false,
                                           label: AppString.region,
                                           hintText: AppString.exCity,
-                                          prefixIconPath: IconsAssets.email,
-                                          suffixIconWidget: IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(Icons.arrow_drop_down),
+                                          suffixIconWidget: Icon(
+                                            Icons.arrow_drop_down,
                                           ),
                                         ),
                                       ),
