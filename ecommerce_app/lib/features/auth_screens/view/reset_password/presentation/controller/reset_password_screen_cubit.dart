@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'reset_password_screen_states.dart';
@@ -35,9 +36,9 @@ class ResetPasswordScreenCubit extends Cubit<ResetPasswordScreenStates> {
     if (confirmPassword.isEmpty) {
       passwordMatchStatus.value = null; // لا تعرض أي شيء
     } else if (password == confirmPassword) {
-      passwordMatchStatus.value = 'Password Matching';
+      passwordMatchStatus.value = AppString.passwordMatching;
     } else {
-      passwordMatchStatus.value = 'Passwords do not match';
+      passwordMatchStatus.value = AppString.passwordDoesNotMatch;
     }
   }
 

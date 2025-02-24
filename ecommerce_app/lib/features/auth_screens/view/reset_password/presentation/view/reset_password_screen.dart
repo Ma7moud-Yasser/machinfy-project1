@@ -53,7 +53,7 @@ class ResetPasswordScreen extends StatelessWidget {
                         ),
 
                         ValueListenableBuilder<bool>(
-                          valueListenable: cubit.isVisibleConfirmPassword,
+                          valueListenable: cubit.isVisiblePassword,
                           builder: (context, isVisible, child) {
                             return CustomTextFormField(
                               hintText: AppString.exPassword,
@@ -110,7 +110,8 @@ class ResetPasswordScreen extends StatelessWidget {
                                           context,
                                         ).copyWith(
                                           color:
-                                              status == 'Password Matching'
+                                              status ==
+                                                      AppString.passwordMatching
                                                   ? Theme.of(
                                                     context,
                                                   ).colorScheme.secondary
@@ -125,9 +126,7 @@ class ResetPasswordScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // SizedBox(
-                        //   height: SizeManager.getSize(context).height * 0.03,
-                        // ),
+
                         CustomElevatedButton(
                           onPressed: () {
                             if (cubit.formKey.currentState!.validate()) {}

@@ -57,4 +57,5 @@ class AppString {
   static String dontReceiveCode = "Didn't receive a Code?";
   static String resendCode = "Resend Code...";
   static String confirm = "Confirm";
+  static String passwordMatching = "Password Matching";
 }
