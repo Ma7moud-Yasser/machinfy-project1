@@ -54,7 +54,7 @@ class AppString {
   static String verificationCodeTitle =
       "Verification code has been sent to E-mail";
   static String enterVerificationCode = "Enter the verification code";
-  static String dontReceiveCode = "Don\'t receive a Code?";
+  static String dontReceiveCode = "Didn't receive a Code?";
   static String resendCode = "Resend Code...";
   static String confirm = "Confirm";
 }
