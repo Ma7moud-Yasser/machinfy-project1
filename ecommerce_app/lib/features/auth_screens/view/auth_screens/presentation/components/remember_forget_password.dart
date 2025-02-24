@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class RememberAndForgetPassword extends StatefulWidget {
   RememberAndForgetPassword({
     super.key,
