@@ -114,7 +114,9 @@ class ResetPasswordScreen extends StatelessWidget {
                                                   ? Theme.of(
                                                     context,
                                                   ).colorScheme.secondary
-                                                  : Colors.red,
+                                                  : Theme.of(
+                                                    context,
+                                                  ).colorScheme.error,
                                         ),
                                       ),
                                     )
