@@ -6,13 +6,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
-  final String hintText;
+  final String? hintText;
   final TextEditingController? controller;
   final int? maxLines;
   final int? maxLength;
   final void Function(String)? onChanged;
   final bool isEditing;
-  final String label;
+  final String? label;
   final String? prefixIconPath;
   final Widget? suffixIconWidget;
   final bool obscureText;
@@ -30,7 +30,7 @@ class CustomTextFormField extends StatefulWidget {
     this.onTap,
     this.obscureText = false,
     this.keyboardType,
-    required this.label,
+    this.label = '',
     this.prefixIconPath,
     this.suffixIconWidget,
     super.key,
@@ -47,11 +47,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 8,
       children: [
-        Text(
-          widget.label,
-          style: StyleManager.textStyle16(
-            context,
-          ).copyWith(fontWeight: FontWeight.w800),
+        Visibility(
+          visible: widget.label?.isNotEmpty ?? false,
+          child: Text(
+            widget.label ?? '',
+            style: StyleManager.textStyle16(
+              context,
+            ).copyWith(fontWeight: FontWeight.w800),
+          ),
         ),
         TextFormField(
           obscureText: widget.obscureText,
