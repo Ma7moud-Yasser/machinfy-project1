@@ -10,9 +10,11 @@ class RememberAndForgetPassword extends StatefulWidget {
     super.key,
     required this.emailController,
     required this.rememberMe,
+    required this.onChanged,
   });
   final TextEditingController emailController;
   bool rememberMe = false;
+  void Function(bool?)? onChanged;
   @override
   State<RememberAndForgetPassword> createState() =>
       _RememberAndForgetPasswordState();
@@ -33,11 +35,7 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
               child: Checkbox(
                 side: BorderSide(color: Theme.of(context).colorScheme.outline),
                 value: widget.rememberMe,
-                onChanged: (value) {
-                  setState(() {
-                    widget.rememberMe = value!;
-                  });
-                },
+                onChanged: widget.onChanged,
               ),
             ),
             Text(

@@ -138,8 +138,11 @@ class _AuthScreensState extends State<AuthScreens> {
                         // remember Me Field
                         if (!authScreensCubit.isSignUp)
                           RememberAndForgetPassword(
+                            onChanged: (value) {
+                              authScreensCubit.toggleRememberPassword(value);
+                            },
                             emailController: authScreensCubit.emailController,
-                            rememberMe: loginCubit.rememberMe,
+                            rememberMe: authScreensCubit.rememberMe,
                           ),
                         // Sign Up UI
                         if (authScreensCubit.isSignUp)

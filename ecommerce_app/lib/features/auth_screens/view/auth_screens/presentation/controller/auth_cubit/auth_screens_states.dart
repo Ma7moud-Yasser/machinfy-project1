@@ -8,6 +8,8 @@ class AuthScreensSuccessState extends AuthScreensStates {}
 
 class ToggleVisiblePasswordState extends AuthScreensStates {}
 
+class ToggleRememberPasswordState extends AuthScreensStates {}
+
 class ToggleLoginAndSignUpState extends AuthScreensStates {}
 
 class AuthScreensErrorState extends AuthScreensStates {
