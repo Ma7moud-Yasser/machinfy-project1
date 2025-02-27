@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
+import 'package:ecommerce_app/core/utils/cache_manager.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/component/onBoarding_widget.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/component/skip_next_indicator.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +67,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           children: [
                             CustomElevatedButton(
                               onPressed: () {
+                                CacheManager.addToCache(
+                                  CacheKeys.isOnBoardingViewSeen,
+                                  true,
+                                );
                                 Navigator.pushReplacementNamed(
                                   context,
                                   Routes.authScreens,

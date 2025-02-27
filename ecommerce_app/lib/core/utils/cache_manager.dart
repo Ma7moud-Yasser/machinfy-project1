@@ -54,6 +54,7 @@ class CacheManager {
 }
 
 class CacheKeys {
+  static const String isOnBoardingViewSeen = "isOnBoardingViewSeen";
   static const String userModel = "userModel";
   static const String themeMode = "themeMode";
 }
