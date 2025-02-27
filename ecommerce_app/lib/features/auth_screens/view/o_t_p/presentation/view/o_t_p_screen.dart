@@ -65,7 +65,8 @@ class OTPScreen extends StatelessWidget {
                           AppString.enterVerificationCode,
                           style: StyleManager.textStyle22(
                             context,
-                          ).copyWith(fontWeight: FontWeight.bold),
+                            FontWeight.bold,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -82,9 +83,9 @@ class OTPScreen extends StatelessWidget {
                                 keyboardType: TextInputType.number,
                                 style: StyleManager.textStyle16(
                                   context,
+                                  FontWeight.bold,
                                 ).copyWith(
                                   color: Theme.of(context).colorScheme.primary,
-                                  fontWeight: FontWeight.bold,
                                 ),
                                 onChanged: (value) {
                                   if (value.isNotEmpty) {

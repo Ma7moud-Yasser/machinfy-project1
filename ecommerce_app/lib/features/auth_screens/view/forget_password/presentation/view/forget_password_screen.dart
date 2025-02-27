@@ -62,7 +62,10 @@ class ForgetPasswordScreen extends StatelessWidget {
                         Text(
                           textAlign: TextAlign.justify,
                           AppString.forgetPasswordTitle,
-                          style: StyleManager.textStyle16(context),
+                          style: StyleManager.textStyle16(
+                            context,
+                            FontWeight.w400,
+                          ),
                         ),
                         CustomTextFormField(
                           validator: (value) {
