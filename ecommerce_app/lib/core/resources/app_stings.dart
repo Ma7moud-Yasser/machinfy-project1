@@ -59,4 +59,5 @@ class AppString {
   static String confirm = "Confirm";
   static String passwordMatching = "Password Matching";
   static String agreeToTermsConditions = "Agree to Terms & Conditions";
+  static String termsAndConditions = "Terms & Conditions";
 }
