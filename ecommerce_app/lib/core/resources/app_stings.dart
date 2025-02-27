@@ -58,4 +58,5 @@ class AppString {
   static String resendCode = "Resend Code...";
   static String confirm = "Confirm";
   static String passwordMatching = "Password Matching";
+  static String agreeToTermsConditions = "Agree to Terms & Conditions";
 }

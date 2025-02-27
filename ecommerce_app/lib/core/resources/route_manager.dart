@@ -4,6 +4,7 @@ import 'package:ecommerce_app/features/auth_screens/view/reset_password/presenta
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/view/auth_screens.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
+import 'package:ecommerce_app/features/terms_conditions/presintation/view/terms_conditions_screens.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -15,6 +16,7 @@ class Routes {
   static const String forgetPasswordScreens = "/forgetPasswordScreens";
   static const String otpScreen = "/otpScreen";
   static const String resetPasswordScreen = "/resetPasswordScreen";
+  static const String termsAndConditionsScreen = "/termsAndConditionsScreen";
 }
 
 class RouteGenerator {
@@ -32,8 +34,11 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const OTPScreen());
       case Routes.resetPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
-      // case Routes.loginScreen:
-      // return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case Routes.termsAndConditionsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const TermsAndConditionsScreen(),
+        );
+
       default:
         return unDefinedRoute();
     }
