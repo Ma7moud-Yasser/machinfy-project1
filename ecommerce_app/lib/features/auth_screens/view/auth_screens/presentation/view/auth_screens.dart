@@ -8,6 +8,7 @@ import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/core/utils/validation_manager.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/components/remember_forget_password.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/components/terms_check_box.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/login_cubit/login_cubit.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/sin_up_cubit/sign_up_cubit.dart';
 import 'package:ecommerce_app/features/auth_screens/components/auth_title.dart';
@@ -260,15 +261,18 @@ class _AuthScreensState extends State<AuthScreens> {
                                       ),
                                     ],
                                   ),
+
+                                  TermsCheckbox(
+                                    isChecked: signUpCubit.isChecked,
+                                    onTap: signUpCubit.toggleCheckBox,
+                                  ),
                                 ],
                               );
                             },
                           ),
-
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.032,
+                          height: MediaQuery.of(context).size.height * 0.02,
                         ),
-
                         CustomElevatedButton(
                           textButton:
                               authScreensCubit.isSignUp
@@ -285,8 +289,11 @@ class _AuthScreensState extends State<AuthScreens> {
                             }
                           },
                         ),
-
+                        SizedBox(
+                          height: SizeManager.getSize(context).height * 0.01,
+                        ),
                         Row(
+                          spacing: 10,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
@@ -298,8 +305,9 @@ class _AuthScreensState extends State<AuthScreens> {
                                 color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {
+
+                            GestureDetector(
+                              onTap: () {
                                 authScreensCubit.toggleLoginAndSignUp();
                               },
                               child: Text(
@@ -315,6 +323,9 @@ class _AuthScreensState extends State<AuthScreens> {
                               ),
                             ),
                           ],
+                        ),
+                        SizedBox(
+                          height: SizeManager.getSize(context).height * 0.01,
                         ),
                       ],
                     ),
