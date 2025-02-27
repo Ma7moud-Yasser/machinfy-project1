@@ -22,9 +22,7 @@ class OnBoardingWidget extends StatelessWidget {
         Text(
           textAlign: TextAlign.center,
           title,
-          style: StyleManager.textStyle20(
-            context,
-          ).copyWith(fontWeight: FontWeight.bold),
+          style: StyleManager.textStyle20(context, FontWeight.bold),
         ),
         Text(
           textAlign: TextAlign.center,
