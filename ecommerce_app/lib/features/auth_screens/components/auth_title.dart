@@ -13,10 +13,9 @@ class AuthTitleHeader extends StatelessWidget {
         SvgPicture.asset(imagePath),
 
         Text(
+          textAlign: TextAlign.center,
           title ?? '',
-          style: StyleManager.textStyle22(
-            context,
-          ).copyWith(fontWeight: FontWeight.w900),
+          style: StyleManager.textStyle22(context, FontWeight.bold),
         ),
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
       ],

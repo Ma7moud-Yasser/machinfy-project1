@@ -300,8 +300,10 @@ class _AuthScreensState extends State<AuthScreens> {
                               authScreensCubit.isSignUp
                                   ? AppString.alreadyHaveAcc
                                   : AppString.dontHaveAcc,
-                              style: StyleManager.textStyle14(context).copyWith(
-                                fontWeight: FontWeight.w600,
+                              style: StyleManager.textStyle14(
+                                context,
+                                FontWeight.w600,
+                              ).copyWith(
                                 color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
@@ -316,8 +318,8 @@ class _AuthScreensState extends State<AuthScreens> {
                                     : AppString.signUp,
                                 style: StyleManager.textStyle16(
                                   context,
+                                  FontWeight.w700,
                                 ).copyWith(
-                                  fontWeight: FontWeight.w800,
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                               ),

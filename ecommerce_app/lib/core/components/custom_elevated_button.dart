@@ -24,10 +24,10 @@ class CustomElevatedButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusManager.small(context),
         ),
-        textStyle: StyleManager.textStyle22(context).copyWith(
-          color: Theme.of(context).colorScheme.background,
-          fontWeight: FontWeight.bold,
-        ),
+        textStyle: StyleManager.textStyle22(
+          context,
+          FontWeight.bold,
+        ).copyWith(color: Theme.of(context).colorScheme.background),
       ),
       onPressed: onPressed,
       child: Text(textButton),

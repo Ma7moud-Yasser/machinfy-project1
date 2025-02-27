@@ -47,6 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               AppString.appSubName,
               style: StyleManager.textStyle20(
                 context,
+                FontWeight.w600,
               ).copyWith(color: Theme.of(context).colorScheme.secondary),
             ),
           ],

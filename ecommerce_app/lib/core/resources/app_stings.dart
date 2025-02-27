@@ -1,5 +1,5 @@
 class AppString {
-  static String appName = 'Jawda';
+  static String appName = 'JAWDAH';
   static String appSubName = 'Find. Click. Smile';
   static String onBoardingTitle1 =
       'Step into a world of limitless style and seamless shopping 🛍️';

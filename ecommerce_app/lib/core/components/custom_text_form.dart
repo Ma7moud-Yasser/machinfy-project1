@@ -51,9 +51,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           visible: widget.label?.isNotEmpty ?? false,
           child: Text(
             widget.label ?? '',
-            style: StyleManager.textStyle16(
-              context,
-            ).copyWith(fontWeight: FontWeight.w800),
+            style: StyleManager.textStyle16(context, FontWeight.w600),
           ),
         ),
         TextFormField(
@@ -67,10 +65,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           controller: widget.controller,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: widget.validator,
-          style: StyleManager.textStyle14(context).copyWith(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          style: StyleManager.textStyle14(
+            context,
+            FontWeight.w600,
+          ).copyWith(color: Theme.of(context).colorScheme.primary),
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintStyle: StyleManager.textStyle12(context),

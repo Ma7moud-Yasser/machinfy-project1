@@ -42,10 +42,10 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
             ),
             Text(
               AppString.rememberMe,
-              style: StyleManager.textStyle14(context).copyWith(
-                fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              style: StyleManager.textStyle14(
+                context,
+                FontWeight.w600,
+              ).copyWith(color: Theme.of(context).colorScheme.primary),
             ),
           ],
         ),
@@ -59,10 +59,10 @@ class _RememberAndForgetPasswordState extends State<RememberAndForgetPassword> {
           },
           child: Text(
             AppString.forgetPassword,
-            style: StyleManager.textStyle14(context).copyWith(
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            style: StyleManager.textStyle14(
+              context,
+              FontWeight.w600,
+            ).copyWith(color: Theme.of(context).colorScheme.primary),
           ),
         ),
       ],

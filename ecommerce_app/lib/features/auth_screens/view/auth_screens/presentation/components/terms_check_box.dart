@@ -37,6 +37,7 @@ class TermsCheckbox extends StatelessWidget {
             AppString.agreeToTermsAndConditions,
             style: StyleManager.textStyle14(
               context,
+              FontWeight.w500,
             ).copyWith(color: Theme.of(context).colorScheme.primary),
           ),
         ),
