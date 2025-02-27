@@ -17,63 +17,19 @@ class SignUpCubit extends Cubit<SignUpState> {
   TextEditingController regionController = TextEditingController();
 
   bool isNotVisible = true;
+  bool isChecked = false;
   String selectedFlag = "🌍";
-  Map<String, Map<String, dynamic>> countriesData = {
-    "Egypt": {
-      "flag": "🇪🇬",
-      "regions": {
-        "Cairo": ["Nasr City", "Maadi", "New Cairo", "Zamalek", "Abbaseya"],
-        "Giza": [
-          "Dokki",
-          "Mohandessin",
-          "Haram",
-          "6th of October",
-          "Sheikh Zayed",
-        ],
-        "Alexandria": [
-          "Agami",
-          "Moharam Bek",
-          "Smouha",
-          "San Stefano",
-          "Kafr Abdo",
-        ],
-      },
-    },
-    "Russia": {
-      "flag": "🇷🇺",
-      "regions": {
-        "Moscow": ["Moscow Center", "Tushino", "Zaporozhsky", "Ryazanka"],
-        "Saint Petersburg": ["Nevsky", "Petrogradsky", "Krasnogvardeysky"],
-        "Sochi": ["Adler", "Lazarevskoye", "Central Sochi"],
-      },
-    },
-  };
-
-  List<String> getCountriesList() {
-    return countriesData.entries
-        .map((entry) => "${entry.value['flag']} ${entry.key}")
-        .toList();
-  }
-
-  void updateSelectedCountry(String country, String flag) {
-    countryController.text = country;
-    selectedFlag = flag;
-    emit(SignUpUpdatedState());
-  }
-
-  List<String> getRegionsByCountry(String country) {
-    return countriesData[country]?["regions"]?.keys.toList() ?? [];
-  }
-
-  List<String> getCitiesByRegion(String country, String region) {
-    return countriesData[country]?["regions"]?[region] ?? [];
-  }
 
   void signUp() {}
 
   void toggleVisibleConfirmPassword() {
     isNotVisible = !isNotVisible;
     emit(ToggleVisibleConfirmPasswordState());
+  }
+
+  void toggleCheckBox() {
+    isChecked = !isChecked;
+    emit(ToggleCheckBoxState());
   }
 
   @override
