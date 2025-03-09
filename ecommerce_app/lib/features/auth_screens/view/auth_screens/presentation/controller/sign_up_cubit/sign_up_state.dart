@@ -5,8 +5,15 @@ sealed class SignUpState {}
 
 final class SignUpInitial extends SignUpState {}
 
+final class SignUpLoading extends SignUpState {}
+
+final class SignUpSuccess extends SignUpState {}
+
+final class SignUpFailure extends SignUpState {
+  final String errorMessage;
+  SignUpFailure(this.errorMessage);
+}
+
 final class ToggleVisibleConfirmPasswordState extends SignUpState {}
 
 final class ToggleCheckBoxState extends SignUpState {}
-
-final class SignUpUpdatedState extends SignUpState {}

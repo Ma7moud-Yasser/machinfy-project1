@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:ecommerce_app/core/resources/route_manager.dart';
+import 'package:ecommerce_app/core/services/dio_helper.dart';
 import 'package:ecommerce_app/core/styles/theme_manager.dart';
 import 'package:ecommerce_app/core/utils/bloc_observer.dart';
 import 'package:ecommerce_app/core/utils/cache_manager.dart';
@@ -9,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await CacheManager.init();
-
+  DioHelper.init();
   // Load saved theme mode from cache
   final savedTheme = CacheManager.getValueFromCache(CacheKeys.themeMode);
   if (savedTheme != '_') {

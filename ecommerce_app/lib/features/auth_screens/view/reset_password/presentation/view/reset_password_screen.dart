@@ -133,7 +133,7 @@ class ResetPasswordScreen extends StatelessWidget {
                             if (cubit.formKey.currentState!.validate()) {
                               Navigator.pushNamedAndRemoveUntil(
                                 context,
-                                Routes.authScreens,
+                                Routes.loginScreen,
                                 (route) => false,
                               );
                             }

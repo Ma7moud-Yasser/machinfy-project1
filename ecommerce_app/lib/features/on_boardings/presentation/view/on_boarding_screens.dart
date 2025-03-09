@@ -73,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 );
                                 Navigator.pushReplacementNamed(
                                   context,
-                                  Routes.authScreens,
+                                  Routes.loginScreen,
                                 );
                               },
                               textButton: AppString.getStarted,

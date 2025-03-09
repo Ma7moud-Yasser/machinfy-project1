@@ -1,8 +1,8 @@
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/auth_cubit/login_states.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'auth_screens_states.dart';
 
-class AuthScreensCubit extends Cubit<AuthScreensStates> {
+class LoginScreenCubit extends Cubit<LoginScreenStates> {
   bool isNotVisible = true;
   bool isSignUp = false;
   bool rememberMe = false;
@@ -10,9 +10,11 @@ class AuthScreensCubit extends Cubit<AuthScreensStates> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  AuthScreensCubit() : super(AuthScreensInitState());
+  LoginScreenCubit() : super(LoginScreenInitState());
 
-  static AuthScreensCubit get(context) => BlocProvider.of(context);
+  static LoginScreenCubit get(context) => BlocProvider.of(context);
+
+  void login() {}
 
   void toggleVisiblePassword() {
     isNotVisible = !isNotVisible;
@@ -22,12 +24,6 @@ class AuthScreensCubit extends Cubit<AuthScreensStates> {
   void toggleRememberPassword(bool? value) {
     rememberMe = value ?? false;
     emit(ToggleRememberPasswordState());
-  }
-
-  void toggleLoginAndSignUp() {
-    passwordController.clear();
-    isSignUp = !isSignUp;
-    emit(ToggleLoginAndSignUpState());
   }
 
   @override
