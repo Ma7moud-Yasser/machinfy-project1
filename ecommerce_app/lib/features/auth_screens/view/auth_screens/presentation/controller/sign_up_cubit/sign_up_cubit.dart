@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
-  SignUpCubit() : super(SignUpInitial());
+  SignUpCubit() : super(SignUpInitialState());
   static SignUpCubit get(context) => BlocProvider.of(context);
   GlobalKey<FormState> formKey = GlobalKey();
 
@@ -28,7 +28,7 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   void signUp(BuildContext context) {
     try {
-      emit(SignUpLoading());
+      emit(SignUpLoadingState());
       DioHelper.postData(
         url: EndPoint.register,
         data: {
@@ -38,7 +38,7 @@ class SignUpCubit extends Cubit<SignUpState> {
           "phone": phoneController.text,
         },
       ).then((value) {
-        emit(SignUpSuccess());
+        emit(SignUpSuccessState());
         Navigator.pop(context);
       });
     } catch (e) {

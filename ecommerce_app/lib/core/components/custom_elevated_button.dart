@@ -8,9 +8,11 @@ class CustomElevatedButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.textButton,
+    required this.isLoading,
   });
   final void Function()? onPressed;
   final String textButton;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -30,7 +32,7 @@ class CustomElevatedButton extends StatelessWidget {
         ).copyWith(color: Theme.of(context).colorScheme.background),
       ),
       onPressed: onPressed,
-      child: Text(textButton),
+      child: isLoading ? const CircularProgressIndicator() : Text(textButton),
     );
   }
 }

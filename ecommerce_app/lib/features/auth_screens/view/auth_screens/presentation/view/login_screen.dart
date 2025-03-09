@@ -113,6 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         CustomElevatedButton(
+                          isLoading: state is LoginScreenLoadingState,
                           textButton: AppString.login,
                           onPressed: () {
                             if (loginCubit.formKey.currentState!.validate()) {

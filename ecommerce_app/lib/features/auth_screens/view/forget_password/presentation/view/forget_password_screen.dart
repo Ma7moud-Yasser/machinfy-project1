@@ -83,6 +83,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                           suffixIconWidget: SizedBox(),
                         ),
                         CustomElevatedButton(
+                          isLoading: true,
                           onPressed: () {
                             if (cubit.formKey.currentState!.validate()) {
                               Navigator.pushNamed(context, Routes.otpScreen);

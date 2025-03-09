@@ -242,6 +242,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         CustomElevatedButton(
+                          isLoading: state is SignUpLoadingState,
                           textButton: AppString.signUp,
                           onPressed: () {
                             if (signUpCubit.formKey.currentState!.validate()) {

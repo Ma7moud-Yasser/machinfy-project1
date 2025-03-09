@@ -129,6 +129,7 @@ class ResetPasswordScreen extends StatelessWidget {
                         ),
 
                         CustomElevatedButton(
+                          isLoading: true,
                           onPressed: () {
                             if (cubit.formKey.currentState!.validate()) {
                               Navigator.pushNamedAndRemoveUntil(

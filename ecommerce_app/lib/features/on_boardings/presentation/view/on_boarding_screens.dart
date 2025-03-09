@@ -66,6 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         child: Column(
                           children: [
                             CustomElevatedButton(
+                              isLoading: false,
                               onPressed: () {
                                 CacheManager.addToCache(
                                   CacheKeys.isOnBoardingViewSeen,

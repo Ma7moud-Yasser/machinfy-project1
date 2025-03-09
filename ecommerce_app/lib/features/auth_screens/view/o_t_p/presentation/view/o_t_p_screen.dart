@@ -142,6 +142,7 @@ class OTPScreen extends StatelessWidget {
                           ),
                         ),
                         CustomElevatedButton(
+                          isLoading: true,
                           onPressed: () {
                             if (cubit.otpController.length < 4 ||
                                 cubit.otpController.any(
