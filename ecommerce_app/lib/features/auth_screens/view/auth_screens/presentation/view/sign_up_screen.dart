@@ -127,6 +127,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
+                        // Confirm Password Field و Country Fields
                         // CustomTextFormField(
                         //   controller: signUpCubit.confirmPasswordController,
                         //   validator: (value) {
@@ -154,7 +155,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         //     ),
                         //   ),
                         // ),
-
                         // GestureDetector(
                         //   onTap: () {
                         //     countriesAlertDialog(context);
@@ -200,7 +200,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         //           isEditing: false,
                         //           label: AppString.city,
                         //           hintText: AppString.exCity,
-
                         //           suffixIconWidget: Icon(
                         //             Icons.arrow_drop_down,
                         //           ),
