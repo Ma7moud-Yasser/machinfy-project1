@@ -30,17 +30,21 @@ class SignUpCubit extends Cubit<SignUpState> {
     try {
       emit(SignUpLoadingState());
       DioHelper.postData(
-        url: EndPoint.register,
-        data: {
-          "email": emailController.text,
-          "password": passwordController.text,
-          "name": userNameController.text,
-          "phone": phoneController.text,
-        },
-      ).then((value) {
-        emit(SignUpSuccessState());
-        Navigator.pop(context);
-      });
+            url: EndPoint.register,
+            data: {
+              "email": emailController.text,
+              "password": passwordController.text,
+              "name": userNameController.text,
+              "phone": phoneController.text,
+            },
+          )
+          .then((value) {
+            emit(SignUpSuccessState());
+            Navigator.pop(context);
+          })
+          .catchError((error) {
+            emit(SignUpFailureState(error.toString()));
+          });
     } catch (e) {
       print(e);
     }

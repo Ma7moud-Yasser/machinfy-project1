@@ -14,7 +14,11 @@ class LoginScreenCubit extends Cubit<LoginScreenStates> {
 
   static LoginScreenCubit get(context) => BlocProvider.of(context);
 
-  void login() {}
+  void login() {
+    try {} catch (e) {
+      print(e);
+    }
+  }
 
   void toggleVisiblePassword() {
     isNotVisible = !isNotVisible;

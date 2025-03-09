@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:ecommerce_app/core/resources/route_manager.dart';
 import 'package:ecommerce_app/core/services/dio_helper.dart';
 import 'package:ecommerce_app/core/styles/theme_manager.dart';
