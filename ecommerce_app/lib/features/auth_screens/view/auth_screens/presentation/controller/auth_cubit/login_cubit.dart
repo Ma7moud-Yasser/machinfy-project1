@@ -20,8 +20,6 @@ class LoginScreenCubit extends Cubit<LoginScreenStates> {
   Future<void> login() async {
     try {
       final response = await DioHelper.postData(
-        token:
-            'je3f8gwBMYAtu4NCPvybj5hM08u9CERYFVKtSUWn2IG5T1m3siLBKrPnk63VhYzdP7Lqr2',
         url: EndPoint.login,
         data: {
           "email": emailController.text,
@@ -34,7 +32,6 @@ class LoginScreenCubit extends Cubit<LoginScreenStates> {
           status: response.data["status"],
         ),
       );
-      log(response.toString());
     } catch (e) {
       emit(LoginScreenErrorState(e.toString()));
       log("Login Error: $e");
