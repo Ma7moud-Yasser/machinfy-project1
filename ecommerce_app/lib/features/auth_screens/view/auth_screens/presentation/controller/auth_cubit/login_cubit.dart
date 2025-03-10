@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'package:ecommerce_app/core/services/dio_helper.dart';
+import 'package:ecommerce_app/core/services/end_point.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/auth_cubit/login_states.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,9 +17,27 @@ class LoginScreenCubit extends Cubit<LoginScreenStates> {
 
   static LoginScreenCubit get(context) => BlocProvider.of(context);
 
-  void login() {
-    try {} catch (e) {
-      print(e);
+  Future<void> login() async {
+    try {
+      final response = await DioHelper.postData(
+        token:
+            'je3f8gwBMYAtu4NCPvybj5hM08u9CERYFVKtSUWn2IG5T1m3siLBKrPnk63VhYzdP7Lqr2',
+        url: EndPoint.login,
+        data: {
+          "email": emailController.text,
+          "password": passwordController.text,
+        },
+      );
+      emit(
+        LoginScreenSuccessState(
+          message: response.data["message"],
+          status: response.data["status"],
+        ),
+      );
+      log(response.toString());
+    } catch (e) {
+      emit(LoginScreenErrorState(e.toString()));
+      log("Login Error: $e");
     }
   }
 

@@ -19,6 +19,7 @@ class Routes {
   static const String otpScreen = "/otpScreen";
   static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String termsAndConditionsScreen = "/termsAndConditionsScreen";
+  static const String homeScreen = "/homeScreen";
 }
 
 class RouteGenerator {
@@ -39,6 +40,10 @@ class RouteGenerator {
       case Routes.resetPasswordScreen:
         return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
       case Routes.termsAndConditionsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const TermsAndConditionsScreen(),
+        );
+      case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const TermsAndConditionsScreen(),
         );

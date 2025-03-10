@@ -25,9 +25,24 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => LoginScreenCubit())],
-      child: BlocBuilder<LoginScreenCubit, LoginScreenStates>(
+    return BlocProvider(
+      create: (context) => LoginScreenCubit(),
+      child: BlocConsumer<LoginScreenCubit, LoginScreenStates>(
+        listener: (context, state) {
+          if (state is LoginScreenSuccessState) {
+            if (state.status) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                Routes.homeScreen,
+                (route) => false,
+              );
+            } else {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(state.message)));
+            }
+          }
+        },
         builder: (context, state) {
           final loginCubit = LoginScreenCubit.get(context);
 
