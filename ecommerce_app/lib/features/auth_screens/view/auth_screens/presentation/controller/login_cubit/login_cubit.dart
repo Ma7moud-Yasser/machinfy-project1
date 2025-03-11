@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:ecommerce_app/core/services/dio_helper.dart';
 import 'package:ecommerce_app/core/services/end_point.dart';
-import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/auth_cubit/login_states.dart';
+import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/controller/login_cubit/login_states.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

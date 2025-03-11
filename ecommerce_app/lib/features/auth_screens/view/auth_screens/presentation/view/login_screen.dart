@@ -12,8 +12,8 @@ import 'package:ecommerce_app/features/auth_screens/components/auth_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../controller/auth_cubit/login_cubit.dart';
-import '../controller/auth_cubit/login_states.dart';
+import '../controller/login_cubit/login_cubit.dart';
+import '../controller/login_cubit/login_states.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
