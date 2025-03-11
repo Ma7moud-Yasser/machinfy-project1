@@ -60,4 +60,6 @@ class AppString {
   static String passwordMatching = "Password Matching";
   static String agreeToTermsConditions = "Agree to Terms & Conditions";
   static String termsAndConditions = "Terms & Conditions";
+  static String ok = "OK";
+  static String warning = "warning";
 }

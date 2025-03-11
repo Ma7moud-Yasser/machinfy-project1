@@ -32,6 +32,10 @@ class IconsAssets {
   static const String oops = "$iconPath/oops!!!.svg";
   static const String arrowBack = "$iconPath/arrow_back.svg";
   static const String forgetPassword = "$iconPath/forget_password.svg";
+  static const String warningIcon = "$iconPath/warning_icon.svg";
+  static const String wrong = "$iconPath/wrong_icon.svg";
+  static const String success = "$iconPath/successful_pay.svg";
+
   // static const String search = "$iconPath/search.svg";
   // static const String user = "$iconPath/user.svg";
   static const String home = "$iconPath/home.svg";
