@@ -9,4 +9,5 @@ class AppColor {
   static const success = Color(0xff22A901);
   static const firebrick = Color(0xffB01717);
   static const lightGrey = Color(0xffF3F3F3);
+  static const white = Colors.white;
 }

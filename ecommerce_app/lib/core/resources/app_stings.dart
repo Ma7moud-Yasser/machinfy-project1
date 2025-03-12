@@ -64,4 +64,5 @@ class AppString {
   static String warning = "warning";
   static String welcome = "Welcome";
   static String startOurShoping = "Let’s start our shoping";
+  static String viewMore = "View More";
 }

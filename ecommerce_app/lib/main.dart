@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/services/dio_helper.dart';
 import 'package:ecommerce_app/core/styles/theme_manager.dart';
 import 'package:ecommerce_app/core/utils/bloc_observer.dart';
 import 'package:ecommerce_app/core/utils/cache_manager.dart';
+import 'package:ecommerce_app/features/home/presentaion/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,9 +39,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeManager.lightMode,
           darkTheme: ThemeManager.darkMode,
           themeMode: mode,
-          initialRoute: Routes.splashScreen,
-          onGenerateRoute: RouteGenerator.getRoute,
-          // home: MyHomePage(),
+          // initialRoute: Routes.splashScreen,
+          // onGenerateRoute: RouteGenerator.getRoute,
+          home: HomeScreen(),
         );
       },
     );

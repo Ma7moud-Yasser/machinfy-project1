@@ -3,6 +3,9 @@ const String iconPath = "assets/icons";
 
 class ImagesAssets {
   static const String user = "$imagePath/user.png";
+  static const String testSlider1 = "$imagePath/1.jpeg";
+  static const String testSlider2 = "$imagePath/2.jpeg";
+  static const String testSlider3 = "$imagePath/3.jpeg";
 }
 
 class IconsAssets {
