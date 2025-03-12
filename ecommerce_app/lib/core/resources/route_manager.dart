@@ -2,6 +2,7 @@ import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentati
 import 'package:ecommerce_app/features/auth_screens/view/forget_password/presentation/view/forget_password_screen.dart';
 import 'package:ecommerce_app/features/auth_screens/view/o_t_p/presentation/view/o_t_p_screen.dart';
 import 'package:ecommerce_app/features/auth_screens/view/reset_password/presentation/view/reset_password_screen.dart';
+import 'package:ecommerce_app/features/home/presentaion/views/home_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/view/login_screen.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
@@ -44,9 +45,7 @@ class RouteGenerator {
           builder: (_) => const TermsAndConditionsScreen(),
         );
       case Routes.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => const TermsAndConditionsScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       default:
         return unDefinedRoute();
