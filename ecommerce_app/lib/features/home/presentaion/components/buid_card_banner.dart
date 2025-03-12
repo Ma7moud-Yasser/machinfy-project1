@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
+import 'package:ecommerce_app/core/styles/assets_manager.dart';
 import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
 import 'package:ecommerce_app/core/styles/color_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
@@ -16,14 +18,18 @@ Widget buildCard(
     children: [
       ClipRRect(
         borderRadius: BorderRadiusManager.medium(context),
-
-        child: Image.asset(
+        child: CachedNetworkImage(
           height: SizeManager.getSize(context).height * 0.19,
-          imagePath,
+          imageUrl: imagePath,
           fit: BoxFit.cover,
           width: double.infinity,
+          placeholder:
+              (context, url) => Center(child: CircularProgressIndicator()),
+          errorWidget:
+              (context, url, error) => Image.asset(ImagesAssets.notFoundImage),
         ),
       ),
+
       Positioned(
         bottom: 50,
         left: 20,

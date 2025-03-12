@@ -1,4 +1,7 @@
+import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
+import 'package:ecommerce_app/core/styles/size_manager.dart';
+import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/custom_search_bar.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/custom_user_bar.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/offers_banner.dart';
@@ -26,6 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomSearchBar(),
               SizedBox(height: 20),
               OffersBanner(),
+              SizedBox(height: SizeManager.getSize(context).height * 0.02),
+              Text(
+                AppString.categories,
+                style: StyleManager.textStyle22(context, FontWeight.w700),
+              ),
             ],
           ),
         ),
