@@ -17,6 +17,9 @@ class CustomTextFormField extends StatefulWidget {
   final Widget? suffixIconWidget;
   final bool obscureText;
   final TextInputType? keyboardType;
+  final bool? fillColor;
+  final Color? filledColor;
+
   final void Function()? onTap;
 
   const CustomTextFormField({
@@ -34,6 +37,8 @@ class CustomTextFormField extends StatefulWidget {
     this.prefixIconPath,
     this.suffixIconWidget,
     super.key,
+    this.fillColor,
+    this.filledColor,
   });
 
   @override
@@ -70,6 +75,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             FontWeight.w600,
           ).copyWith(color: Theme.of(context).colorScheme.primary),
           decoration: InputDecoration(
+            filled: widget.fillColor,
+            fillColor: widget.filledColor,
             hintText: widget.hintText,
             hintStyle: StyleManager.textStyle12(context),
             disabledBorder: OutlineInputBorder(

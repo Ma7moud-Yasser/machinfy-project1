@@ -62,4 +62,6 @@ class AppString {
   static String termsAndConditions = "Terms & Conditions";
   static String ok = "OK";
   static String warning = "warning";
+  static String welcome = "Welcome";
+  static String startOurShoping = "Let’s start our shoping";
 }

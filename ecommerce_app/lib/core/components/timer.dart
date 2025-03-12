@@ -39,12 +39,12 @@ class _CountdownTimerState extends State<CountdownTimer> {
     int minutes = duration.inMinutes.remainder(60);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey,
       body: Center(
         child: Container(
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.black,
+            color: Colors.white70,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
@@ -80,7 +80,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
                       height: 90,
                       decoration: BoxDecoration(
                         color: Color(0xFFEAEAEA),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         // boxShadow: [
                         //   BoxShadow(
                         //     color: Colors.black26,
@@ -116,7 +116,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
                       height: 90,
                       decoration: BoxDecoration(
                         color: Color(0xFFEAEAEA),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         // boxShadow: [
                         //   BoxShadow(
                         //     color: Colors.black12,

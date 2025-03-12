@@ -2,17 +2,7 @@ const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 
 class ImagesAssets {
-  // Authentication
-
-  // static const String login = "$imagePath/login.png";
-  static const String logo = "$imagePath/logo.png";
-  static const String xo = "$imagePath/xo.png";
-  static const String numbersGame = "$imagePath/2048.png";
-  static const String ocr = "$imagePath/ocr.png";
-  static const String crush = "$imagePath/crush.jpg";
-  static const String onboarding1 = "$imagePath/onBoarding1.png";
-  static const String onboarding2 = "$imagePath/onBoarding2.png";
-  static const String onboarding3 = "$imagePath/onBoarding3.png";
+  static const String user = "$imagePath/user.png";
 }
 
 class IconsAssets {
@@ -35,6 +25,9 @@ class IconsAssets {
   static const String warningIcon = "$iconPath/warning_icon.svg";
   static const String wrong = "$iconPath/wrong_icon.svg";
   static const String success = "$iconPath/successful_pay.svg";
+  static const String cart = "$iconPath/cart.svg";
+  static const String compareIcon = "$iconPath/compareIcon.svg";
+  static const String filterIcon = "$iconPath/filter.svg";
 
   // static const String search = "$iconPath/search.svg";
   // static const String user = "$iconPath/user.svg";
