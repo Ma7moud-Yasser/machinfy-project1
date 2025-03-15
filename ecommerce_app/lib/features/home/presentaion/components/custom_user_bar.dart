@@ -64,7 +64,12 @@ class CustomUserBar extends StatelessWidget {
               ).copyWith(color: AppColor.background),
             ),
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.only(
+                right: 8,
+                left: 8,
+                top: SizeManager.getSize(context).height * 0.01,
+                bottom: SizeManager.getSize(context).height * 0.01,
+              ),
               child: SvgPicture.asset(
                 IconsAssets.cart,
                 width: SizeManager.getSize(context).width * 0.06,
