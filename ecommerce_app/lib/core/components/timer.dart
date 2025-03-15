@@ -1,7 +1,12 @@
 import 'dart:async';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
+import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
+import 'package:ecommerce_app/core/styles/color_manager.dart';
+import 'package:ecommerce_app/core/styles/size_manager.dart';
+import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CountdownTimer extends StatefulWidget {
   @override
@@ -38,26 +43,23 @@ class _CountdownTimerState extends State<CountdownTimer> {
     int hours = duration.inHours.remainder(24);
     int minutes = duration.inMinutes.remainder(60);
 
-    return Scaffold(
-      backgroundColor: Colors.grey,
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white70,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildFlipCard(days.toString().padLeft(2, '0'), "DAYS"),
-              SizedBox(width: 16),
-              buildFlipCard(hours.toString().padLeft(2, '0'), "HOURS"),
-              SizedBox(width: 16),
-              buildFlipCard(minutes.toString().padLeft(2, '0'), "MINUTES"),
-            ],
-          ),
-        ),
+    return Container(
+      padding: EdgeInsets.symmetric(
+        vertical: SizeManager.getSize(context).height * 0.02,
+      ),
+      decoration: BoxDecoration(
+        color: AppColor.lightGrey,
+        borderRadius: BorderRadiusManager.medium(context),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          buildFlipCard(days.toString().padLeft(2, '0'), "DAYS"),
+          SizedBox(width: 16),
+          buildFlipCard(hours.toString().padLeft(2, '0'), "HOURS"),
+          SizedBox(width: 16),
+          buildFlipCard(minutes.toString().padLeft(2, '0'), "MINUTES"),
+        ],
       ),
     );
   }
@@ -76,35 +78,38 @@ class _CountdownTimerState extends State<CountdownTimer> {
                     alignment: Alignment.topCenter,
                     heightFactor: 0.5,
                     child: Container(
-                      width: 80,
-                      height: 90,
+                      width: SizeManager.getSize(context).width * 0.25,
+
                       decoration: BoxDecoration(
-                        color: Color(0xFFEAEAEA),
-                        borderRadius: BorderRadius.circular(5),
+                        gradient: LinearGradient(
+                          end: Alignment.topCenter,
+                          begin: Alignment.bottomCenter,
+                          colors: [
+                            AppColor.white,
+                            Colors.grey.shade300,
+                            Colors.grey.shade300,
+                          ],
+                        ),
+                        color: AppColor.background,
+                        borderRadius: BorderRadius.circular(3),
                         // boxShadow: [
                         //   BoxShadow(
-                        //     color: Colors.black26,
-                        //     blurRadius: 4,
-                        //     offset: Offset(2, 2),
+                        //     color: Colors.black, // لون الظل
+                        //     blurRadius: 10, // مدى التمويه
+                        //     spreadRadius: 2, // مدى الانتشار
+                        //     offset: Offset(4, 4), // اتجاه الظل (يمين وأسفل)
                         //   ),
                         // ],
                       ),
                       child: Center(
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.teal.shade700,
-                          ),
-                        ),
+                        child: TimerFont(context: context, value: value),
                       ),
                     ),
                   ),
                 ),
 
                 // الخط الفاصل
-                Container(height: 2, width: 80, color: Colors.grey.shade400),
+                Container(height: 1.5, width: 80, color: AppColor.tertiary),
 
                 // الجزء السفلي
                 ClipRect(
@@ -112,11 +117,20 @@ class _CountdownTimerState extends State<CountdownTimer> {
                     alignment: Alignment.bottomCenter,
                     heightFactor: 0.5,
                     child: Container(
-                      width: 80,
-                      height: 90,
+                      width: SizeManager.getSize(context).width * 0.25,
+
                       decoration: BoxDecoration(
-                        color: Color(0xFFEAEAEA),
-                        borderRadius: BorderRadius.circular(5),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            AppColor.white,
+                            Colors.grey.shade300,
+                            Colors.grey.shade200,
+                          ],
+                        ),
+                        color: AppColor.background,
+                        borderRadius: BorderRadius.circular(3),
                         // boxShadow: [
                         //   BoxShadow(
                         //     color: Colors.black12,
@@ -126,14 +140,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
                         // ],
                       ),
                       child: Center(
-                        child: Text(
-                          value,
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.teal.shade700,
-                          ),
-                        ),
+                        child: TimerFont(context: context, value: value),
                       ),
                     ),
                   ),
@@ -144,12 +151,12 @@ class _CountdownTimerState extends State<CountdownTimer> {
             // المفصلات الجانبية
             Positioned(
               left: -4,
-              top: 35,
+              top: 32,
               child: SvgPicture.asset(IconsAssets.roll, width: 10),
             ),
             Positioned(
               right: -4,
-              top: 35,
+              top: 32,
               child: SvgPicture.asset(IconsAssets.roll, width: 10),
             ),
           ],
@@ -160,13 +167,30 @@ class _CountdownTimerState extends State<CountdownTimer> {
         // اسم الوحدة (DAYS, HOURS, MINUTES)
         Text(
           label,
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: Colors.teal.shade700,
-          ),
+          style: StyleManager.textStyle14(
+            context,
+            FontWeight.w500,
+          ).copyWith(color: AppColor.primary),
         ),
       ],
+    );
+  }
+}
+
+class TimerFont extends StatelessWidget {
+  const TimerFont({super.key, required this.context, required this.value});
+
+  final String value;
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      value,
+      style: StyleManager.textStyle50(
+        context,
+        FontWeight.w400,
+      ).copyWith(fontFamily: GoogleFonts.bebasNeue().fontFamily, fontSize: 60),
     );
   }
 }

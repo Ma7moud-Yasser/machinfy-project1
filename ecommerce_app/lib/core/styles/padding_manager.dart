@@ -30,6 +30,22 @@ class PaddingManager {
     );
   }
 
+  static EdgeInsets smallAll(BuildContext context) {
+    return EdgeInsets.all(MediaQuery.of(context).size.height * 0.012);
+  }
+
+  static EdgeInsets smallSymmetricVertical(BuildContext context) {
+    return EdgeInsets.symmetric(
+      vertical: MediaQuery.of(context).size.height * 0.03,
+    );
+  }
+
+  static EdgeInsets smallSymmetricHorizontal(BuildContext context) {
+    return EdgeInsets.symmetric(
+      horizontal: MediaQuery.of(context).size.width * 0.03,
+    );
+  }
+
   static EdgeInsets custom({
     required BuildContext context,
     double left = 0,

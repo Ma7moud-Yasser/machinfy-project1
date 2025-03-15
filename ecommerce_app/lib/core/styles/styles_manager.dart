@@ -93,6 +93,8 @@ abstract class StyleManager {
     BuildContext context, [
     FontWeight fontWeight = FontWeight.normal,
   ]) => getTextStyle(fontSize: 32, context: context, fontWeight: fontWeight);
-  static TextStyle textStyle50(BuildContext context) =>
-      getTextStyle(fontSize: 50, context: context, fontWeight: FontWeight.w700);
+  static TextStyle textStyle50(
+    BuildContext context, [
+    FontWeight fontWeight = FontWeight.normal,
+  ]) => getTextStyle(fontSize: 50, context: context, fontWeight: fontWeight);
 }

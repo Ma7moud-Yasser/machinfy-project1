@@ -4,6 +4,8 @@ const String iconPath = "assets/icons";
 class ImagesAssets {
   static const String user = "$imagePath/user.png";
   static const String notFoundImage = "$imagePath/not_available.jpeg";
+  static const String watches = "$imagePath/watches.png";
+  static const String electronics = "$imagePath/electronics.png";
 }
 
 class IconsAssets {
