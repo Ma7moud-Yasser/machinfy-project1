@@ -12,6 +12,7 @@ Widget buildCard(
   String imagePath,
   String title,
   String subtitle,
+  Widget screenDetails,
   BuildContext context,
 ) {
   return Stack(
@@ -31,7 +32,7 @@ Widget buildCard(
       ),
 
       Positioned(
-        bottom: 50,
+        bottom: 20,
         left: 20,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +54,12 @@ Widget buildCard(
             ),
             SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => screenDetails),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.black,
