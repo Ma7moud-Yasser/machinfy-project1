@@ -21,13 +21,13 @@ class CategoriesItems extends StatelessWidget {
       spacing: 8,
       children: [
         CircleAvatar(
-          radius: SizeManager.getSize(context).width * 0.09,
+          radius: SizeManager.getSize(context).width * 0.1,
           backgroundColor: AppColor.lightGrey,
           child: Padding(
             padding: PaddingManager.smallAll(context),
 
             child: CachedNetworkImage(
-              height: SizeManager.getSize(context).height * 0.19,
+              // height: SizeManager.getSize(context).height * 0.19,
               imageUrl: imagePath,
               fit: BoxFit.contain,
 
