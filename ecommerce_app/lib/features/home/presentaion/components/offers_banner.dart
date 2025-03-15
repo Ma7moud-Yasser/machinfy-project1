@@ -38,7 +38,7 @@ class _OffersBannerState extends State<OffersBanner> {
         CarouselSlider(
           carouselController: _carouselController,
           options: CarouselOptions(
-            height: 205,
+            height: 180,
             autoPlay: autoPlay,
             enlargeCenterPage: true,
             viewportFraction: 1.0,
@@ -61,6 +61,7 @@ class _OffersBannerState extends State<OffersBanner> {
                     item["image"],
                     item["title"],
                     item["subtitle"],
+                    item["page"],
                     context,
                   ),
                 );
