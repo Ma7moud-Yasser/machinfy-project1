@@ -11,7 +11,7 @@ class PaddingManager {
 
   static EdgeInsets verticalMain(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return EdgeInsets.only(top: size.height * 0.03, bottom: size.height * 0.02);
+    return EdgeInsets.only(top: size.height * 0.02, bottom: size.height * 0.02);
   }
 
   static EdgeInsets iconTextForm(BuildContext context) {
@@ -43,6 +43,12 @@ class PaddingManager {
   static EdgeInsets smallSymmetricHorizontal(BuildContext context) {
     return EdgeInsets.symmetric(
       horizontal: MediaQuery.of(context).size.width * 0.03,
+    );
+  }
+
+  static EdgeInsets mediumSymmetricHorizontal(BuildContext context) {
+    return EdgeInsets.symmetric(
+      horizontal: MediaQuery.of(context).size.width * 0.05,
     );
   }
 
