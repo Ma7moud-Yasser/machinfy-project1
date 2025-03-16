@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 class FeaturedProductCard extends StatelessWidget {
   final Map<String, dynamic> product;
 
-  const FeaturedProductCard({required this.product, Key? key})
-    : super(key: key);
+  const FeaturedProductCard({required this.product, super.key});
 
   @override
   Widget build(BuildContext context) {
