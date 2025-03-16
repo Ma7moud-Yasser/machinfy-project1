@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/home/presentaion/components/details_item_screen.dart';
+import 'package:ecommerce_app/features/home/presentation/components/details_item_screen.dart';
 
 class HomeData {
   static const List<Map<String, dynamic>> categories = [
