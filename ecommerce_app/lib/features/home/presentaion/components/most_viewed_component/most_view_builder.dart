@@ -1,10 +1,10 @@
 import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/featured_product_card.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/most_viewed_component/most_viewed_product_card.dart';
 import 'package:flutter/material.dart';
 
-class ProductListViewBuilder extends StatelessWidget {
+class MostViewListViewBuilder extends StatelessWidget {
   final List<Map<String, dynamic>> productList;
-  const ProductListViewBuilder({super.key, required this.productList});
+  const MostViewListViewBuilder({super.key, required this.productList});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ProductListViewBuilder extends StatelessWidget {
               padding: EdgeInsets.only(
                 left: SizeManager.getSize(context).width * 0.05,
               ),
-              child: FeaturedProductCard(product: productList[index]),
+              child: MostViewedProductCard(product: productList[index]),
             ),
         itemCount: productList.length,
       ),

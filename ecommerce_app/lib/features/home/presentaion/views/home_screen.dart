@@ -7,6 +7,8 @@ import 'package:ecommerce_app/features/home/data/data.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/categories_widget.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/custom_search_bar.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/custom_user_bar.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/most_viewed_component/most_view_builder.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/most_viewed_component/most_viewed_product_card.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/offers_banner.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/product_view_builder.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SliverToBoxAdapter(child: FeaturesTitle(title: "Most Viewed")),
             SliverToBoxAdapter(
-              child: ProductListViewBuilder(
+              child: MostViewListViewBuilder(
                 productList: HomeData.featuredProducts,
               ),
             ),
