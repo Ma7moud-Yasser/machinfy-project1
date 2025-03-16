@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/featured_product_card.dart';
+import 'package:ecommerce_app/features/home/presentation/components/featured_product_card.dart';
 import 'package:flutter/material.dart';
 
 class ProductListViewBuilder extends StatelessWidget {

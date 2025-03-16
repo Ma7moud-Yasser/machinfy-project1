@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:ecommerce_app/core/styles/color_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/buid_card_banner.dart';
+import 'package:ecommerce_app/features/home/presentation/components/buid_card_banner.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/most_viewed_component/most_viewed_product_card.dart';
+import 'package:ecommerce_app/features/home/presentation/components/most_viewed_component/most_viewed_product_card.dart';
 import 'package:flutter/material.dart';
 
 class MostViewListViewBuilder extends StatelessWidget {

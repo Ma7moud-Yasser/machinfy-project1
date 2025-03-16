@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/categories_item.dart';
+import 'package:ecommerce_app/features/home/presentation/components/categories_item.dart';
 import 'package:flutter/widgets.dart';
 
 class CategoriesListViewBuilder extends StatelessWidget {

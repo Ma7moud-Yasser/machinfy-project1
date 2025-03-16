@@ -4,12 +4,12 @@ import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/features/home/data/data.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/categories_widget.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/custom_search_bar.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/custom_user_bar.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/most_viewed_component/most_view_builder.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/offers_banner.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/product_view_builder.dart';
+import 'package:ecommerce_app/features/home/presentation/components/categories_widget.dart';
+import 'package:ecommerce_app/features/home/presentation/components/custom_search_bar.dart';
+import 'package:ecommerce_app/features/home/presentation/components/custom_user_bar.dart';
+import 'package:ecommerce_app/features/home/presentation/components/most_viewed_component/most_view_builder.dart';
+import 'package:ecommerce_app/features/home/presentation/components/offers_banner.dart';
+import 'package:ecommerce_app/features/home/presentation/components/product_view_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
