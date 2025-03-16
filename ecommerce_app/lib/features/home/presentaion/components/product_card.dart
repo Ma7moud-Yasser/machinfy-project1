@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/product_components/build_Action_Buttons.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/product_components/build_productInfo.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/featured_product_components/build_Action_Buttons.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/featured_product_components/build_productInfo.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedProductCard extends StatelessWidget {
