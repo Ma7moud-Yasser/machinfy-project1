@@ -9,7 +9,7 @@ class MostViewListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SizeManager.getSize(context).height * 0.37,
+      height: SizeManager.getSize(context).height * 0.35,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder:
