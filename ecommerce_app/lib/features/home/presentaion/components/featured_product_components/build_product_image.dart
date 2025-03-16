@@ -30,7 +30,7 @@ Widget buildProductImage(BuildContext context, {required String productImage}) {
         ),
       ),
       Positioned(
-        bottom: 115,
+        bottom: 118,
         right: -5,
         child: IconButton(
           onPressed: () {},
@@ -41,9 +41,10 @@ Widget buildProductImage(BuildContext context, {required String productImage}) {
           ),
         ),
       ),
+
       Positioned(
-        bottom: 115,
-        left: 5,
+        bottom: 122,
+        left: 7,
         child: SvgPicture.asset(
           IconsAssets.qualityBadgeIcon,
           width: SizeManager.getSize(context).width * 0.05,
