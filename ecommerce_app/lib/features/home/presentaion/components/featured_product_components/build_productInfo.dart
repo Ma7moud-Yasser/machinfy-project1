@@ -2,9 +2,9 @@ import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
 import 'package:ecommerce_app/core/styles/color_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/product_components/build_product_image.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/product_components/product_price_rating.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/product_components/product_title.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/featured_product_components/build_product_image.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/featured_product_components/product_price_rating.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/featured_product_components/product_title.dart';
 import 'package:flutter/material.dart';
 
 Widget buildProductInfo(
