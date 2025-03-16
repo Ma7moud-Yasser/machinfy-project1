@@ -4,7 +4,7 @@ import 'package:ecommerce_app/core/resources/app_stings.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/features/home/data/data.dart';
-import 'package:ecommerce_app/features/home/presentaion/components/categories_widget.dart';
+import 'package:ecommerce_app/features/home/presentaion/components/categories_item.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/custom_search_bar.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/custom_user_bar.dart';
 import 'package:ecommerce_app/features/home/presentaion/components/offers_banner.dart';
@@ -35,7 +35,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: SizeManager.getSize(context).height * 0.02),
                   OffersBanner(sliderItems: HomeData.sliderItems),
                   FeaturesTitle(title: AppString.categories, onTap: () {}),
-                  Categories(categoriesList: HomeData.categories),
+                ]),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: SizeManager.getSize(context).height * 0.13,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: HomeData.categories.length,
+                  itemBuilder:
+                      (context, index) => Padding(
+                        padding: EdgeInsets.only(
+                          left: SizeManager.getSize(context).width * 0.05,
+                        ),
+                        child: CategoriesItems(
+                          categoryName: HomeData.categories[index]["name"],
+                          imagePath: HomeData.categories[index]["image"],
+                        ),
+                      ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: PaddingManager.main(context),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
                   SizedBox(height: SizeManager.getSize(context).height * 0.02),
                   CountdownTimer(),
                   FeaturesTitle(title: "Featured Products"),
