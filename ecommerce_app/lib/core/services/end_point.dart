@@ -8,4 +8,5 @@ class EndPoint {
   static const String suspendAccount = 'suspend-account';
   static const String banners = 'banners';
   static const String categories = 'categories';
+  static const String featuredProducts = 'products';
 }
