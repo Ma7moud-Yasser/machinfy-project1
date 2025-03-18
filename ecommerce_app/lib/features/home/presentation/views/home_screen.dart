@@ -78,9 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
               sliver: SliverGrid.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 16, // إضافة مسافة بين الأعمدة
+                  crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
-                  mainAxisExtent: SizeManager.getSize(context).height * 0.25,
+                  mainAxisExtent: SizeManager.getSize(context).height * 0.27,
                 ),
                 itemCount: 4,
                 itemBuilder:
@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Positioned(
-                            bottom: 175,
+                            bottom: 190,
                             right: -5,
                             child: IconButton(
                               onPressed: () {},
