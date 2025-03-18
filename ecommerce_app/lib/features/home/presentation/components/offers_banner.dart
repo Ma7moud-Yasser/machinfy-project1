@@ -4,14 +4,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:ecommerce_app/core/styles/color_manager.dart';
 import 'package:ecommerce_app/features/home/presentation/components/buid_card_banner.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecommerce_app/features/home/presentation/controllers/banner_cubit/banner_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OffersBanner extends StatefulWidget {
-  const OffersBanner({super.key, required this.sliderItems});
-
-  final List<Map<String, dynamic>> sliderItems;
+  const OffersBanner({super.key});
 
   @override
   State<OffersBanner> createState() => _OffersBannerState();
@@ -32,57 +31,82 @@ class _OffersBannerState extends State<OffersBanner> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<BannerCubit>(context).getBanner();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider(
-          carouselController: _carouselController,
-          options: CarouselOptions(
-            height: 180,
-            autoPlay: autoPlay,
-            enlargeCenterPage: true,
-            viewportFraction: 1.0,
-            onPageChanged: (index, reason) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-          ),
-          items:
-              widget.sliderItems.map((item) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => item["page"]),
-                    );
+    return BlocConsumer<BannerCubit, BannerState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        if (state is BannerLoadingState) {
+          return const Center(
+            child: Center(child: CircularProgressIndicator()),
+          );
+        } else if (state is BannerSuccessState) {
+          final bannerData = state.bannerModel.data;
+
+          if (bannerData.isEmpty) {
+            return const Center(child: Text("لا توجد بيانات متاحة"));
+          }
+          return Column(
+            children: [
+              CarouselSlider(
+                carouselController: _carouselController,
+                options: CarouselOptions(
+                  height: 180,
+                  autoPlay: autoPlay,
+                  enlargeCenterPage: true,
+                  viewportFraction: 1.0,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
                   },
-                  child: buildCard(
-                    item["image"],
-                    item["title"],
-                    item["subtitle"],
-                    item["page"],
-                    context,
+                ),
+                items:
+                    bannerData.map((item) {
+                      final imageUrl = item.image;
+
+                      bool isValidImage =
+                          imageUrl.isNotEmpty &&
+                          Uri.tryParse(imageUrl)?.hasAbsolutePath == true;
+
+                      return GestureDetector(
+                        onTap: () {},
+                        child: buildCard(
+                          isValidImage
+                              ? imageUrl
+                              : 'https://via.placeholder.com/150',
+
+                          context,
+                        ),
+                      );
+                    }).toList(),
+              ),
+              Center(
+                child: AnimatedSmoothIndicator(
+                  activeIndex: _currentIndex,
+                  count: bannerData.length,
+                  effect: ExpandingDotsEffect(
+                    dotHeight: 8,
+                    dotWidth: 8,
+                    activeDotColor: AppColor.primary,
+                    dotColor: AppColor.background,
                   ),
-                );
-              }).toList(),
-        ),
-        Center(
-          child: AnimatedSmoothIndicator(
-            activeIndex: _currentIndex,
-            count: widget.sliderItems.length,
-            effect: ExpandingDotsEffect(
-              dotHeight: 8,
-              dotWidth: 8,
-              activeDotColor: AppColor.primary,
-              dotColor: AppColor.background,
-            ),
-            onDotClicked: (index) {
-              _carouselController.animateToPage(index);
-            },
-          ),
-        ),
-      ],
+                  onDotClicked: (index) {
+                    _carouselController.animateToPage(index);
+                  },
+                ),
+              ),
+            ],
+          );
+        } else {
+          return Container();
+        }
+      },
     );
   }
 }

@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 
 Widget buildCard(
   String imagePath,
-  String title,
-  String subtitle,
-  Widget screenDetails,
+  // String title,
+  // String subtitle,
+  // Widget screenDetails,
   BuildContext context,
 ) {
   return Stack(
@@ -37,28 +37,28 @@ Widget buildCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: StyleManager.textStyle18(
-                context,
-                FontWeight.w500,
-              ).copyWith(color: AppColor.white),
-            ),
-            SizedBox(height: 5),
-            Text(
-              subtitle,
-              style: StyleManager.textStyle14(
-                context,
-                FontWeight.w500,
-              ).copyWith(color: AppColor.white),
-            ),
+            // Text(
+            //   title,
+            //   style: StyleManager.textStyle18(
+            //     context,
+            //     FontWeight.w500,
+            //   ).copyWith(color: AppColor.white),
+            // ),
+            // SizedBox(height: 5),
+            // Text(
+            //   subtitle,
+            //   style: StyleManager.textStyle14(
+            //     context,
+            //     FontWeight.w500,
+            //   ).copyWith(color: AppColor.white),
+            // ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => screenDetails),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => screenDetails),
+                // );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,

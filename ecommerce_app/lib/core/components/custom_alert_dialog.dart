@@ -5,7 +5,7 @@ import 'package:ecommerce_app/core/styles/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-Future<dynamic> CustomAlertDialog(BuildContext context) {
+customAlertDialog(BuildContext context, String message, String title) {
   return showAdaptiveDialog(
     context: context,
     builder:
@@ -18,13 +18,13 @@ Future<dynamic> CustomAlertDialog(BuildContext context) {
               ),
               Text(
                 textAlign: TextAlign.center,
-                AppString.warning,
+                title,
                 style: StyleManager.textStyle20(context, FontWeight.bold),
               ),
             ],
           ),
           content: Text(
-            AppString.warning,
+            message,
             style: StyleManager.textStyle16(context, FontWeight.bold),
           ),
 

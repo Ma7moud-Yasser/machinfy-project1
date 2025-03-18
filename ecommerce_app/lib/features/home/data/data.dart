@@ -1,5 +1,3 @@
-import 'package:ecommerce_app/features/home/presentation/components/details_item_screen.dart';
-
 class HomeData {
   static const List<Map<String, dynamic>> categories = [
     {'name': "Watches", "image": ""},
@@ -24,29 +22,7 @@ class HomeData {
           "https://i.pinimg.com/736x/46/09/01/460901624ef0fd9cab92dabf23033b14.jpg",
     },
   ];
-  static const List<Map<String, dynamic>> sliderItems = [
-    {
-      "image":
-          "https://i.pinimg.com/736x/27/8e/46/278e46ef553cc3176963ed0d52077cdd.jpg",
-      "title": "Elegant Black Watch",
-      "subtitle": "Discover timeless elegance.",
-      "page": DetailPage(title: "Page 1"),
-    },
-    {
-      "image":
-          "https://i.pinimg.com/736x/73/8c/66/738c66a1e117f638020803ff8c6a6575.jpg",
-      "title": "Luxury Silver Watch",
-      "subtitle": "Refined style for modern times.",
-      "page": DetailPage(title: "Page 2"),
-    },
-    {
-      "image":
-          "https://i.pinimg.com/736x/f1/ca/4a/f1ca4a2b4143a4ce875b20261bc91a4c.jpg",
-      "title": "Classic Leather Watch",
-      "subtitle": "Vintage charm meets innovation.",
-      "page": DetailPage(title: "Page 3"),
-    },
-  ];
+
   static const List<Map<String, dynamic>> featuredProducts = [
     {
       "image":
@@ -54,7 +30,7 @@ class HomeData {
       "title": "t shirt ",
       "subtitle":
           "retro wavy vintage typography groovy logo font bulk t shirt design",
-      "page": DetailPage(title: "Page 1"),
+      // "page": DetailPage(title: "Page 1"),
       "price": '500',
       "rating": '4.5',
     },
@@ -63,7 +39,7 @@ class HomeData {
           "https://i.pinimg.com/736x/b0/79/42/b0794283c9ce87f913e39c842b3c9d9f.jpg",
       "title": "Shoes",
       "subtitle": "Nike sneakers men shoes",
-      "page": DetailPage(title: "Page 1"),
+      // "page": DetailPage(title: "Page 1"),
       "price": '1500',
       "rating": '4.0',
     },
@@ -73,7 +49,7 @@ class HomeData {
       "title": "HUAWEI Watch",
       "subtitle":
           "Discover HUAWEI: Watch GT 5 Serie und Watch D2 erleben im Flagship Store",
-      "page": DetailPage(title: "Page 1"),
+      // "page": DetailPage(title: "Page 1"),
       "price": '8000',
       "rating": '4.5',
     },
@@ -82,7 +58,7 @@ class HomeData {
           "https://i.pinimg.com/736x/df/58/4a/df584aeb1dcde5c3e3dc13fc1c266645.jpg",
       "title": "Moriarty",
       "subtitle": "Lunette de Soleil Rectangulaire sans Monture - Moriarty",
-      "page": DetailPage(title: "Page 1"),
+      // "page": DetailPage(title: "Page 1"),
       "price": '2185',
       "rating": '4.5',
     },

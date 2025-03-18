@@ -28,7 +28,7 @@ class LoginScreenCubit extends Cubit<LoginScreenStates> {
       );
       emit(
         LoginScreenSuccessState(
-          message: response.data["message"],
+          message: response!.data["message"],
           status: response.data["status"],
         ),
       );
