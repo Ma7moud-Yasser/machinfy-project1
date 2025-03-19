@@ -43,8 +43,8 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
                         left: SizeManager.getSize(context).width * 0.05,
                       ),
                       child: CategoriesItems(
-                        categoryName: categories.elementAt(index).name,
-                        imagePath: categories.elementAt(index).image,
+                        categoryName: categories[index].name,
+                        imagePath: categories[index].image,
                       ),
                     ),
               ),

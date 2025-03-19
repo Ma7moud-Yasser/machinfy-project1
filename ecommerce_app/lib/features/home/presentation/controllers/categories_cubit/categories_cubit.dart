@@ -16,9 +16,8 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     DioHelper.getData(url: EndPoint.categories)
         .then((value) {
           CategoriesModel categories = CategoriesModel.fromJson(value!.data);
-          if (categories.status) {
-            emit(CategoriesSuccessState(categories));
-          }
+
+          emit(CategoriesSuccessState(categories));
         })
         .catchError((e) {
           emit(CategoriesErrorState(e.toString()));
