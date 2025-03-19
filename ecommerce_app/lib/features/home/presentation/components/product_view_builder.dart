@@ -21,9 +21,7 @@ class _ProductListViewBuilderState extends State<ProductListViewBuilder> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FeaturedProductsCubit, FeaturedProductsState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         if (state is FeaturedProductsLoadingState) {
           return const Center(child: CircularProgressIndicator());
@@ -48,7 +46,7 @@ class _ProductListViewBuilderState extends State<ProductListViewBuilder> {
                       price: products[index].price.toString(),
                     ),
                   ),
-              itemCount: products!.length,
+              itemCount: products!.length >= 5 ? 5 : products.length,
             ),
           );
         } else {

@@ -33,7 +33,7 @@ class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
           {
             final categories = state.categoriesModel.data.categories;
             return SizedBox(
-              height: SizeManager.getSize(context).height * 0.14,
+              height: SizeManager.getSize(context).height * 0.12,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,

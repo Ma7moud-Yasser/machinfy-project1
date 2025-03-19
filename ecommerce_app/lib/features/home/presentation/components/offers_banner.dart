@@ -42,16 +42,17 @@ class _OffersBannerState extends State<OffersBanner> {
     return BlocConsumer<BannerCubit, BannerState>(
       listener: (context, state) {},
       builder: (context, state) {
+        log(state.toString());
         if (state is BannerLoadingState) {
           return const Center(
             child: Center(child: CircularProgressIndicator()),
           );
         } else if (state is BannerSuccessState) {
           final bannerData = state.bannerModel.data;
-
-          if (bannerData.isEmpty) {
-            return Container();
-          }
+          print(bannerData);
+          // if (bannerData.isEmpty) {
+          //   return Container();
+          // }
           return Column(
             children: [
               CarouselSlider(

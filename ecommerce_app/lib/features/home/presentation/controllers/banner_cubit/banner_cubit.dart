@@ -17,15 +17,11 @@ class BannerCubit extends Cubit<BannerState> {
     emit(BannerLoadingState());
     DioHelper.getData(url: EndPoint.banners)
         .then((value) {
-          if (banner!.status == false || banner!.data.isEmpty) {
-            log("Error: No banner data available!");
-            emit(BannerErrorState("لا توجد بيانات متاحة"));
-            return;
-          }
-          log(banner.toString());
+          banner = BannerModel.fromJson(value!.data);
           emit(BannerSuccessState(bannerModel: banner!));
         })
         .catchError((e) {
+          log(e.toString());
           emit(BannerErrorState(e.toString()));
         });
   }

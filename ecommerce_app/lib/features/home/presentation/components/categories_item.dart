@@ -17,11 +17,15 @@ class CategoriesItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 8,
+      spacing: 2,
       children: [
-        CircleAvatar(
-          radius: SizeManager.getSize(context).width * 0.1,
-          backgroundColor: AppColor.lightGrey,
+        Container(
+          height: SizeManager.getSize(context).height * 0.06,
+          width: SizeManager.getSize(context).width * 0.2,
+          decoration: BoxDecoration(
+            color: AppColor.firebrick,
+            shape: BoxShape.circle,
+          ),
           child: CachedNetworkImage(
             // height: SizeManager.getSize(context).height * 0.19,
             imageUrl: imagePath,
@@ -34,12 +38,16 @@ class CategoriesItems extends StatelessWidget {
           ),
         ),
 
-        Text(
-          categoryName,
-          maxLines: 2,
-          softWrap: true, // يسمح للنص بالانتقال لسطر جديد عند الحاجة
-          overflow: TextOverflow.ellipsis, // يضيف ... إذا تجاوز السطرين
-          style: StyleManager.textStyle16(context, FontWeight.w500),
+        SizedBox(
+          width: SizeManager.getSize(context).width * 0.2,
+          child: Text(
+            textAlign: TextAlign.center,
+            categoryName,
+            maxLines: 2,
+            softWrap: true, // يسمح للنص بالانتقال لسطر جديد عند الحاجة
+            overflow: TextOverflow.ellipsis, // يضيف ... إذا تجاوز السطرين
+            style: StyleManager.textStyle16(context, FontWeight.w500),
+          ),
         ),
       ],
     );
