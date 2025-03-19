@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductListViewBuilder extends StatefulWidget {
-  final List<Map<String, dynamic>> productList;
-  const ProductListViewBuilder({super.key, required this.productList});
+  const ProductListViewBuilder({super.key});
 
   @override
   State<ProductListViewBuilder> createState() => _ProductListViewBuilderState();

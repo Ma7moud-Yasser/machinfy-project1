@@ -6,8 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoriesListViewBuilder extends StatefulWidget {
-  const CategoriesListViewBuilder({super.key, required this.categoriesList});
-  final List<Map<String, dynamic>> categoriesList;
+  const CategoriesListViewBuilder({super.key});
 
   @override
   State<CategoriesListViewBuilder> createState() =>

@@ -60,11 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SliverToBoxAdapter(
                 child: FeaturesTitle(title: AppString.categories, onTap: () {}),
               ),
-              SliverToBoxAdapter(
-                child: CategoriesListViewBuilder(
-                  categoriesList: HomeData.categories,
-                ),
-              ),
+              SliverToBoxAdapter(child: CategoriesListViewBuilder()),
               SliverPadding(
                 padding: PaddingManager.main(context),
                 sliver: SliverList(
@@ -79,11 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SliverToBoxAdapter(
                 child: FeaturesTitle(title: "Featured Products"),
               ),
-              SliverToBoxAdapter(
-                child: ProductListViewBuilder(
-                  productList: HomeData.featuredProducts,
-                ),
-              ),
+              SliverToBoxAdapter(child: ProductListViewBuilder()),
 
               SliverToBoxAdapter(child: FeaturesTitle(title: "Best seller")),
 
