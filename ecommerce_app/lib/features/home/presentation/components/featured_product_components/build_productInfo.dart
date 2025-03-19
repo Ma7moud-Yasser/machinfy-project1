@@ -17,7 +17,7 @@ Widget buildProductInfo(
 }) {
   return Container(
     // width: SizeManager.getSize(context).width * 0.6,
-    height: SizeManager.getSize(context).height * 0.3,
+    height: SizeManager.getSize(context).height * 0.31,
     padding: PaddingManager.smallAll(context),
     decoration: BoxDecoration(
       color: AppColor.lightGrey,
@@ -28,8 +28,7 @@ Widget buildProductInfo(
       ),
     ),
     child: Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         buildProductImage(context, productImage: productImage),
         SizedBox(height: SizeManager.getSize(context).height * 0.01),
@@ -39,7 +38,6 @@ Widget buildProductInfo(
             spacing: 2,
             children: [
               buildProductTitle(context, title: title),
-
               buildProductSubtitle(context, subtitle: subtitle),
               buildProductPriceAndRating(context, price: price, rating: rating),
             ],

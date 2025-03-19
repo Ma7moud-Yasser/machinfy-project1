@@ -17,6 +17,7 @@ import 'package:ecommerce_app/features/home/presentation/components/offers_banne
 import 'package:ecommerce_app/features/home/presentation/components/product_view_builder.dart';
 import 'package:ecommerce_app/features/home/presentation/controllers/banner_cubit/banner_cubit.dart';
 import 'package:ecommerce_app/features/home/presentation/controllers/categories_cubit/categories_cubit.dart';
+import 'package:ecommerce_app/features/home/presentation/controllers/featured_products_cubit/featured_products_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       providers: [
         BlocProvider(create: (context) => BannerCubit()),
         BlocProvider(create: (context) => CategoriesCubit()),
+        BlocProvider(create: (context) => FeaturedProductsCubit()),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,

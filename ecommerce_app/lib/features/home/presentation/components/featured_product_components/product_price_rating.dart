@@ -11,12 +11,15 @@ Widget buildProductPriceAndRating(
 }) {
   return Row(
     children: [
-      Text(
-        "$price EGP",
-        style: StyleManager.textStyle16(
-          context,
-          FontWeight.w700,
-        ).copyWith(color: AppColor.secondary),
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          "$price EGP",
+          style: StyleManager.textStyle16(
+            context,
+            FontWeight.w700,
+          ).copyWith(color: AppColor.secondary),
+        ),
       ),
       const Spacer(),
       Row(
