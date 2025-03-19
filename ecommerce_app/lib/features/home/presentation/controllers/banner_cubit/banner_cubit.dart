@@ -12,17 +12,21 @@ class BannerCubit extends Cubit<BannerState> {
   BannerCubit() : super(BannerInitial());
   static BannerCubit get(context) => BlocProvider.of(context);
 
+  BannerModel? banner;
   void getBanner() {
     emit(BannerLoadingState());
-    DioHelper.getData(url: EndPoint.banners).then((value) {
-      BannerModel banner = BannerModel.fromJson(value!.data);
-      if (banner.status == false || banner.data.isEmpty) {
-        log("Error: No banner data available!");
-        emit(BannerErrorState("لا توجد بيانات متاحة"));
-        return;
-      }
-      log(banner.toString());
-      emit(BannerSuccessState(bannerModel: banner));
-    });
+    DioHelper.getData(url: EndPoint.banners)
+        .then((value) {
+          if (banner!.status == false || banner!.data.isEmpty) {
+            log("Error: No banner data available!");
+            emit(BannerErrorState("لا توجد بيانات متاحة"));
+            return;
+          }
+          log(banner.toString());
+          emit(BannerSuccessState(bannerModel: banner!));
+        })
+        .catchError((e) {
+          emit(BannerErrorState(e.toString()));
+        });
   }
 }

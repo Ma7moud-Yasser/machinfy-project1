@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:ecommerce_app/core/styles/color_manager.dart';
+import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/features/home/presentation/components/buid_card_banner.dart';
 import 'package:ecommerce_app/features/home/presentation/controllers/banner_cubit/banner_cubit.dart';
 import 'package:flutter/material.dart';
@@ -49,14 +50,14 @@ class _OffersBannerState extends State<OffersBanner> {
           final bannerData = state.bannerModel.data;
 
           if (bannerData.isEmpty) {
-            return const Center(child: Text("لا توجد بيانات متاحة"));
+            return Container();
           }
           return Column(
             children: [
               CarouselSlider(
                 carouselController: _carouselController,
                 options: CarouselOptions(
-                  height: 180,
+                  height: SizeManager.getSize(context).height * 0.2,
                   autoPlay: autoPlay,
                   enlargeCenterPage: true,
                   viewportFraction: 1.0,

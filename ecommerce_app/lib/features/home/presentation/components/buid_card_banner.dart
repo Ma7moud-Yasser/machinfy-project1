@@ -25,7 +25,8 @@ Widget buildCard(
           fit: BoxFit.cover,
           width: double.infinity,
           placeholder:
-              (context, url) => Center(child: CircularProgressIndicator()),
+              (context, url) =>
+                  Center(child: CircularProgressIndicator.adaptive()),
           errorWidget:
               (context, url, error) => Image.asset(ImagesAssets.notFoundImage),
         ),
