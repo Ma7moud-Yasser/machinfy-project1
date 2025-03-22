@@ -34,69 +34,58 @@ class _HomeLayoutState extends State<HomeLayout> {
         BlocProvider(create: (context) => CategoriesCubit()),
         BlocProvider(create: (context) => FeaturedProductsCubit()),
       ],
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-          child: CustomScrollView(
-            slivers: [
-              SliverPadding(
-                padding: PaddingManager.main(context),
-                sliver: SliverList(
-                  delegate: SliverChildListDelegate([
-                    CustomUserBar(),
-                    CustomSearchBar(),
-                    SizedBox(
-                      height: SizeManager.getSize(context).height * 0.02,
-                    ),
-                    OffersBanner(),
-                  ]),
-                ),
-              ),
-
-              SliverToBoxAdapter(
-                child: FeaturesTitle(title: AppString.categories, onTap: () {}),
-              ),
-              SliverToBoxAdapter(child: CategoriesListViewBuilder()),
-              SliverPadding(
-                padding: PaddingManager.main(context),
-                sliver: SliverList(
-                  delegate: SliverChildListDelegate([
-                    SizedBox(
-                      height: SizeManager.getSize(context).height * 0.02,
-                    ),
-                    CountdownTimer(),
-                  ]),
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: FeaturesTitle(title: "Featured Products"),
-              ),
-              SliverToBoxAdapter(child: ProductListViewBuilder()),
-
-              SliverToBoxAdapter(child: FeaturesTitle(title: "Best seller")),
-
-              SliverPadding(
-                padding: PaddingManager.main(context),
-                sliver: SliverGrid.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    mainAxisExtent: SizeManager.getSize(context).height * 0.27,
-                  ),
-                  itemCount: 4,
-                  itemBuilder: (context, index) => BestSellerComponent(),
-                ),
-              ),
-              SliverToBoxAdapter(child: FeaturesTitle(title: "Most Viewed")),
-              SliverToBoxAdapter(
-                child: MostViewListViewBuilder(
-                  productList: HomeData.featuredProducts,
-                ),
-              ),
-            ],
+      child: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: PaddingManager.main(context),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                CustomUserBar(),
+                CustomSearchBar(),
+                SizedBox(height: SizeManager.getSize(context).height * 0.02),
+                OffersBanner(),
+              ]),
+            ),
           ),
-        ),
+
+          SliverToBoxAdapter(
+            child: FeaturesTitle(title: AppString.categories, onTap: () {}),
+          ),
+          SliverToBoxAdapter(child: CategoriesListViewBuilder()),
+          SliverPadding(
+            padding: PaddingManager.main(context),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate([
+                SizedBox(height: SizeManager.getSize(context).height * 0.02),
+                CountdownTimer(),
+              ]),
+            ),
+          ),
+          SliverToBoxAdapter(child: FeaturesTitle(title: "Featured Products")),
+          SliverToBoxAdapter(child: ProductListViewBuilder()),
+
+          SliverToBoxAdapter(child: FeaturesTitle(title: "Best seller")),
+
+          SliverPadding(
+            padding: PaddingManager.main(context),
+            sliver: SliverGrid.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                mainAxisExtent: SizeManager.getSize(context).height * 0.27,
+              ),
+              itemCount: 4,
+              itemBuilder: (context, index) => BestSellerComponent(),
+            ),
+          ),
+          SliverToBoxAdapter(child: FeaturesTitle(title: "Most Viewed")),
+          SliverToBoxAdapter(
+            child: MostViewListViewBuilder(
+              productList: HomeData.featuredProducts,
+            ),
+          ),
+        ],
       ),
     );
   }
