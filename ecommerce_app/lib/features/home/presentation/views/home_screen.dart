@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
       controller: _controller,
       screens: _screens(),
       items: _navBarsItems(),
-      backgroundColor: AppColor.white,
+      // backgroundColor: AppColor.white,
       handleAndroidBackButtonPress: true,
       decoration: NavBarDecoration(
         borderRadius: BorderRadiusManager.custom(
@@ -76,11 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
           topRight: 20,
           topLeft: 20,
         ),
-        colorBehindNavBar: AppColor.white,
 
+        colorBehindNavBar: AppColor.white,
         boxShadow: [
           BoxShadow(
-            color: AppColor.background.withOpacity(0.5),
+            color: AppColor.gray.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
           ),
