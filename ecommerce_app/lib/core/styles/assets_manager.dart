@@ -29,6 +29,8 @@ class IconsAssets {
   static const String wrong = "$iconPath/wrong_icon.svg";
   static const String success = "$iconPath/successful_pay.svg";
   static const String cart = "$iconPath/cart.svg";
+  static const String categories = "$iconPath/categories.svg";
+  static const String setting = "$iconPath/setting.svg";
   static const String compareIcon = "$iconPath/compareIcon.svg";
   static const String filterIcon = "$iconPath/filter.svg";
   static const String favIcon = "$iconPath/fav_icon.svg";

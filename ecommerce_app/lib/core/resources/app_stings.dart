@@ -65,7 +65,11 @@ class AppString {
   static String welcome = "Welcome";
   static String startOurShoping = "Let’s start our shoping";
   static String viewMore = "View More";
-  static String categories = "Categories";
   static String seeAll = "See all";
   static String watches = "Watches";
+  static String home = "Watches";
+  static String cart = "Watches";
+  static String categories = "Categories";
+  static String notification = "Notification";
+  static String settings = "Settings";
 }
