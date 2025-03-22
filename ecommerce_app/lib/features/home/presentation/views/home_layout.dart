@@ -18,14 +18,14 @@ import 'package:ecommerce_app/features/home/presentation/controllers/featured_pr
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeLayout extends StatefulWidget {
+  const HomeLayout({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeLayout> createState() => _HomeLayoutState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
