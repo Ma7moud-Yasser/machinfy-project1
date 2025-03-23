@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 topRight: 20,
                 topLeft: 20,
               ),
-
               colorBehindNavBar: AppColor.white,
               boxShadow: [
                 BoxShadow(
