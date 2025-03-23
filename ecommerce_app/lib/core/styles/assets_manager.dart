@@ -35,6 +35,7 @@ class IconsAssets {
   static const String filterIcon = "$iconPath/filter.svg";
   static const String favIcon = "$iconPath/fav_icon.svg";
   static const String starIcon = "$iconPath/star_icon.svg";
+  static const String emptyCart = "$iconPath/empty_cart.svg";
   static const String qualityBadgeIcon = "$iconPath/quality_badge.svg";
 
   // static const String search = "$iconPath/search.svg";

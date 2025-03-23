@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/styles/color_manager.dart';
 import 'package:ecommerce_app/core/styles/theme_manager.dart';
 import 'package:ecommerce_app/core/utils/bloc_observer.dart';
 import 'package:ecommerce_app/core/utils/cache_manager.dart';
+import 'package:ecommerce_app/features/cart/presentation/view/cart_screen.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

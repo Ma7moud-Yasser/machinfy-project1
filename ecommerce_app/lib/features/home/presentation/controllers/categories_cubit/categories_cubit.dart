@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_app/core/services/dio_helper.dart';
 import 'package:ecommerce_app/core/services/end_point.dart';
-import 'package:ecommerce_app/features/home/models/categories_model.dart';
+import 'package:ecommerce_app/core/models/categories_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 

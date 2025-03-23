@@ -2,9 +2,14 @@ import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentati
 import 'package:ecommerce_app/features/auth_screens/view/forget_password/presentation/view/forget_password_screen.dart';
 import 'package:ecommerce_app/features/auth_screens/view/o_t_p/presentation/view/o_t_p_screen.dart';
 import 'package:ecommerce_app/features/auth_screens/view/reset_password/presentation/view/reset_password_screen.dart';
+import 'package:ecommerce_app/features/cart/presentation/view/cart_screen.dart';
+import 'package:ecommerce_app/features/categories/presentation/view/categories_screen.dart';
+import 'package:ecommerce_app/features/home/presentation/views/home_layout.dart';
 import 'package:ecommerce_app/features/home/presentation/views/home_screen.dart';
+import 'package:ecommerce_app/features/notification/presentation/view/notification_screen.dart';
 import 'package:ecommerce_app/features/on_boardings/presentation/view/on_boarding_screens.dart';
 import 'package:ecommerce_app/features/auth_screens/view/auth_screens/presentation/view/login_screen.dart';
+import 'package:ecommerce_app/features/setting/presentation/view/setting_screen.dart';
 import 'package:ecommerce_app/features/splash/presentation/view/splash_screen.dart';
 import 'package:ecommerce_app/features/terms_conditions/presintation/view/terms_conditions_screens.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +26,11 @@ class Routes {
   static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String termsAndConditionsScreen = "/termsAndConditionsScreen";
   static const String homeScreen = "/homeScreen";
+  static const String homeLayout = "/homeLayout";
+  static const String cartLayout = "/cartLayout";
+  static const String notificationLayout = "/notificationLayout";
+  static const String categoriesLayout = "/categoriesLayout";
+  static const String settingsLayout = "/settingsLayout";
 }
 
 class RouteGenerator {
@@ -46,6 +56,16 @@ class RouteGenerator {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case Routes.homeLayout:
+        return MaterialPageRoute(builder: (_) => const HomeLayout());
+      case Routes.settingsLayout:
+        return MaterialPageRoute(builder: (_) => const SettingScreen());
+      case Routes.cartLayout:
+        return MaterialPageRoute(builder: (_) => const CartScreen());
+      case Routes.categoriesLayout:
+        return MaterialPageRoute(builder: (_) => const CategoriesScreen());
+      case Routes.notificationLayout:
+        return MaterialPageRoute(builder: (_) => const NotificationScreen());
 
       default:
         return unDefinedRoute();

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/components/custom_app_bar.dart';
 import 'package:ecommerce_app/core/components/features_title.dart';
 import 'package:ecommerce_app/core/components/timer.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
@@ -7,8 +8,6 @@ import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/features/home/data/data.dart';
 import 'package:ecommerce_app/features/home/presentation/components/best_seller_component.dart';
 import 'package:ecommerce_app/features/home/presentation/components/categories_widget.dart';
-import 'package:ecommerce_app/features/home/presentation/components/custom_search_bar.dart';
-import 'package:ecommerce_app/features/home/presentation/components/custom_user_bar.dart';
 import 'package:ecommerce_app/features/home/presentation/components/most_viewed_component/most_view_builder.dart';
 import 'package:ecommerce_app/features/home/presentation/components/offers_banner.dart';
 import 'package:ecommerce_app/features/home/presentation/components/product_view_builder.dart';
@@ -43,11 +42,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                 padding: PaddingManager.main(context),
                 sliver: SliverList(
                   delegate: SliverChildListDelegate([
-                    CustomUserBar(),
-                    CustomSearchBar(),
-                    SizedBox(
-                      height: SizeManager.getSize(context).height * 0.02,
-                    ),
+                    CustomAppBar(),
                     OffersBanner(),
                   ]),
                 ),
@@ -92,6 +87,11 @@ class _HomeLayoutState extends State<HomeLayout> {
               SliverToBoxAdapter(
                 child: MostViewListViewBuilder(
                   productList: HomeData.featuredProducts,
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: SizeManager.getSize(context).height * 0.012,
                 ),
               ),
             ],

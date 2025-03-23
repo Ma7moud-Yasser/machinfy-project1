@@ -23,7 +23,7 @@ class CategoriesItems extends StatelessWidget {
           height: SizeManager.getSize(context).height * 0.06,
           width: SizeManager.getSize(context).width * 0.2,
           decoration: BoxDecoration(
-            color: AppColor.firebrick,
+            color: AppColor.background,
             shape: BoxShape.circle,
           ),
           child: CachedNetworkImage(

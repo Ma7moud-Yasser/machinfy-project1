@@ -1,4 +1,4 @@
-import 'categories_model.dart'; // استيراد الموديل بدلاً من إعادة تعريف Category
+import '../../../core/models/categories_model.dart'; // استيراد الموديل بدلاً من إعادة تعريف Category
 
 class BannerModel {
   bool status;
