@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/components/custom_app_bar.dart';
 import 'package:ecommerce_app/core/styles/assets_manager.dart';
+import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
 import 'package:ecommerce_app/core/styles/color_manager.dart';
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
@@ -52,6 +53,31 @@ class CartScreen extends StatelessWidget {
                             context,
                             FontWeight.w400,
                           ).copyWith(color: AppColor.tertiary),
+                        ),
+                        SizedBox(
+                          height: SizeManager.getSize(context).height * 0.03,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(
+                              double.infinity,
+                              SizeManager.getSize(context).height * 0.06,
+                            ),
+
+                            backgroundColor: AppColor.lightGrey,
+                            shape: ContinuousRectangleBorder(
+                              borderRadius: BorderRadiusManager.medium(context),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            textAlign: TextAlign.center,
+                            'Start Shopping',
+                            style: StyleManager.textStyle22(
+                              context,
+                              FontWeight.w700,
+                            ),
+                          ),
                         ),
                       ]),
                     ),
