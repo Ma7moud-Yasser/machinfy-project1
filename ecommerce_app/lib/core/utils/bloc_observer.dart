@@ -21,9 +21,9 @@ class MyBlocObserver extends BlocObserver {
     log('onError -- ${bloc.runtimeType} , $error');
   }
 
-  @override
-  void onClose(BlocBase bloc) {
-    super.onClose(bloc);
-    log('onClose -- ${bloc.runtimeType}');
-  }
+  // @override
+  // void onClose(BlocBase bloc) {
+  //   super.onClose(bloc);
+  //   log('onClose -- ${bloc.runtimeType}');
+  // }
 }

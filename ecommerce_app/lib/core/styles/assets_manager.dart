@@ -21,6 +21,7 @@ class IconsAssets {
   static const String onboarding3 = "$iconPath/onboarding3.svg";
   static const String egyptFlag = "$iconPath/egypt_flag.svg";
   static const String search = "$iconPath/search.svg";
+  static const String notification = "$iconPath/notification.svg";
   static const String userName = "$iconPath/user_name.svg";
   static const String oops = "$iconPath/oops!!!.svg";
   static const String arrowBack = "$iconPath/arrow_back.svg";

@@ -13,12 +13,6 @@ class ProductListViewBuilder extends StatefulWidget {
 
 class _ProductListViewBuilderState extends State<ProductListViewBuilder> {
   @override
-  void initState() {
-    BlocProvider.of<FeaturedProductsCubit>(context).getFeaturedProducts();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocConsumer<FeaturedProductsCubit, FeaturedProductsState>(
       listener: (context, state) {},

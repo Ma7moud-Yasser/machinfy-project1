@@ -25,13 +25,21 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   BlocProvider.of<BannerCubit>(context).getBanner();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => BannerCubit()),
-        BlocProvider(create: (context) => CategoriesCubit()),
-        BlocProvider(create: (context) => FeaturedProductsCubit()),
+        BlocProvider(create: (context) => BannerCubit()..getBanner()),
+        BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
+        BlocProvider(
+          create: (context) => FeaturedProductsCubit()..getFeaturedProducts(),
+        ),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,

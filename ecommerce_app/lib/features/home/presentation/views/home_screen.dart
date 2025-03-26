@@ -1,61 +1,135 @@
 import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
-import 'package:ecommerce_app/core/styles/size_manager.dart';
-import 'package:ecommerce_app/features/home/presentation/controllers/home_cubit/home_cubit.dart';
+import 'package:ecommerce_app/core/styles/styles_manager.dart';
+import 'package:ecommerce_app/features/home/presentation/controllers/banner_cubit/banner_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:ecommerce_app/core/styles/color_manager.dart';
+import 'package:ecommerce_app/core/styles/size_manager.dart';
+import 'package:ecommerce_app/features/home/presentation/controllers/home_cubit/home_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final PersistentTabController _controller = PersistentTabController(
-    initialIndex: 0,
-  );
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeCubit(),
-      child: BlocConsumer<HomeCubit, HomeState>(
-        listener: (context, state) {},
+      child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
-          final cubit = HomeCubit.get(context);
-          return PersistentTabView(
-            // padding: EdgeInsets.only(bottom: 5),
-            resizeToAvoidBottomInset: true,
-
-            context,
-            controller: _controller,
-            screens: cubit.screens(),
-            items: cubit.navBarsItems(),
-            // backgroundColor: AppColor.white,
-            handleAndroidBackButtonPress: true,
-            decoration: NavBarDecoration(
-              borderRadius: BorderRadiusManager.custom(
-                context: context,
-                topRight: 20,
-                topLeft: 20,
-              ),
-              colorBehindNavBar: AppColor.white,
-              boxShadow: [
-                BoxShadow(
-                  color: AppColor.gray.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 5,
+          final cubit = BlocProvider.of<HomeCubit>(context);
+          return Scaffold(
+            body: cubit.screens[cubit.currentIndex],
+            bottomNavigationBar: Container(
+              height: SizeManager.getSize(context).height * 0.08,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: BorderRadiusManager.custom(
+                  context: context,
+                  topLeft: 20,
+                  topRight: 20,
                 ),
-              ],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.08),
+                    blurRadius: 3,
+                    spreadRadius: 5,
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: SizeManager.getSize(context).width * 0.05,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(
+                    cubit.screens.length,
+                    (index) => Flexible(
+                      child: buildNavBarItem(
+                        index,
+                        cubit.navBarItems[index]["icon"]!,
+                        cubit.navBarItems[index]["title"]!,
+                        cubit,
+                        context,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
-            navBarStyle: NavBarStyle.style3,
-            navBarHeight: SizeManager.getSize(context).height * 0.068,
           );
         },
       ),
     );
   }
+
+  Widget buildNavBarItem(
+    int index,
+    String iconPath,
+    String title,
+    HomeCubit cubit,
+    BuildContext context,
+  ) {
+    return Expanded(
+      flex: index == 3 ? 2 : 1,
+      child: GestureDetector(
+        onTap: () {
+          cubit.changeBottomNavIndex(index);
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            cubit.currentIndex == index
+                ? lineOnItemSelect(context)
+                : SizedBox(height: SizeManager.getSize(context).height * 0.006),
+            SizedBox(height: SizeManager.getSize(context).height * 0.009),
+            SvgPicture.asset(
+              iconPath,
+              width: SizeManager.getSize(context).width * 0.07,
+              color:
+                  cubit.currentIndex == index
+                      ? AppColor.primary
+                      : AppColor.gray,
+            ),
+            SizedBox(height: SizeManager.getSize(context).height * 0.008),
+
+            Text(
+              title,
+
+              style: StyleManager.textStyle12(
+                context,
+                FontWeight.bold,
+              ).copyWith(
+                color:
+                    cubit.currentIndex == index
+                        ? AppColor.primary
+                        : AppColor.gray,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget lineOnItemSelect(BuildContext context) => Container(
+    height: SizeManager.getSize(context).height * 0.006,
+    width: SizeManager.getSize(context).width * 0.15,
+    decoration: BoxDecoration(
+      color: AppColor.primary,
+      borderRadius: BorderRadiusManager.custom(
+        context: context,
+        bottomLeft: 40,
+        bottomRight: 40,
+      ),
+    ),
+  );
 }

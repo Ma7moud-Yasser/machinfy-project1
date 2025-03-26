@@ -25,16 +25,9 @@ class _OffersBannerState extends State<OffersBanner> {
 
   @override
   dispose() {
-    _carouselController.stopAutoPlay();
     autoPlay = false;
     log("autoPlay: $autoPlay");
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<BannerCubit>(context).getBanner();
   }
 
   @override

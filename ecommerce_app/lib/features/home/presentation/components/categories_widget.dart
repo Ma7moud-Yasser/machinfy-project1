@@ -15,12 +15,6 @@ class CategoriesListViewBuilder extends StatefulWidget {
 
 class _CategoriesListViewBuilderState extends State<CategoriesListViewBuilder> {
   @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<CategoriesCubit>(context).getCategories();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocConsumer<CategoriesCubit, CategoriesState>(
       listener: (context, state) {},
