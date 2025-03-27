@@ -23,67 +23,59 @@ class _HomeScreenState extends State<HomeScreen> {
       create: (context) => HomeCubit(),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
-          final cubit = BlocProvider.of<HomeCubit>(context);
+          final cubit = context.read<HomeCubit>();
           return Scaffold(
             body: cubit.screens[cubit.currentIndex],
-            bottomNavigationBar: Container(
-              height: SizeManager.getSize(context).height * 0.08,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppColor.white,
-                borderRadius: BorderRadiusManager.custom(
-                  context: context,
-                  topLeft: 20,
-                  topRight: 20,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
-                    blurRadius: 3,
-                    spreadRadius: 5,
-                  ),
-                ],
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: SizeManager.getSize(context).width * 0.05,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(
-                    cubit.screens.length,
-                    (index) => Flexible(
-                      child: buildNavBarItem(
-                        index,
-                        cubit.navBarItems[index]["icon"]!,
-                        cubit.navBarItems[index]["title"]!,
-                        cubit,
-                        context,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            bottomNavigationBar: buildBottomNavBar(context, cubit),
           );
         },
       ),
     );
   }
 
-  Widget buildNavBarItem(
-    int index,
-    String iconPath,
-    String title,
-    HomeCubit cubit,
-    BuildContext context,
-  ) {
+  Widget buildBottomNavBar(BuildContext context, HomeCubit cubit) {
+    return Container(
+      height: SizeManager.getSize(context).height * 0.08,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        borderRadius: BorderRadiusManager.custom(
+          context: context,
+          topLeft: 20,
+          topRight: 20,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 10,
+            spreadRadius: 5,
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: SizeManager.getSize(context).width * 0.05,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            buildNavBarItem(0, cubit),
+            buildNavBarItem(1, cubit),
+            buildNavBarItem(2, cubit),
+            buildNavBarItem(3, cubit),
+            buildNavBarItem(4, cubit),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildNavBarItem(int index, HomeCubit cubit) {
+    final context = this.context;
     return Expanded(
       flex: index == 3 ? 2 : 1,
       child: GestureDetector(
-        onTap: () {
-          cubit.changeBottomNavIndex(index);
-        },
+        onTap: () => cubit.changeBottomNavIndex(index),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -92,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 : SizedBox(height: SizeManager.getSize(context).height * 0.006),
             SizedBox(height: SizeManager.getSize(context).height * 0.009),
             SvgPicture.asset(
-              iconPath,
+              cubit.navBarItems[index]["icon"]!,
               width: SizeManager.getSize(context).width * 0.07,
               color:
                   cubit.currentIndex == index
@@ -100,10 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       : AppColor.gray,
             ),
             SizedBox(height: SizeManager.getSize(context).height * 0.008),
-
             Text(
-              title,
-
+              cubit.navBarItems[index]["title"]!,
               style: StyleManager.textStyle12(
                 context,
                 FontWeight.bold,
