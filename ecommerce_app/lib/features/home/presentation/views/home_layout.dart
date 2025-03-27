@@ -25,15 +25,25 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
+  late final BannerCubit bannerCubit;
+  late final CategoriesCubit categoriesCubit;
+  late final FeaturedProductsCubit featuredProductsCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    bannerCubit = BannerCubit()..getBanner();
+    categoriesCubit = CategoriesCubit()..getCategories();
+    featuredProductsCubit = FeaturedProductsCubit()..getFeaturedProducts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => BannerCubit()..getBanner()),
-        BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
-        BlocProvider(
-          create: (context) => FeaturedProductsCubit()..getFeaturedProducts(),
-        ),
+        BlocProvider.value(value: bannerCubit),
+        BlocProvider.value(value: categoriesCubit),
+        BlocProvider.value(value: featuredProductsCubit),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -49,7 +59,6 @@ class _HomeLayoutState extends State<HomeLayout> {
                   ]),
                 ),
               ),
-
               SliverToBoxAdapter(
                 child: FeaturesTitle(title: AppString.categories, onTap: () {}),
               ),
@@ -69,9 +78,7 @@ class _HomeLayoutState extends State<HomeLayout> {
                 child: FeaturesTitle(title: "Featured Products"),
               ),
               SliverToBoxAdapter(child: ProductListViewBuilder()),
-
               SliverToBoxAdapter(child: FeaturesTitle(title: "Best seller")),
-
               SliverPadding(
                 padding: PaddingManager.main(context),
                 sliver: SliverGrid.builder(
