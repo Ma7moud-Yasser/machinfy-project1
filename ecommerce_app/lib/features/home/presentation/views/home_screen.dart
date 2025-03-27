@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/core/styles/border_radius_manager.dart';
 import 'package:ecommerce_app/core/styles/styles_manager.dart';
-import 'package:ecommerce_app/features/home/presentation/controllers/banner_cubit/banner_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

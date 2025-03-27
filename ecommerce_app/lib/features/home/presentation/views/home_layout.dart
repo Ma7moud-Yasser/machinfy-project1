@@ -25,12 +25,6 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   BlocProvider.of<BannerCubit>(context).getBanner();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
