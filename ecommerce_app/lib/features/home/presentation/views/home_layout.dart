@@ -2,7 +2,6 @@ import 'package:ecommerce_app/core/components/custom_app_bar.dart';
 import 'package:ecommerce_app/core/components/features_title.dart';
 import 'package:ecommerce_app/core/components/timer.dart';
 import 'package:ecommerce_app/core/resources/app_stings.dart';
-
 import 'package:ecommerce_app/core/styles/padding_manager.dart';
 import 'package:ecommerce_app/core/styles/size_manager.dart';
 import 'package:ecommerce_app/features/home/data/data.dart';
